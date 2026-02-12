@@ -329,24 +329,56 @@ html, body {
     display: none !important;
 }
 
-  @media (max-width: 768px) {
-    /* Haribo (Sol üstteki büyük logo süsü) */
-    .haribo {
-        position: absolute;
-        top: 80px;      /* Navbar'ın hemen altına alalım */
-        left: 10px;     /* En sola çekelim */
-        width: 150px;   /* Mobilde çok büyük durmaması için küçülttük */
-        height: auto;
-        margin: 0;
-        z-index: 1000;
-    }
-    .hamburger {
-        display: block !important;
-        order: 3; /* Navbar içindeki elemanlar arasında en sona (sağa) atar */
-        margin-left: auto; /* Garantilemek için */
+    @media (max-width: 768px) {
+    /* 1. Navbar Düzenlemesi: Logo ve Hamburger yan yana */
+    ul.navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        height: 70px;
     }
 
-    /* Sosyal Medya İkonları (Sağ tarafa güvenli geçiş) */
+    .logo-container {
+        margin: 0;
+        width: auto;
+        order: 0;
+    }
+
+    .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Hamburger Menü Butonu */
+    .hamburger {
+        display: block !important;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        padding: 10px;
+        order: 2; /* En sağa atar */
+    }
+
+    /* Menü Kapalıyken Linkleri Gizle */
+    ul.navbar li:not(.logo-container) {
+        display: none;
+        width: 100%;
+        text-align: center;
+        background: orange;
+    }
+
+    /* Menü Açıkken Linkleri Göster */
+    ul.navbar.open {
+        height: auto;
+    }
+
+    ul.navbar.open li:not(.logo-container) {
+        display: block;
+    }
+
+    /* 2. Sosyal Medya İkonları: Yazının üstünden kaldırıp logonun altına alıyoruz */
     .ikonlar {
         position: absolute !important;
         top: 100px;     /* Haribo ile aynı hizada ama sağda */
@@ -360,12 +392,18 @@ html, body {
     }
 
     .ikonlar a {
-        font-size: 32px; /* Mobilde parmakla basımı kolay boyutta */
+        font-size: 35px; /* Mobilde biraz küçülttük */
+      
     }
 
-    /* Hero Section (Yazıların ikonların altında kalması için) */
+    /* 3. Hero Bölümü ve Metinler */
     .hero-section {
-        margin-top: 150px !important; /* İkonlar ve Haribo için yukarıda yer açar */
+        min-height: auto !important;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .baslik {
