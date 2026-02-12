@@ -141,7 +141,11 @@
     .gallery-dots { display:flex; gap:8px; justify-content:center; margin-top:10px; }
     .gallery-dot { width:9px; height:9px; border-radius:50%; background: rgba(255,255,255,0.12); }
     .gallery-dot.active { background: var(--gallery-accent); transform:scale(1.2); }
-
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
     /* --- EKİP KARTLARI (Akışa geri döndü) --- */
     .ekipler { 
       text-align: center; 
@@ -476,6 +480,13 @@
     
     /* Ekran dışına taşmayı önlemek için */
     body { overflow-x: hidden; }
+    .atolye-gorseli-kapsayici {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
   </style>
