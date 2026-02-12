@@ -326,87 +326,110 @@
 }
 
     @media (max-width: 768px) {
-    /* Navbar'ı sabitle ve Hamburgeri sağa yasla */
+    /* 1. Navbar Düzenlemesi: Logo ve Hamburger yan yana */
     ul.navbar {
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 10px 15px !important;
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        height: 70px;
     }
 
     .logo-container {
-        order: 1; /* Logoyu sola alır */
-        margin: 0 !important;
+        margin: 0;
+        width: auto;
+        order: 0;
     }
 
-    /* Hamburger: Ekranın Sağ Üst Köşesi */
+    .logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Hamburger Menü Butonu */
     .hamburger {
         display: block !important;
-        order: 3; /* En sağa iter */
-        font-size: 28px;
+        font-size: 24px;
         color: white;
         cursor: pointer;
-        z-index: 1005;
+        padding: 10px;
+        order: 2; /* En sağa atar */
     }
 
-    /* Menü açıldığında linklerin görünümü */
-    ul.navbar li:not(.logo-container):not(.hamburger) {
+    /* Menü Kapalıyken Linkleri Gizle */
+    ul.navbar li:not(.logo-container) {
         display: none;
         width: 100%;
-        background-color: orange;
         text-align: center;
+        background: orange;
     }
 
+    /* Menü Açıkken Linkleri Göster */
     ul.navbar.open {
-        flex-direction: column !important;
+        height: auto;
     }
 
-    ul.navbar.open li:not(.logo-container):not(.hamburger) {
+    ul.navbar.open li:not(.logo-container) {
         display: block;
     }
 
-    /* İkonlar: Biraz sağa ve metinden bağımsız konuma */
+    /* 2. Sosyal Medya İkonları: Yazının üstünden kaldırıp logonun altına alıyoruz */
     .ikonlar {
-        position: relative !important;
-        top: 20px !important;
-        right: -20px !important; /* Biraz sağa kaydırdık */
-        margin-bottom: 40px;
+        position: relative; /* Sabit konumdan çıkar */
+        top: 20px;
+        right: -150px;
+        margin: 20px auto;
         justify-content: center;
         width: 100%;
         display: flex;
-        gap: 25px;
+        gap: 30px;
+        z-index: 1001;
+
+        
     }
 
     .ikonlar a {
-        font-size: 35px;
+        font-size: 60px; /* Mobilde biraz küçülttük */
+      
     }
 
-    /* Metinlerin üst üste binmesini engelle */
+    /* 3. Hero Bölümü ve Metinler */
     .hero-section {
-        margin-top: 60px; /* İkonlar için yer açar */
-        padding: 0 15px;
+        min-height: auto !important;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .baslik {
-        font-size: 24px !important;
-        position: static !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
         transform: none !important;
+        font-size: 26px;
+        margin-top: 20px;
+        width: 100%;
     }
 
     .aciklama {
-        font-size: 14px !important;
-        position: static !important;
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
         transform: none !important;
         width: 100% !important;
-        margin-top: 20px !important;
+        margin: 15px auto !important;
+        font-size: 15px;
+        padding: 0 10px;
     }
-
 
     /* Haribo (Logonun yanındaki süs) mobilde gizle veya küçült */
   .haribo{
       height: auto;
       width: 200px;
+      left: 30px;
   }
 
     
