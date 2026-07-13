@@ -6,267 +6,194 @@
     <title>Sponsorlarımız | Cengaver Rover</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Skyscanner tarzı modern ve temiz font için Inter'i ekliyoruz -->
+    <!-- Fontlar: Inter ve Rubik Dirt -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rubik+Dirt&display=swap" rel="stylesheet">
 
     <style>
-        /* --- GENEL SIFIRLAMA --- */
-        *, *::before, *::after { box-sizing: border-box; }
-        * {
-            text-decoration: none;
-            padding: 0;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-        }
+        /* --- RENK PALETİ --- */
+       
 
-        /* --- BODY VE ARKA PLAN --- */
-        body {
-            width: 100%;
-            min-height: 100vh;
-            overflow-x: hidden;
-            background-color: hsl(252, 65%, 5%);
-            background-image:
-                radial-gradient(circle at top right, rgba(121, 68, 154, 0.13), transparent),
-                radial-gradient(circle at 20% 80%, rgba(41, 196, 255, 0.13), transparent);
-            background-attachment: fixed;
-            color: #ddd;
-        }
+        /* --- ANASAYFA İLE AYNI NAVBAR --- */
+        :root { 
+        --poster-orange: #DF5A00; 
+        --poster-hover: #B54800; 
+        --gallery-accent: #0b84ff; 
+    }
 
-        /* --- YILDIZ ANİMASYONU CSS --- */
-        .gece { position: fixed; transform: rotateZ(10deg); top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .yildiz { position: absolute; left: 0; top: 50%; height: 4px; width: 100px; background: linear-gradient(-45deg, aliceblue, rgba(255,255,255,0)); border-radius: 999px; filter: drop-shadow(0 0 6px aliceblue); animation: kuyruk 20s ease-in-out infinite, dusus 20s ease-in-out infinite; }
-        @keyframes kuyruk { 0% { width: 0px; } 30% { width: 100px; } 100% { width: 0; } }
-        @keyframes dusus { 0% { transform: translateX(0); } 100% { transform: translateX(1750px); } }
-        .yildiz::before, .yildiz::after { content: ' '; position: absolute; top: calc(50% - 2px); right: 0; height: 4px; width: 30px; background: linear-gradient(-45deg, rgba(0,0,255,0), aliceblue, rgba(0,0,255,0)); border-radius: 100%; transform: translate(50%) rotateZ(45deg); animation: parlama 7s ease ease-in-out infinite; }
-        .yildiz::after { transform: translateX(50%) rotateZ(-45deg); }
-        .star0 { height: 1px; width: 1px; opacity: 1; position: fixed; background: white; }
-        .star1 { height: 2px; width: 2px; border-radius: 50%; opacity: 1; position: fixed; background: white; }
-        .star2 { height: 3px; width: 3px; border-radius: 50%; opacity: 1; position: fixed; background: white; }
-        .star3 { height: 4px; width: 4px; border-radius: 50%; opacity: 1; position: fixed; background: white; }
-
-        /* --- NAVİGASYON STİLLERİ --- */
-        ul.navbar { list-style: none; background-color: orange; display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
-        ul.navbar li { display: inline-block; position: relative; }
-        ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
-        ul.navbar li ul.dropdown { top: 100%; background: orange; position: absolute; z-index: 1000; display: none; left: 0; min-width: 250px; }
-        ul.navbar li a:hover { background: orangered; }
-        ul.navbar li:hover ul.dropdown { display: block; }
-        .logo-container { margin-left: auto; }
-        .logo-wrapper { display: flex; align-items: center; gap: 10px; }
-        .logo { height: 50px; width: 70px; }
-        .logo-text { color: white; font-size: 24px; font-weight: 800; letter-spacing: 1px; }
+    /* Genel Sıfırlama ve Temel Stil */
+    *, *::before, *::after { box-sizing: border-box; }
+    * { text-decoration: none; padding: 0; margin: 0; font-family: 'Inter', sans-serif; }
+ 
+    /* ARKA PLAN - KOMPLE SİYAH VE KARANLIK */
+    body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: #050505; /* Siyaha çok yakın karanlık ton */
+      background-attachment: fixed;
+      color: #ddd;
+    }
+    
+    /* --- MENÜ VE LOGO STİLLERİ --- */
+    ul.navbar { list-style: none; background-color: var(--poster-orange); display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
+    ul.navbar li { display: inline-block; position: relative; }
+    ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
+    ul.navbar li ul.dropdown { top: 100%; background: var(--poster-orange); position: absolute; z-index: 1000; display: none; left: 0; min-width: 250px; }
+    ul.navbar li a:hover { background: var(--poster-hover); }
+    ul.navbar li:hover ul.dropdown { display: block; }
+    .logo-container { margin-left: auto; }
+    .logo-wrapper { display: flex; align-items: center; gap: 10px; }
+    .logo { height: 50px; width: 70px; }
+    
+    /* MENÜDEKİ LOGO YAZISI */
+    .logo-text { color: white; font-size: 24px; font-weight: 800; letter-spacing: 1px; font-family: monospace; }
+    
+    /* İkonlar ve Haribo */
+    .haribo { position: absolute; height: 200px; width: 280px; margin-top: 70px; margin-left: -30px; z-index: 1001; }
+    .ikonlar { top: 75px; right: 20px; gap: 20px; position: absolute; display: flex; z-index:1001; }
+    .ikonlar a { font-size: 40px; color: aliceblue; transition: color 0.3s ease; }
+    .ikonlar a:hover { color: var(--poster-orange); }
+ 
+    /* YILDIZ STİLLERİ */
+    .gece { position: fixed; transform: rotateZ(10deg); top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    .yildiz { position: absolute; left: 0; top: 50%; height: 4px; width: 100px; background: linear-gradient(-45deg, aliceblue, rgba(255,255,255,0)); border-radius: 999px; filter: drop-shadow(0 0 6px aliceblue); animation: kuyruk 20s ease-in-out infinite, dusus 20s ease-in-out infinite; }
+    @keyframes kuyruk { 0% { width: 0px; } 30% { width: 100px; } 100% { width: 0; } }
+    @keyframes dusus { 0% { transform: translateX(0); } 100% { transform: translateX(1750px); } }
+    .yildiz::before, .yildiz::after { content: ' '; position: absolute; top: calc(50% - 2px); right: 0; height: 4px; width: 30px; background: linear-gradient(-45deg, rgba(0,0,255,0), aliceblue, rgba(0,0,255,0)); border-radius: 100%; transform: translate(50%) rotateZ(45deg); animation: parlama 7s ease ease-in-out infinite; }
+    .yildiz::after { transform: translateX(50%) rotateZ(-45deg); }
+    .star0, .star1, .star2, .star3 { position: fixed; background: white; border-radius: 50%; opacity: 1; }
+    .star0 { height: 1px; width: 1px; }
+    .star1 { height: 2px; width: 2px; }
+    .star2 { height: 3px; width: 3px; }
+    .star3 { height: 4px; width: 4px; }
+ 
+        
+        .hamburger { display: none; font-size: 26px; color: white; cursor: pointer; padding: 10px; }
 
         /* --- SPONSOR SAYFASI İÇERİK STİLLERİ --- */
-        .sponsors-page {
-            max-width: 1200px;
-            margin: 60px auto 100px auto;
-            padding: 0 20px;
-            z-index: 10;
-            position: relative; 
-        }
+        .sponsors-page { max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px; z-index: 10; position: relative; }
 
         h1 {
-            text-align: center;
-            font-size: 3em;
-            color: #ffffff;
-            margin-bottom: 60px;
-            text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 3px;
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 20px;
-            background: aliceblue;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            text-align: center; font-size: 3em; color: var(--poster-orange);
+            margin-bottom: 60px; text-transform: uppercase; font-family: 'Rubik Dirt', cursive;
+            font-weight: 400; letter-spacing: 3px; border-bottom: 2px solid rgba(223, 90, 0, 0.2); padding-bottom: 20px;
         }
 
         h2 {
-            font-size: 2.2em;
-            margin-top: 60px;
-            margin-bottom: 30px;
-            padding-left: 15px;
-            border-left: 5px solid;
-            transition: all 0.3s ease;
-            color: #e6edf3;
-            font-weight: 600;
+            font-size: 2em; margin-top: 60px; margin-bottom: 30px;
+            padding-left: 15px; border-left: 5px solid var(--poster-orange); color: #fff; font-weight: 600;
         }
 
-        /* Kategori Başlık Renkleri */
-        #aktif-sponsorlar h2 { border-color: #0b84ff; color: #0b84ff; } 
-        #pasif-sponsorlar h2 { border-color: rgba(255, 255, 255, 0.4); color: #a0aab5; } 
+        .tier-section { margin-bottom: 40px; padding: 25px; background: rgba(255, 255, 255, 0.02); border-radius: 12px; border: 1px solid rgba(223, 90, 0, 0.2); }
+        .tier-section h3 { font-size: 1.6em; margin-bottom: 25px; text-align: center; color: var(--poster-orange); text-transform: uppercase; letter-spacing: 2px; }
 
-        .tier-section {
-            margin-bottom: 40px;
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .tier-section h3 {
-            font-size: 1.6em;
-            margin-bottom: 25px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        #altin-sponsorlar h3 { color: #FFD700; }
-        #bronz-sponsorlar h3 { color: #CD7F32; }
-
-        .sponsor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-            padding: 10px 0;
-            justify-content: center;
-        }
+        .sponsor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; padding: 10px 0; justify-content: center; }
 
         .sponsor-card {
-            background-color: rgba(22, 27, 34, 0.7); 
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 140px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(4px); 
+            background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 30px;
+            text-align: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease; display: flex; align-items: center; justify-content: center;
+            min-height: 140px; border: 1px solid rgba(223, 90, 0, 0.2);
         }
 
-        .sponsor-card img {
-            max-width: 100%;
-            max-height: 90px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease, transform 0.3s ease;
-        }
+        .sponsor-card:hover { transform: translateY(-5px); border-color: var(--poster-orange); }
+        .sponsor-card img { max-width: 100%; max-height: 90px; object-fit: contain; filter: grayscale(100%); transition: 0.3s; }
+        .sponsor-card:hover img { filter: grayscale(0%); transform: scale(1.05); }
 
-        .sponsor-card:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.05);
-        }
-
-        /* Aktif Sponsor Kart Efektleri */
-        .gold-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.25);
-            border-color: rgba(255, 215, 0, 0.5);
-        }
-
-        .bronze-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(205, 127, 50, 0.25);
-            border-color: rgba(205, 127, 50, 0.5);
-        }
-
-        /* Pasif Sponsorlar için ekstra silikleştirme */
-        #pasif-sponsorlar .sponsor-card { opacity: 0.6; }
-        #pasif-sponsorlar .sponsor-card:hover { opacity: 1; transform: translateY(-5px); border-color: rgba(255, 255, 255, 0.3); box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1); }
-        
-        .hamburger{display: none;}
-        
-        /* --- RESPONSIVE AYARLAR --- */
-        @media (max-width: 1050px) {
-            .team-page-container { max-width: 90%; margin-top: 30px; }
-            .about-block { flex-direction: column  !important; text-align: center;  }
-            .about-block .text { padding: 20px; max-width: 100%; }
-            .member-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-        }
-
-        .hamburger {
-            display: flex;
-            font-size: 26px;
-            color: white;
-            cursor: pointer;
-            padding-left: 290px;
-        }
-
-        .ikonlar {
-            position: absolute;
-            top: 75px;
-            right: 20px;
-            display: flex;
-            gap: 20px;
-            z-index: 1001;
-        }
-
-        .ikonlar a { font-size: 50px; color: aliceblue; }
-        .ikonlar a:hover { color: orange; }
-        .hamburger { display: none !important; }
-
-        @media (max-width: 768px) {
-            ul.navbar {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 15px;
-                height: 70px;
-            }
-
-            .logo-container { margin: 0; width: auto; order: 0; }
-            .logo-wrapper { display: flex; align-items: center; gap: 8px; }
-
-            .hamburger {
-                display: block !important;
-                font-size: 24px;
-                color: white;
-                cursor: pointer;
-                padding: 10px;
-                order: 2; 
-            }
-
-            ul.navbar li:not(.logo-container) { display: none; width: 100%; text-align: center; background: orange; }
-            ul.navbar.open { height: auto; }
-            ul.navbar.open li:not(.logo-container) { display: block; }
-
-            .ikonlar {
-                position: absolute !important;
-                top: 100px;    
-                right: 15px !important; 
-                left: auto !important;  
-                display: flex !important;
-                flex-direction: row;    
-                gap: 15px;      
-                width: auto !important; 
-            }
-
-            .ikonlar a { font-size: 35px; }
-
-            .logo-container { 
-                margin: 10px 0; 
-                order: -1; 
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
-            .logo-text { font-size: 20px; font-weight: 800; white-space: nowrap; }
-            .logo-wrapper { width: 100%; flex-wrap: nowrap; justify-content: flex-start; }
-
-            h1 { font-size: 28px; letter-spacing: 2px; margin-bottom: 30px; }
-            h2 { font-size: 22px; }
-
-            .member-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
-            .member-card img { width: 70px; height: 70px; }
-            .member-card h4 { font-size: 14px; }
-            body { overflow-x: hidden; }
-        }
+        /* --- MOBİL UYUM --- */
+       @media (max-width: 1050px) {
+      .team-page-container { max-width: 90%; margin-top: 30px; }
+      .hakkimizda-container { flex-direction: column; }
+    }
+ 
+    .hamburger { display: none; font-size: 26px; color: white; cursor: pointer; padding-left: 290px; }
+    .hamburger { display: none !important; }
+ 
+    @media (max-width: 768px) {
+      ul.navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 15px;
+          height: 70px;
+      }
+      .logo-container { margin: 0; width: auto; order: 0; }
+      .logo-wrapper { display: flex; align-items: center; gap: 8px; }
+ 
+      .hamburger {
+          display: block !important;
+          font-size: 24px;
+          color: white;
+          cursor: pointer;
+          padding: 10px;
+          order: 2; 
+      }
+ 
+      ul.navbar li:not(.logo-container) { display: none; width: 100%; text-align: center; background: var(--poster-orange); }
+      ul.navbar.open { height: auto; }
+      ul.navbar.open li:not(.logo-container) { display: block; }
+ 
+      .ikonlar {
+          position: absolute !important;
+          top: 100px;  
+          right: 15px !important; 
+          left: auto !important;  
+          display: flex !important;
+          flex-direction: row;  
+          gap: 15px;    
+          width: auto !important; 
+      }
+      .ikonlar a { font-size: 30px; }
+ 
+      .hero-section {
+          min-height: auto !important;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+      }
+ 
+      .baslik {
+          position: relative !important;
+          top: 0 !important;
+          left: 0 !important;
+          transform: none !important;
+          font-size: 42px; 
+          margin-top: 40px;
+          width: 100%;
+      }
+ 
+      .haribo{ height: auto; width: 125px; left: 30px; }
+ 
+      .logo-container { margin: 10px 0; order: -1; width: 100%; display: flex; justify-content: center; }
+      .logo-text { font-size: 20px; font-weight: 800; white-space: nowrap; }
+      .logo-wrapper { width: 100%; flex-wrap: nowrap; justify-content: flex-start; }
+ 
+      .timeline-container::after { left: 20px; } 
+      .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; left: 0 !important; }
+      
+      /* Mobilde Rozetin Konumu */
+      .uye-basvuru-badge {
+        top: auto;
+        bottom: 20px;
+        right: 15px;
+        transform: none;
+        width: 130px;
+        height: 90px;
+      }
+      .uye-basvuru-badge .halka { width: 130px; height: 90px; }
+      .uye-basvuru-badge .oval-ic { width: 106px; height: 66px; font-size: 10px; }
+      .uye-basvuru-badge .oval-ic span { font-size: 9px; }
+      
+      body { overflow-x: hidden; }
+    }
     </style>
 </head>
 <body>
 
-    <div class="gece">
-        <div class="yildiz" style="top: 20%;"></div>
-        <div class="yildiz" style="top: 45%; animation-delay: 5s;"></div>
-        <div class="yildiz" style="top: 70%; animation-delay: 10s;"></div>
-    </div>
     <div id="universe"></div>
     
     <ul class="navbar">
@@ -295,103 +222,58 @@
     <main class="sponsors-page">
         <h1>SPONSORLARIMIZ</h1>
         
-        <!-- AKTİF SPONSORLAR BÖLÜMÜ -->
         <section id="aktif-sponsorlar">
             <h2>🚀 Aktif Sponsorlarımız</h2>
-
-            <!-- Altın Sponsor -->
-            <div class="tier-section" id="altin-sponsorlar">
+            <div class="tier-section">
                 <h3>🥇 Altın Sponsor</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card gold-card">
-                        <img src="silver1.png" alt="Altın Sponsor Logo">
-                    </div>
+                    <div class="sponsor-card"><img src="silver1.png" alt="Altın Sponsor"></div>
                 </div>
             </div>
-
-            <!-- Bronz Sponsor -->
-            <div class="tier-section" id="bronz-sponsorlar">
+            <div class="tier-section">
                 <h3>🥉 Bronz Sponsor</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card bronze-card">
-                        <img src="bronz1.jpg" alt="Bronz Sponsor Logo">
-                    </div>
+                    <div class="sponsor-card"><img src="bronz1.jpg" alt="Bronz Sponsor"></div>
                 </div>
             </div>
         </section>
 
-        <!-- PASİF SPONSORLAR BÖLÜMÜ -->
         <section id="pasif-sponsorlar">
             <h2>🤝 Pasif Sponsorlarımız</h2>
             <div class="sponsor-grid">
-                <div class="sponsor-card">
-                    <img src="silver2.jpg" alt="Pasif Sponsor Logo 1">
-                </div>
-                <div class="sponsor-card">
-                    <img src="silver3.png" alt="Pasif Sponsor Logo 2">
-                </div>
-                <div class="sponsor-card">
-                    <img src="bronz2.png" alt="Pasif Sponsor Logo 3">
-                </div>
-                <div class="sponsor-card">
-                    <img src="tenda-logo.png" alt="Pasif Sponsor Logo 4">
-                </div>
-                <div class="sponsor-card">
-                    <img src="d1.png" alt="Pasif Sponsor Logo 5">
-                </div>
-                <div class="sponsor-card">
-                    <img src="d2.png" alt="Pasif Sponsor Logo 6">
-                </div>
-                <div class="sponsor-card">
-                    <img src="d3.jpg" alt="Pasif Sponsor Logo 7">
-                </div>
+                <div class="sponsor-card"><img src="silver2.jpg" alt="Sponsor"></div>
+                <div class="sponsor-card"><img src="silver3.png" alt="Sponsor"></div>
+                <div class="sponsor-card"><img src="bronz2.png" alt="Sponsor"></div>
+                <div class="sponsor-card"><img src="tenda-logo.png" alt="Sponsor"></div>
             </div>
         </section>
-
     </main>
 
     <script>
-        (function () {
-            var starCount = 200;
-            var maxTime = 15;
-            var universe = document.getElementById("universe");
-            var w = window;
-            var d = document;
-            var e = d.documentElement;
-            var g = d.getElementsByTagName("body")[0];
-            var width = w.innerWidth || e.clientWidth || g.clientWidth;
-            var height = w.innerHeight || e.clientHeight || g.clientHeight;
+        // Yıldız Efekti
+        var starCount = 150;
+        var universe = document.getElementById("universe");
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+        for (var i = 0; i < starCount; ++i) {
+            var ypos = Math.round(Math.random() * height);
+            var star = document.createElement("div");
+            var speed = 5000 + Math.random() * 10000;
+            star.setAttribute("class", "star" + (Math.floor(Math.random() * 4)));
+            star.style.backgroundColor = "white";
+            star.style.left = Math.round(Math.random() * width) + "px";
+            star.style.top = ypos + "px";
+            universe.appendChild(star);
+            star.animate(
+                [{ transform: "translate3d(" + width + "px, 0, 0)" }, { transform: "translate3d(-200px, 0, 0)" }],
+                { delay: Math.random() * -speed, duration: speed, iterations: Infinity }
+            );
+        }
 
-            for (var i = 0; i < starCount; ++i) {
-                var ypos = Math.round(Math.random() * height);
-                var star = document.createElement("div");
-                var speed = 5000 * (Math.random() * maxTime + 1);
-                star.setAttribute("class", "star" + (3 - Math.floor(speed / 1000 / 8)));
-                star.style.backgroundColor = "white";
-                star.style.left = Math.round(Math.random() * width) + "px";
-                star.style.top = ypos + "px";
-                star.style.zIndex = 0;
-                universe.appendChild(star);
-                star.animate(
-                    [
-                        { transform: "translate3d(" + width + "px, 0, 0)" },
-                        { transform: "translate3d(-" + Math.random() * 256 + "px, 0, 0)" }
-                    ],
-                    {
-                        delay: Math.random() * -speed,
-                        duration: speed,
-                        iterations: Infinity
-                    }
-                );
-            }
-        })();
-
+        // Mobil Menü
         const hamburger = document.querySelector('.hamburger');
         const navbar = document.querySelector('.navbar');
-
-        hamburger.addEventListener('click', () => {
-            navbar.classList.toggle('open');
-        });
+        hamburger.addEventListener('click', () => navbar.classList.toggle('open'));
     </script>
 </body>
 </html>

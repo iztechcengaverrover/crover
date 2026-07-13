@@ -5,44 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rover | Cengaver Rover</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Fontlar: Inter (Metinler) ve Rubik Dirt (Başlıklar) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rubik+Dirt&display=swap" rel="stylesheet">
 
     <style>
-        /* --- GENEL SIFIRLAMA --- */
-        *, *::before, *::after { box-sizing: border-box; }
-        * { text-decoration: none; padding: 0; margin: 0; font-family: 'Inter', sans-serif; }
+        /* --- RENK PALETİ (Posterdeki Tok Turuncu) --- */
+        :root { 
+        --poster-orange: #DF5A00; 
+        --poster-hover: #B54800; 
+        --gallery-accent: #0b84ff; 
+    }
 
-        body {
-            width: 100%; min-height: 100vh; overflow-x: hidden;
-            background-color: hsl(252, 65%, 5%);
-            background-image:
-                radial-gradient(circle at top right, rgba(121, 68, 154, 0.13), transparent),
-                radial-gradient(circle at 20% 80%, rgba(41, 196, 255, 0.13), transparent);
-            background-attachment: fixed; color: #ddd;
-        }
-
-        /* --- YILDIZ ANİMASYONU --- */
-        .gece { position: fixed; transform: rotateZ(10deg); top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-        .yildiz { position: absolute; left: 0; top: 50%; height: 4px; width: 100px; background: linear-gradient(-45deg, aliceblue, rgba(255,255,255,0)); border-radius: 999px; filter: drop-shadow(0 0 6px aliceblue); animation: kuyruk 20s ease-in-out infinite, dusus 20s ease-in-out infinite; }
-        @keyframes kuyruk { 0% { width: 0px; } 30% { width: 100px; } 100% { width: 0; } }
-        @keyframes dusus { 0% { transform: translateX(0); } 100% { transform: translateX(1750px); } }
-        .yildiz::before, .yildiz::after { content: ' '; position: absolute; top: calc(50% - 2px); right: 0; height: 4px; width: 30px; background: linear-gradient(-45deg, rgba(0,0,255,0), aliceblue, rgba(0,0,255,0)); border-radius: 100%; transform: translate(50%) rotateZ(45deg); animation: parlama 7s ease ease-in-out infinite; }
-        .yildiz::after { transform: translateX(50%) rotateZ(-45deg); }
-
-        /* --- NAVBAR --- */
-        ul.navbar { list-style: none; background-color: orange; display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
-        ul.navbar li { display: inline-block; position: relative; }
-        ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
-        ul.navbar li ul.dropdown { top: 100%; background: orange; position: absolute; z-index: 1000; display: none; left: 0; min-width: 250px; }
-        ul.navbar li a:hover { background: orangered; }
-        ul.navbar li:hover ul.dropdown { display: block; }
-        .logo-container { margin-left: auto; }
-        .logo-wrapper { display: flex; align-items: center; gap: 10px; }
-        .logo { height: 50px; width: 70px; }
-        .logo-text { color: white; font-size: 24px; font-weight: 800; letter-spacing: 1px; }
-
+    /* Genel Sıfırlama ve Temel Stil */
+    *, *::before, *::after { box-sizing: border-box; }
+    * { text-decoration: none; padding: 0; margin: 0; font-family: 'Inter', sans-serif; }
+ 
+    /* ARKA PLAN - KOMPLE SİYAH VE KARANLIK */
+    body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: #050505; /* Siyaha çok yakın karanlık ton */
+      background-attachment: fixed;
+      color: #ddd;
+    }
+    
+    /* --- MENÜ VE LOGO STİLLERİ --- */
+    ul.navbar { list-style: none; background-color: var(--poster-orange); display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
+    ul.navbar li { display: inline-block; position: relative; }
+    ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
+    ul.navbar li ul.dropdown { top: 100%; background: var(--poster-orange); position: absolute; z-index: 1000; display: none; left: 0; min-width: 250px; }
+    ul.navbar li a:hover { background: var(--poster-hover); }
+    ul.navbar li:hover ul.dropdown { display: block; }
+    .logo-container { margin-left: auto; }
+    .logo-wrapper { display: flex; align-items: center; gap: 10px; }
+    .logo { height: 50px; width: 70px; }
+    
+    /* MENÜDEKİ LOGO YAZISI */
+    .logo-text { color: white; font-size: 24px; font-weight: 800; letter-spacing: 1px; font-family: monospace; }
+    
+    /* İkonlar ve Haribo */
+    .haribo { position: absolute; height: 200px; width: 280px; margin-top: 70px; margin-left: -30px; z-index: 1001; }
+    .ikonlar { top: 75px; right: 20px; gap: 20px; position: absolute; display: flex; z-index:1001; }
+    .ikonlar a { font-size: 40px; color: aliceblue; transition: color 0.3s ease; }
+    .ikonlar a:hover { color: var(--poster-orange); }
+ 
+    /* YILDIZ STİLLERİ */
+    .gece { position: fixed; transform: rotateZ(10deg); top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    .yildiz { position: absolute; left: 0; top: 50%; height: 4px; width: 100px; background: linear-gradient(-45deg, aliceblue, rgba(255,255,255,0)); border-radius: 999px; filter: drop-shadow(0 0 6px aliceblue); animation: kuyruk 20s ease-in-out infinite, dusus 20s ease-in-out infinite; }
+    @keyframes kuyruk { 0% { width: 0px; } 30% { width: 100px; } 100% { width: 0; } }
+    @keyframes dusus { 0% { transform: translateX(0); } 100% { transform: translateX(1750px); } }
+    .yildiz::before, .yildiz::after { content: ' '; position: absolute; top: calc(50% - 2px); right: 0; height: 4px; width: 30px; background: linear-gradient(-45deg, rgba(0,0,255,0), aliceblue, rgba(0,0,255,0)); border-radius: 100%; transform: translate(50%) rotateZ(45deg); animation: parlama 7s ease ease-in-out infinite; }
+    .yildiz::after { transform: translateX(50%) rotateZ(-45deg); }
+    .star0, .star1, .star2, .star3 { position: fixed; background: white; border-radius: 50%; opacity: 1; }
+    .star0 { height: 1px; width: 1px; }
+    .star1 { height: 2px; width: 2px; }
+    .star2 { height: 3px; width: 3px; }
+    .star3 { height: 4px; width: 4px; }
         /* --- ROVER SAYFASI BAŞLIK VE SEKMELER --- */
         .rover-page-header {
             text-align: center;
@@ -53,10 +75,11 @@
         
         .rover-page-header h1 {
             font-size: 3.5em;
-            font-weight: 800;
-            color: #fff;
+            font-weight: 400;
+            color: var(--poster-orange);
             text-transform: uppercase;
             letter-spacing: 4px;
+            font-family: 'Rubik Dirt', cursive;
         }
 
         /* Sekme Butonları (Tabs) */
@@ -82,18 +105,16 @@
             letter-spacing: 1px;
         }
 
-        .tab-btn:hover {
-            color: #fff;
-        }
+        .tab-btn:hover { color: #fff; }
 
         .tab-btn.active {
-            color: orange;
-            border-bottom: 3px solid orange;
+            color: var(--poster-orange);
+            border-bottom: 3px solid var(--poster-orange);
         }
 
         /* Rover İçerik Alanı */
         .rover-content {
-            display: none; /* Varsayılan olarak gizli, JS ile açılacak */
+            display: none;
             align-items: center;
             justify-content: space-between;
             max-width: 1200px;
@@ -105,36 +126,19 @@
             animation: fadeIn 0.6s ease;
         }
 
-        .rover-content.active {
-            display: flex; /* Sadece aktif olan sekme flex olur */
-        }
+        .rover-content.active { display: flex; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Görsel Alanı */
         .rover-image-wrapper {
             flex: 1;
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-
-        .rover-image-wrapper::before {
-            content: '';
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(11,132,255,0.15) 0%, transparent 70%);
-            z-index: -1;
-            border-radius: 50%;
-        }
-
-        #cengaver2 .rover-image-wrapper::before {
-            background: radial-gradient(circle, rgba(255,165,0,0.15) 0%, transparent 70%);
         }
 
         .rover-image-wrapper img {
@@ -144,19 +148,13 @@
             transition: transform 0.5s ease;
         }
 
-        .rover-image-wrapper:hover img {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        /* Özellikler (Specs) Alanı */
         .rover-info {
             flex: 1;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(223, 90, 0, 0.2);
             padding: 40px;
             border-radius: 16px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
         }
 
         .rover-desc {
@@ -166,7 +164,6 @@
             margin-bottom: 30px;
         }
 
-        /* Teknik Tablo */
         .tech-specs { list-style: none; padding: 0; }
         .tech-specs li {
             display: flex;
@@ -176,11 +173,11 @@
             font-size: 1.05rem;
         }
         .tech-specs li:last-child { border-bottom: none; }
-        .tech-specs .spec-title { color: #8892b0; font-weight: 600; }
-        .tech-specs .spec-value { color: #fff; font-family: monospace; font-size: 1.1rem; text-align: right; max-width: 60%; }
+        .spec-title { color: #8892b0; font-weight: 600; }
+        .spec-value { color: #fff; font-family: monospace; font-size: 1.1rem; text-align: right; max-width: 60%; }
 
         /* --- MOBİL UYUM --- */
-        .hamburger { display: none; font-size: 26px; color: white; cursor: pointer; }
+        .hamburger { display: none; font-size: 26px; color: white; cursor: pointer; padding: 10px; }
         
         @media (max-width: 992px) {
             .rover-content.active { flex-direction: column; gap: 30px; }
@@ -191,21 +188,19 @@
             ul.navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; height: 70px; }
             .logo-container { margin: 0; width: auto; order: 0; }
             .logo-wrapper { display: flex; align-items: center; gap: 8px; }
-            .hamburger { display: block !important; order: 2; padding: 10px; }
-            ul.navbar li:not(.logo-container) { display: none; width: 100%; text-align: center; background: orange; }
+            .hamburger { display: block !important; order: 2; }
+            ul.navbar li:not(.logo-container) { display: none; width: 100%; text-align: center; background: var(--poster-orange); }
             ul.navbar.open { height: auto; }
             ul.navbar.open li:not(.logo-container) { display: block; }
             .logo-container { margin: 10px 0; order: -1; width: 100%; display: flex; justify-content: center; }
             .logo-text { font-size: 20px; white-space: nowrap; }
-            .logo-wrapper { width: 100%; flex-wrap: nowrap; justify-content: flex-start; }
             
             .rover-page-header h1 { font-size: 2.5em; }
             .rover-tabs { gap: 10px; }
             .tab-btn { font-size: 1rem; padding: 8px 15px; }
-            
             .rover-info { padding: 25px; }
             .tech-specs li { flex-direction: column; gap: 5px; }
-            .tech-specs .spec-value { text-align: left; max-width: 100%; color: orange;}
+            .tech-specs .spec-value { text-align: left; max-width: 100%; color: var(--poster-orange); }
         }
     </style>
 </head>
@@ -218,30 +213,28 @@
     <div id="universe"></div>
     
     <!-- Navbar -->
-      <ul class="navbar">
-    <li><a href="index.html">ANASAYFA</a></li>
-    <li><a href="rover.html">ROVER</a></li>
-    <li><a href="duyurular.html">HABERLER</a></li>
-    <li><a href="sponsorlar.html">SPONSORLAR</a></li>
-    <li><a href="#">YARIŞMALAR</a>
-      <ul class="dropdown">
-        <li><a href="https://roverchallenge.eu/" target="_blank">EUROPEAN ROVER</a></li>
-        <li><a href="https://www.anatolianrover.space/" target="_blank">ANATOLIAN ROVER</a></li>
-        <li><a href="https://www.teknofest.org/tr/" target="_blank">TEKNOFEST</a></li>
-      </ul>
-    </li>
-    <li><a href="takımımız.html">TAKIMIMIZ</a></li>
-    <li><a href="bizeulas.html">İLETİŞİM</a>
-    </li>
-    <li class="logo-container">
-      <div class="logo-wrapper">
-        <img src="logo.png" alt="Logo" class="logo">
-        <span class="logo-text">CENGAVER ROVER</span>
-        <div class="hamburger"> <i class="fa-solid fa-bars"></i></div>
-      </div>
-    </li>
-  </ul>
-   
+    <ul class="navbar">
+        <li><a href="index.html">ANASAYFA</a></li>
+        <li><a href="rover.html">ROVER</a></li>
+        <li><a href="duyurular.html">HABERLER</a></li>
+        <li><a href="sponsorlar.html">SPONSORLAR</a></li>
+        <li><a href="#">YARIŞMALAR</a>
+            <ul class="dropdown">
+                <li><a href="https://roverchallenge.eu/" target="_blank">EUROPEAN ROVER</a></li>
+                <li><a href="https://www.anatolianrover.space/" target="_blank">ANATOLIAN ROVER</a></li>
+                <li><a href="https://www.teknofest.org/tr/" target="_blank">TEKNOFEST</a></li>
+            </ul>
+        </li>
+        <li><a href="takımımız.html">TAKIMIMIZ</a></li>
+        <li><a href="bizeulas.html">İLETİŞİM</a></li>
+        <li class="logo-container">
+            <div class="logo-wrapper">
+                <img src="logo.png" alt="Logo" class="logo">
+                <span class="logo-text">CENGAVER ROVER</span>
+                <div class="hamburger"> <i class="fa-solid fa-bars"></i></div>
+            </div>
+        </li>
+    </ul>
 
     <!-- Başlık -->
     <div class="rover-page-header">
@@ -250,15 +243,13 @@
 
     <!-- SEKMELER (TABS) -->
     <div class="rover-tabs">
-        <!-- Varsayılan olarak aktif olan buton -->
         <button class="tab-btn active" onclick="openRover(event, 'cengaver2')">CENGAVER 2.0</button>
         <button class="tab-btn" onclick="openRover(event, 'cengaver1')">CENGAVER 1.0</button>
     </div>
 
-    <!-- CENGAVER 2.0 İÇERİĞİ (Varsayılan olarak görünür) -->
+    <!-- CENGAVER 2.0 -->
     <div id="cengaver2" class="rover-content active">
         <div class="rover-image-wrapper">
-            <!-- Buraya 2.0'ın PNG görselini ekle -->
             <img src="resimler/rover2.jpeg" alt="Cengaver 2.0">
         </div>
         <div class="rover-info">
@@ -276,10 +267,9 @@
         </div>
     </div>
 
-    <!-- CENGAVER 1.0 İÇERİĞİ (Varsayılan olarak gizli) -->
+    <!-- CENGAVER 1.0 -->
     <div id="cengaver1" class="rover-content">
         <div class="rover-image-wrapper">
-            <!-- Buraya 1.0'ın PNG görselini ekle -->
             <img src="04f31110-3fcd-4276-a968-18df673fca6b.jpg" alt="Cengaver 1.0" style="border-radius: 12px;">
         </div>
         <div class="rover-info">
@@ -298,27 +288,21 @@
     </div>
 
     <script>
-        // --- SEKME (TAB) DEĞİŞTİRME FONKSİYONU ---
         function openRover(evt, roverName) {
-            // Tüm içerikleri gizle
             let i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("rover-content");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].classList.remove("active");
             }
-
-            // Tüm butonlardaki aktif (turuncu) stili kaldır
             tablinks = document.getElementsByClassName("tab-btn");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
-
-            // Tıklanan butonu ve ilgili içeriği aktif et
             document.getElementById(roverName).classList.add("active");
             evt.currentTarget.classList.add("active");
         }
 
-        // Yıldız Arka Plan Animasyonu
+        // Yıldız Arka Plan
         (function () {
             var starCount = 150;
             var maxTime = 15;
@@ -334,19 +318,15 @@
                 star.style.backgroundColor = "white";
                 star.style.left = Math.round(Math.random() * width) + "px";
                 star.style.top = ypos + "px";
-                star.style.zIndex = 0;
                 universe.appendChild(star);
                 star.animate(
-                    [
-                        { transform: "translate3d(" + width + "px, 0, 0)" },
-                        { transform: "translate3d(-" + Math.random() * 256 + "px, 0, 0)" }
-                    ],
+                    [{ transform: "translate3d(" + width + "px, 0, 0)" }, { transform: "translate3d(-" + Math.random() * 256 + "px, 0, 0)" }],
                     { delay: Math.random() * -speed, duration: speed, iterations: Infinity }
                 );
             }
         })();
 
-        // Mobil Hamburger Menü
+        // Mobil Menü
         const hamburger = document.querySelector('.hamburger');
         const navbar = document.querySelector('.navbar');
         if(hamburger) {
