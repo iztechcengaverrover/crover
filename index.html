@@ -9,13 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+ 
   <style>
     /* Genel Sıfırlama ve Temel Stil */
     *, *::before, *::after { box-sizing: border-box; }
     /* Font ailesini Inter olarak güncelledik */
     * { text-decoration: none; padding: 0; margin: 0; font-family: 'Inter', sans-serif; }
-
+ 
     body {
       width: 100%;
       min-height: 100vh;
@@ -33,7 +33,7 @@
         --gallery-accent: #0b84ff; 
         --gallery-muted: rgba(255,255,255,0.06); 
     }
-
+ 
     /* --- MENÜ VE LOGO STİLLERİ --- */
     ul.navbar { list-style: none; background-color: orange; display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
     ul.navbar li { display: inline-block; position: relative; }
@@ -51,7 +51,7 @@
     .ikonlar { top: 75px; right: 20px; gap: 20px; position: absolute; display: flex; z-index:1001; }
     .ikonlar a { font-size: 40px; color: aliceblue; transition: color 0.3s ease; }
     .ikonlar a:hover { color: orange; }
-
+ 
     /* YILDIZ STİLLERİ */
     .gece { position: fixed; transform: rotateZ(10deg); top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
     .yildiz { position: absolute; left: 0; top: 50%; height: 4px; width: 100px; background: linear-gradient(-45deg, aliceblue, rgba(255,255,255,0)); border-radius: 999px; filter: drop-shadow(0 0 6px aliceblue); animation: kuyruk 20s ease-in-out infinite, dusus 20s ease-in-out infinite; }
@@ -64,8 +64,8 @@
     .star1 { height: 2px; width: 2px; }
     .star2 { height: 3px; width: 3px; }
     .star3 { height: 4px; width: 4px; }
-
-
+ 
+ 
     /* --- ANA İÇERİK BÖLÜMLERİ --- */
     main { position: relative; width: 100%; padding-top: 50px; }
     
@@ -75,7 +75,7 @@
         padding-top: 50px;
         z-index: 1001; 
     }
-
+ 
     .baslik { position: absolute; top: 100px; left: 50%; transform: translateX(-50%); color: white; font-size: 48px; font-weight: 800; z-index: 1001; text-align: center; width: 90%; letter-spacing: -1px; }
     .baslikalti { font-size: 24px; margin-top: 10px; font-weight: 300; letter-spacing: 2px; color: orange; }
     
@@ -88,7 +88,7 @@
       margin: 100px auto 50px auto;
       padding: 20px;
     }
-
+ 
     .hakkimizda-title {
       text-align: center;
       font-size: 36px;
@@ -98,14 +98,14 @@
       text-transform: uppercase;
       letter-spacing: 2px;
     }
-
+ 
     .hakkimizda-container {
       display: flex;
       gap: 40px;
       justify-content: space-between;
       align-items: stretch;
     }
-
+ 
     .hakkimizda-sutun {
       flex: 1;
       background: rgba(255, 255, 255, 0.03);
@@ -115,12 +115,12 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
       transition: transform 0.3s ease;
     }
-
+ 
     .hakkimizda-sutun:hover {
       transform: translateY(-5px);
       background: rgba(255, 255, 255, 0.05);
     }
-
+ 
     .hakkimizda-sutun h3 {
       font-size: 24px;
       color: orange;
@@ -128,19 +128,19 @@
       border-bottom: 2px solid rgba(255, 165, 0, 0.3);
       padding-bottom: 10px;
     }
-
+ 
     .hakkimizda-sutun p {
       font-size: 16px;
       line-height: 1.8;
       color: #ddd;
     }
-
+ 
     html, body {
       max-width: 100%;
       overflow-x: hidden;
       position: relative;
     }
-
+ 
     /* --- EKİP KARTLARI --- */
     .ekipler { 
       text-align: center; 
@@ -152,7 +152,7 @@
       margin-bottom: 50px; 
       letter-spacing: 2px;
     }
-
+ 
     .ekipler-container {
       position: relative; 
       display: flex;
@@ -165,7 +165,7 @@
       padding: 30px 0;
       z-index: 10;
     }
-
+ 
     .ekip-logo-card {
       display: flex;
       flex-direction: column;
@@ -179,18 +179,18 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
+ 
     .ekip-logo-card:hover {
       transform: translateY(-8px); 
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.2), 0 8px 20px rgba(0, 0, 0, 0.5); 
       background: rgba(255, 255, 255, 0.06); 
     }
-
+ 
     .ekip-logo-card img {
       width: 130px; height: 130px; object-fit: contain; margin-bottom: 20px; border-radius: 50%;
       background-color: #2c0b3f; padding: 15px; box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); 
     }
-
+ 
     .ekip-logo-card h3 { font-size: 1.2rem; color: #fff; margin: 0; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
     
     /* --- ATÖLYE GÖRSELİ --- */
@@ -207,7 +207,7 @@
         box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
         z-index: 9; 
     }
-
+ 
     .atolye-panoroma {
         width: 100%; 
         height: 400px; 
@@ -226,47 +226,47 @@
       z-index: 10;
       padding: 0;
     }
-
+ 
     .timeline-section h2 { font-size: 36px; color: #fff; margin-bottom: 70px; text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
-
+ 
     .timeline-container { position: relative; margin: 0 auto; padding: 0 10px; }
-
+ 
     .timeline-container::after {
       content: ''; position: absolute; width: 4px; background-color: rgba(255, 255, 255, 0.2);
       top: 0; bottom: 0; left: 50%; margin-left: -2px;
     }
-
+ 
     .timeline-item {
       padding: 10px 40px; position: relative; width: 50%; opacity: 0; 
       transform: translateY(30px); transition: all 0.8s ease-out; margin-bottom: 50px;
     }
-
+ 
     .timeline-item.visible { opacity: 1; transform: translateY(0); }
-
+ 
     .timeline-item:nth-child(even) { left: 50%; padding-left: 60px; }
     .timeline-item:nth-child(odd) { left: 0; padding-right: 60px; }
-
+ 
     .timeline-content {
       padding: 25px; background-color: rgba(255, 255, 255, 0.05); position: relative;
       border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       border-left: 4px solid var(--gallery-accent, #0b84ff);
       text-align: left;
     }
-
+ 
     .timeline-item:nth-child(odd) .timeline-content::after { content: " "; height: 0; position: absolute; top: 22px; right: -16px; width: 0; z-index: 1; border: medium solid rgba(255, 255, 255, 0.05); border-width: 10px 0 10px 16px; border-color: transparent transparent transparent rgba(255, 255, 255, 0.05); }
     .timeline-item:nth-child(even) .timeline-content::after { content: " "; height: 0; position: absolute; top: 22px; left: -16px; width: 0; z-index: 1; border: medium solid rgba(255, 255, 255, 0.05); border-width: 10px 16px 10px 0; border-color: transparent rgba(255, 255, 255, 0.05) transparent transparent; }
-
+ 
     .timeline-item::after {
       content: ''; position: absolute; width: 20px; height: 20px; right: -10px;
       background-color: var(--gallery-accent, #0b84ff); border: 4px solid rgba(255, 255, 255, 0.9);
       top: 15px; border-radius: 50%; z-index: 1; box-shadow: 0 0 15px var(--gallery-accent, #0b84ff); 
     }
     .timeline-item:nth-child(even)::after { left: -10px; }
-
+ 
     .timeline-content h3 { font-size: 1.4rem; color: #fff; margin-top: 0; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
     .timeline-content p { font-size: 1rem; color: #ddd; line-height: 1.6; }
     .timeline-content .year { color: orange; font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; display: block; }
-
+ 
     /* FOOTER */
     footer.iletisim { 
       background-color: #080311; 
@@ -282,7 +282,7 @@
     
     .iletisim h2 { margin-bottom: 20px; font-weight: 600; }
     .iletisim p { margin-bottom: 10px; font-size: 15px; }
-
+ 
     .harita { margin-top: 40px; }
     .harita iframe { max-width: 100%; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
     
@@ -291,7 +291,7 @@
       .team-page-container { max-width: 90%; margin-top: 30px; }
       .hakkimizda-container { flex-direction: column; }
     }
-
+ 
     .hamburger {
       display: flex;
       font-size: 26px;
@@ -299,9 +299,9 @@
       cursor: pointer;
       padding-left: 290px;
     }
-
+ 
     .hamburger { display: none !important; }
-
+ 
     @media (max-width: 768px) {
       ul.navbar {
           display: flex;
@@ -310,10 +310,10 @@
           padding: 10px 15px;
           height: 70px;
       }
-
+ 
       .logo-container { margin: 0; width: auto; order: 0; }
       .logo-wrapper { display: flex; align-items: center; gap: 8px; }
-
+ 
       .hamburger {
           display: block !important;
           font-size: 24px;
@@ -322,17 +322,17 @@
           padding: 10px;
           order: 2; 
       }
-
+ 
       ul.navbar li:not(.logo-container) {
           display: none;
           width: 100%;
           text-align: center;
           background: orange;
       }
-
+ 
       ul.navbar.open { height: auto; }
       ul.navbar.open li:not(.logo-container) { display: block; }
-
+ 
       .ikonlar {
           position: absolute !important;
           top: 100px;  
@@ -343,9 +343,9 @@
           gap: 15px;    
           width: auto !important; 
       }
-
+ 
       .ikonlar a { font-size: 30px; }
-
+ 
       .hero-section {
           min-height: auto !important;
           padding: 20px;
@@ -354,7 +354,7 @@
           align-items: center;
           text-align: center;
       }
-
+ 
       .baslik {
           position: relative !important;
           top: 0 !important;
@@ -364,9 +364,9 @@
           margin-top: 40px;
           width: 100%;
       }
-
+ 
       .haribo{ height: auto; width: 125px; left: 30px; }
-
+ 
       .logo-container { 
           margin: 10px 0; 
           order: -1; 
@@ -376,7 +376,7 @@
       }
       .logo-text { font-size: 20px; font-weight: 800; white-space: nowrap; }
       .logo-wrapper { width: 100%; flex-wrap: nowrap; justify-content: flex-start; }
-
+ 
       .timeline-container::after { left: 20px; } 
       .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; left: 0 !important; }
       
@@ -393,7 +393,7 @@
         display: flex;
         justify-content: center;
     }
-
+ 
     .hover-rover {
         width: 60%;
         height: auto;
@@ -401,14 +401,14 @@
         filter: drop-shadow(0px 25px 15px rgba(0, 0, 0, 0.6)); 
         animation: suzulme 4s ease-in-out infinite;
     }
-
+ 
     /* Süzülme Animasyonunun Matematiği */
     @keyframes suzulme {
         0% { transform: translateY(0px); }
         50% { transform: translateY(-25px); } /* 25px yukarı çıkar */
         100% { transform: translateY(0px); } /* Tekrar başlangıca döner */
     }
-
+ 
     /* Mobilde görselin başlığın üstüne binmemesi için ufak ayarlar */
     @media (max-width: 768px) {
         .rover-gorsel-container {
@@ -419,16 +419,112 @@
             min-height: 500px !important; /* Mobilde alan açıyoruz */
         }
     }
+ 
+    /* --- ÜYE BAŞVURU ROZETİ --- */
+    .uye-basvuru-badge {
+      position: fixed;
+      top: 50%;
+      right: 25px;
+      transform: translateY(-50%);
+      z-index: 2000;
+      width: 190px;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+ 
+    .uye-basvuru-badge .halka {
+      position: absolute;
+      width: 190px;
+      height: 130px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg,
+        #ff003c, #ff8a00, #ffee00, #4dff00, #00e0ff, #7000ff, #ff00c8, #ff003c);
+      animation: gokkusagi-donme 3s linear infinite;
+      z-index: 1;
+    }
+ 
+    .uye-basvuru-badge .halka::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 25px 8px rgba(255, 0, 200, 0.55),
+                  0 0 45px 15px rgba(0, 224, 255, 0.35);
+      animation: parlama-nabiz 2s ease-in-out infinite;
+    }
+ 
+    .uye-basvuru-badge .oval-ic {
+      position: relative;
+      width: 154px;
+      height: 94px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #3a1655, #12061f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+      padding: 10px;
+      z-index: 2;
+      transition: transform 0.3s ease;
+    }
+ 
+    .uye-basvuru-badge:hover .oval-ic {
+      transform: scale(1.08);
+    }
+ 
+    .uye-basvuru-badge .oval-ic span {
+      display: block;
+      color: orange;
+      font-size: 11px;
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
+ 
+    @keyframes gokkusagi-donme {
+      100% { transform: rotate(360deg); }
+    }
+ 
+    @keyframes parlama-nabiz {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+ 
+    @media (max-width: 768px) {
+      .uye-basvuru-badge {
+        top: auto;
+        bottom: 20px;
+        right: 15px;
+        transform: none;
+        width: 130px;
+        height: 90px;
+      }
+      .uye-basvuru-badge .halka { width: 130px; height: 90px; }
+      .uye-basvuru-badge .oval-ic {
+        width: 106px;
+        height: 66px;
+        font-size: 10px;
+      }
+      .uye-basvuru-badge .oval-ic span { font-size: 9px; }
+    }
   </style>
 </head>
-
+ 
 <body>
   <img src="logo.png" alt="" class="haribo">
-
+ 
   <ul class="navbar">
     <li><a href="index.html">ANASAYFA</a></li>
     <li><a href="rover.html">ROVER</a></li>
-    <li><a href="duyurular.html">DUYURULAR</a></li>
+    <li><a href="duyurular.html">HABERLER</a></li>
     <li><a href="sponsorlar.html">SPONSORLAR</a></li>
     <li><a href="#">YARIŞMALAR</a>
       <ul class="dropdown">
@@ -448,17 +544,26 @@
       </div>
     </li>
   </ul>
-
+ 
   <div class="ikonlar"> 
     <a href="https://www.youtube.com/channel/UC5x--GMBeLn7lESm5L6e1Kg" target="_blank"><i class="fa-brands fa-youtube"></i></a>
     <a href="https://tr.linkedin.com/company/cengaverrover" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
     <a href="https://www.instagram.com/cengaver.rover?igsh=cjl2enZhYzBhZ3py" target="_blank"><i class="fa-brands fa-instagram"></i></a>
   </div>
-
+ 
+  <!-- ÜYE BAŞVURU ROZETİ -->
+  <a href="basvuru.html" class="uye-basvuru-badge">
+    <div class="halka"></div>
+    <div class="oval-ic">
+      ÜYE ALIMLARI BAŞLADI
+      <span>ÜYE BAŞVURUSU →</span>
+    </div>
+  </a>
+ 
   <main>
    <section class="hero-section">
       <div class="baslik">IZTECH CENGAVER ROVER
-        <h6 class="baslikalti">Mechanical Engineering</h6>
+        
       </div>
       
       <!-- HAREKETLİ ROVER BURAYA GELDİ -->
@@ -467,7 +572,7 @@
           <img src="technology.png" alt="Süzülen Rover" class="hover-rover">
       </div>
     </section>
-
+ 
     <!-- YENİ HAKKIMIZDA BÖLÜMÜ -->
     <section class="hakkimizda-section">
       <h2 class="hakkimizda-title">Hakkımızda</h2>
@@ -479,17 +584,17 @@
             IZTECH CENGAVER ROVER takımı 2022 yılında faaliyetlerine başlamış ve kendi özel atölyesini kurmuş, İYTE bünyesinde faaliyet gösteren bir Mars Keşif Aracı (Rover) takımıdır. Bünyemizde Makine, Elektronik, Haberleşme, Kimya ve Enerji Sistemleri Mühendisliği gibi farklı disiplinlerden tutkulu öğrenciler bulunmaktadır. İYTE Makine Mühendisliği'nden değerli danışmanlarımızla birlikte çalışarak teorik bilgilerimizi pratiğe döküyoruz.
           </p>
         </div>
-
+ 
         <div class="hakkimizda-sutun">
           <h3>Amacımız & Vizyonumuz</h3>
           <p>
             Anatolian Rover Challenge (ARC) gibi ulusal yarışmalarda edindiğimiz saha tecrübesinin ardından, vizyonumuzu global ölçeğe taşıdık. Ana hedefimiz European Rover Challenge (ERC) ve University Rover Challenge (URC) gibi uluslararası prestijli yarışmalarda ülkemizi ve okulumuzu en iyi şekilde temsil etmektir. Ekibimiz kampüsümüzde bir uzay ve robotik yarışma kültürü inşa etmeyi amaçlamaktadır.
           </p>
         </div>
-
+ 
       </div>
     </section>
-
+ 
     <div class="ekipler">EKİPLERİMİZ</div>
     <div class="ekipler-container">
       <div class="ekip-logo-card"><img src="resimler/1-removebg-preview.png" alt="Yazılım Ekibi Logosu"><h3>YAZILIM</h3></div>
@@ -549,7 +654,7 @@
       <p>Adres: İzmir Yüksek Teknoloji Enstitüsü, Urla / İzmir</p>
       <p>E-posta: iyteedu@cengaverrover</p>
       <p>Telefon: +90 555 555 55 55</p>
-
+ 
       <div class="harita">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1558.1182312602736!2d26.63468551121066!3d38.31888194451007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bb92b0c3600f11%3A0x868b81372b07d667!2s%C4%B0zmir%20Y%C3%BCksek%20Teknoloji%20Enstit%C3%BCs%C3%BC!5e0!3m2!1str!2str!4v1709292800000!5m2!1str!2str"
@@ -558,14 +663,14 @@
       </div>
     </footer>
   </main>
-
+ 
   <div class="gece">
     <div class="yildiz"></div><div class="yildiz"></div><div class="yildiz"></div>
     <div class="yildiz"></div><div class="yildiz"></div><div class="yildiz"></div><div class="yildiz"></div>
   </div>
-
+ 
   <div id="universe"></div>
-
+ 
   <script>
     // ZAMAN ÇİZELGESİ ANIMASYONLARI
     document.addEventListener("DOMContentLoaded", () => {
@@ -580,7 +685,7 @@
       }, { threshold: 0.3 }); 
       items.forEach(item => observer.observe(item));
     });
-
+ 
     // YILDIZ JS KODLARI
     (function () {
       var starCount = 200;
@@ -588,7 +693,7 @@
       var universe = document.getElementById("universe");
       var width = window.innerWidth;
       var height = window.innerHeight;
-
+ 
       for (var i = 0; i < starCount; ++i) {
         var ypos = Math.round(Math.random() * height);
         var star = document.createElement("div");
@@ -611,14 +716,15 @@
         );
       }
     })();
-
+ 
     // MOBİL MENÜ
     const hamburger = document.querySelector('.hamburger');
     const navbar = document.querySelector('.navbar');
-
+ 
     hamburger.addEventListener('click', () => {
       navbar.classList.toggle('open');
     });
   </script>
 </body>
 </html>
+ 

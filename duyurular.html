@@ -4,7 +4,10 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CENGAVER ROVER - DUYURULAR</title>
+    <title>CENGAVER ROVER - HABERLER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         /* ============================== */
         /* 🎨 GLOBAL VE ARKA PLAN STİLLERİ */
@@ -13,7 +16,7 @@
             text-decoration: none;
             padding: 0;
             margin: 0;
-            font-family: monospace;
+            font-family: 'Inter', sans-serif;
             box-sizing: border-box;
         }
 
@@ -51,14 +54,14 @@
         /* ============================== */
         ul.navbar { list-style: none; background-color: orange; display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
     ul.navbar li { display: inline-block; position: relative; }
-    ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 20px; }
+    ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
     ul.navbar li ul.dropdown { top: 100%; background: orange; position: absolute; z-index: 1000; display: none; left: 0; min-width: 250px; }
     ul.navbar li a:hover { background: orangered; }
     ul.navbar li:hover ul.dropdown { display: block; }
     .logo-container { margin-left: auto; }
     .logo-wrapper { display: flex; align-items: center; gap: 10px; }
     .logo { height: 50px; width: 70px; }
-    .logo-text { color: white; font-size: 24px; font-weight: bold; font-family: monospace; }
+    .logo-text { color: white; font-size: 24px; font-weight: bold; font-family: 'Inter', sans-serif; }
     
     
 
@@ -66,103 +69,200 @@
         .basbaslik {
             position: relative;
             text-align: center;
-            padding: 50px 0 20px 0;
+            padding: 50px 0 10px 0;
             color: #ffffff;
             font-size: 48px;
             font-weight: bold;
             z-index: 1001;
-            font-family: monospace;
+            font-family: 'Inter', sans-serif;
         }
-        
+
+        .altbaslik {
+            position: relative;
+            text-align: center;
+            padding: 0 20px 40px 20px;
+            color: orange;
+            font-size: 16px;
+            z-index: 1001;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+        }
+
         /* ============================== */
-        /* 📢 DUYURU PANELİ (ACCORDION) STİLLERİ */
+        /* 📰 HABER FİLTRE SEKMELERİ */
         /* ============================== */
-        .duyuru-paneli {
+        .filtre-sekmeleri {
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 90%; 
-            margin: 0 auto 50px auto; 
-            max-width: 1100px; /* MAKSİMUM GENİŞLİK */
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
+
+        .filtre-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 165, 0, 0.4);
+            color: #f0f0f0;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filtre-btn:hover {
+            background: rgba(255, 165, 0, 0.15);
+        }
+
+        .filtre-btn.aktif {
+            background: orange;
+            color: #111;
+            font-weight: bold;
+            border-color: orange;
+        }
+
+        /* ============================== */
+        /* 📢 HABER KARTLARI (GRID) */
+        /* ============================== */
+        .haber-paneli {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 90%;
+            margin: 0 auto 60px auto;
+            max-width: 1200px;
             z-index: 10;
             position: relative;
         }
 
-        .duyuru {
-            border-radius: 15px; 
-            /* Glassmorphism Efekti */
-            background: rgba(255, 255, 255, 0.08); 
-            backdrop-filter: blur(8px); 
+        .haber-karti {
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2); 
-            border: 1px solid rgba(255, 255, 255, 0.15); 
-            transition: transform 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
-        }
-
-        .duyuru:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 36px 0 rgba(41, 196, 255, 0.1);
-        }
-
-        .baslik {
-            padding: 18px 25px; 
-            background-color: rgba(255, 255, 255, 0.1); 
-            cursor: pointer;
-            color: #fff; 
-            font-weight: 600;
-            font-size: 1.1em;
             display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            transition: background-color 0.3s ease; 
+            flex-direction: column;
         }
 
-        .baslik:hover {
-            background-color: rgba(41, 196, 255, 0.15); 
+        .haber-karti:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px 0 rgba(41, 196, 255, 0.15);
         }
-        
-        /* Açma/Kapama İkonu (Ok) */
-        .ok-icon {
-            margin-left: 15px;
+
+        .haber-gorsel-alani {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        .haber-gorsel-alani img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
             transition: transform 0.4s ease;
-            font-size: 1.2em;
+        }
+
+        .haber-karti:hover .haber-gorsel-alani img {
+            transform: scale(1.05);
+        }
+
+        .kaynak-etiketi {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0, 0, 0, 0.55);
             color: orange;
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255, 165, 0, 0.4);
         }
 
-        .baslik.acik .ok-icon {
-            transform: rotate(180deg);
-            color: orangered;
+        .kaynak-etiketi.instagram i { color: #e1306c; }
+
+        .haber-icerik {
+            padding: 18px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
-        /* İçerik Kısmı */
-        .icerik {
+        .haber-tarih {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .haber-icerik h3 {
+            font-size: 1.05em;
+            color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .haber-icerik p {
+            font-size: 13px;
+            color: #c9c9c9;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .haber-link {
+            font-size: 13px;
+            color: orange;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            align-self: flex-start;
+            transition: color 0.3s ease;
+        }
+
+        .haber-link:hover { color: orangered; }
+
+        .haber-link.devam-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            padding: 0;
+        }
+
+        .haber-link.devam-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .haber-link.devam-btn.acik i {
+            transform: rotate(90deg);
+        }
+
+        .haber-devam {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.7s ease-in-out, padding 0.7s ease-in-out;
-            padding: 0 25px;
-            background-color: rgba(0, 0, 0, 0.15); 
-            color: #c9c9c9; 
+            transition: max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+            font-size: 13px;
+            color: #c9c9c9;
             line-height: 1.6;
         }
 
-        .icerik.acik {
-            max-height: 1000px; /* İçeriğin sığabileceği büyük bir değer */
-            padding: 20px 25px 30px 25px; 
+        .haber-devam.acik {
+            max-height: 500px;
+            margin-top: 12px;
         }
-        
-        .icerik p { margin-bottom: 10px; }
-        
-        .icerik img {
-            max-width: 100%;
-            height: auto;
-            margin-top: 15px;
-            border-radius: 10px;
-            border: 2px solid rgba(255, 140, 0, 0.5); 
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-  
-
 
         /* ============================== */
 /* 📱 MOBİL UYUMLULUK (RESPONSIVE) */
@@ -175,6 +275,8 @@
     
     /* Takım kartlarını biraz küçültelim */
     .member-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+
+    .haber-paneli { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* 2. Telefonlar (768px altı) */
@@ -319,7 +421,7 @@
     color: white;
     font-size: 20px; /* Mobilde sığması için 24px'den 20'ye çektik */
     font-weight: bold;
-    font-family: monospace;
+    font-family: 'Inter', sans-serif;
     white-space: nowrap; /* Yazının asla alt satıra geçmemesini sağlar */
 }
 .logo-wrapper {
@@ -350,88 +452,164 @@
     
     /* Ekran dışına taşmayı önlemek için */
     body { overflow-x: hidden; }
+
+    .basbaslik { font-size: 32px; padding-top: 30px; }
+    .haber-paneli { grid-template-columns: 1fr; width: 88%; }
+    .filtre-btn { padding: 8px 16px; font-size: 13px; }
     
 }
     </style>
 </head>
 <body>
-     <ul class="navbar">
+    <ul class="navbar">
     <li><a href="index.html">ANASAYFA</a></li>
-    <li><a href="duyurular.html">DUYURULAR</a></li>
-    
-    <li><a href="sponsorlar.html">SPONSORLAR</a>
-    <li><a href="#">YARIŞMALAR</a><ul class="dropdown"><li><a href="https://roverchallenge.eu/" target="_blank">EUROPEAN ROVER</a></li><li><a href="https://www.anatolianrover.space/" target="_blank">ANATOLIAN ROVER</a></li><li><a href="https://www.teknofest.org/tr/" target="_blank">TEKNOFEST</a></li></ul></li>
+    <li><a href="rover.html">ROVER</a></li>
+    <li><a href="duyurular.html">HABERLER</a></li>
+    <li><a href="sponsorlar.html">SPONSORLAR</a></li>
+    <li><a href="#">YARIŞMALAR</a>
+      <ul class="dropdown">
+        <li><a href="https://roverchallenge.eu/" target="_blank">EUROPEAN ROVER</a></li>
+        <li><a href="https://www.anatolianrover.space/" target="_blank">ANATOLIAN ROVER</a></li>
+        <li><a href="https://www.teknofest.org/tr/" target="_blank">TEKNOFEST</a></li>
+      </ul>
+    </li>
     <li><a href="takımımız.html">TAKIMIMIZ</a></li>
-    <li><a href="#">HAKKIMIZDA</a><ul class="dropdown"><li><a href="bizeulas.html">BİZE ULAŞIN</a></li><li><a href="fotograflar.html">FOTOĞRAFLAR</a></li></ul></li>
-    <li class="logo-container"><div class="logo-wrapper"><img src="logo.png" alt="Logo" class="logo"><span class="logo-text">CENGAVER ROVER</span><div class="hamburger"> <i class="fa-solid fa-bars"></i></div></div></li>
-
-
+    <li><a href="bizeulas.html">İLETİŞİM</a>
+    </li>
+    <li class="logo-container">
+      <div class="logo-wrapper">
+        <img src="logo.png" alt="Logo" class="logo">
+        <span class="logo-text">CENGAVER ROVER</span>
+        <div class="hamburger"> <i class="fa-solid fa-bars"></i></div>
+      </div>
+    </li>
   </ul>
+    <div class="basbaslik">HABERLER</div>
+    <div class="altbaslik">Instagram paylaşımlarımız ve takımdan son gelişmeler</div>
 
-    <div class="basbaslik">DUYURULAR</div>
-
-    <div class="duyuru-paneli">
-        <div class="duyuru">
-            <div class="baslik" onclick="toggleDuyuru(this)">
-                <span>🚀 DUYURU1</span>
-                <span class="ok-icon">▼</span>
-            </div>
-            <div class="icerik">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </div>
-        </div>
-
-        <div class="duyuru">
-            <div class="baslik" onclick="toggleDuyuru(this)">
-                <span>🎯 DUYURU2</span>
-                <span class="ok-icon">▼</span>
-            </div>
-            <div class="icerik">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, at.</p>
-            </div>
-        </div>
-        
-        <div class="duyuru">
-            <div class="baslik" onclick="toggleDuyuru(this)">
-                <span>🎯 DUYURU3</span>
-                <span class="ok-icon">▼</span>
-            </div>
-            <div class="icerik">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur fugit, sed eum inventore excepturi exercitationem, minus laborum libero et quas sint maiores, commodi ipsam perferendis blanditiis impedit optio totam asperiores!</p>
-            </div>
-        </div>
-
-        <div class="duyuru">
-            <div class="baslik" onclick="toggleDuyuru(this)">
-                <span>🎯 DUYURU4</span> 
-                <span class="ok-icon">▼</span>
-            </div>
-            <div class="icerik">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint omnis consectetur vero. Illum saepe corrupti itaque sint, aut non velit! 
-                <img src="foto1.png" alt="Duyuru Fotoğrafı"></p>
-            </div>
-        </div>
+    <div class="filtre-sekmeleri">
+        <button class="filtre-btn aktif" onclick="filtrele(this, 'hepsi')">Hepsi</button>
+        <button class="filtre-btn" onclick="filtrele(this, 'instagram')">Instagram</button>
+        <button class="filtre-btn" onclick="filtrele(this, 'haber')">Haberler</button>
     </div>
-    
+
+    <div class="haber-paneli">
+
+        <div class="haber-karti" data-tur="instagram">
+            <div class="haber-gorsel-alani">
+                <span class="kaynak-etiketi instagram"><i class="fa-brands fa-instagram"></i> Instagram</span>
+                <img src="resimler/haber1.jpg" alt="Instagram Paylaşımı">
+            </div>
+            <div class="haber-icerik">
+                <span class="haber-tarih">📅 12 Temmuz 2026</span>
+                <h3>Atölyeden son kareler!</h3>
+                <p>Cengaver 2.0'ın üretim sürecinden bir kesit paylaştık. Ekibimiz gece gündüz çalışmaya devam ediyor 🚀</p>
+                <a href="https://www.instagram.com/cengaver.rover" target="_blank" class="haber-link">Instagram'da gör <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
+        <div class="haber-karti" data-tur="haber">
+            <div class="haber-gorsel-alani">
+                <span class="kaynak-etiketi"><i class="fa-solid fa-newspaper"></i> Haber</span>
+                <img src="resimler/haber2.jpg" alt="Haber Görseli">
+            </div>
+            <div class="haber-icerik">
+                <span class="haber-tarih">📅 5 Temmuz 2026</span>
+                <h3>ARC'23 tecrübemiz üzerine yeni bir yazı</h3>
+                <p>Anatolian Rover Challenge'daki tecrübelerimizi ve Cengaver 2.0 için çıkardığımız dersleri anlattık.</p>
+                <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="haber-devam">
+                    <p>ARC'23'te sahada karşılaştığımız zorluklar, özellikle tekerlek-zemin etkileşimi ve haberleşme mesafesi konularında bize çok şey öğretti. Bu geri bildirimler doğrultusunda Cengaver 2.0'ın şasi tasarımını tamamen yeniledik, süspansiyon sistemini güçlendirdik ve haberleşme modülünü daha kararlı bir alt yapıyla değiştirdik. Yarışma sırasında topladığımız veriler, önümüzdeki sezon için yol haritamızı şekillendirdi.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="haber-karti" data-tur="instagram">
+            <div class="haber-gorsel-alani">
+                <span class="kaynak-etiketi instagram"><i class="fa-brands fa-instagram"></i> Instagram</span>
+                <img src="resimler/haber3.jpg" alt="Instagram Paylaşımı">
+            </div>
+            <div class="haber-icerik">
+                <span class="haber-tarih">📅 28 Haziran 2026</span>
+                <h3>Yeni üyelerimizle tanışın!</h3>
+                <p>Bu dönem katılan yeni ekip arkadaşlarımızı sizlerle tanıştırdık. Aramıza hoş geldiniz!</p>
+                <a href="https://www.instagram.com/cengaver.rover" target="_blank" class="haber-link">Instagram'da gör <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
+        <div class="haber-karti" data-tur="haber">
+            <div class="haber-gorsel-alani">
+                <span class="kaynak-etiketi"><i class="fa-solid fa-newspaper"></i> Haber</span>
+                <img src="resimler/haber4.jpg" alt="Haber Görseli">
+            </div>
+            <div class="haber-icerik">
+                <span class="haber-tarih">📅 15 Haziran 2026</span>
+                <h3>Sponsorluk görüşmelerimiz devam ediyor</h3>
+                <p>ERC 2024 hazırlıkları kapsamında yeni sponsorluk anlaşmaları için görüşmelerimiz sürüyor.</p>
+                <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="haber-devam">
+                    <p>Polonya'daki European Rover Challenge yolculuğumuz için bütçemizin önemli bir kısmını sponsorluk destekleriyle karşılamayı hedefliyoruz. Bu kapsamda hem yerel hem ulusal ölçekte birçok firmayla temas halindeyiz. Sponsorluk paketlerimiz hakkında bilgi almak veya takımımıza destek olmak isteyen firmalar İletişim sayfamızdan bize ulaşabilir.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="haber-karti" data-tur="instagram">
+            <div class="haber-gorsel-alani">
+                <span class="kaynak-etiketi instagram"><i class="fa-brands fa-instagram"></i> Instagram</span>
+                <img src="resimler/haber5.jpg" alt="Instagram Paylaşımı">
+            </div>
+            <div class="haber-icerik">
+                <span class="haber-tarih">📅 2 Haziran 2026</span>
+                <h3>Test sahasından anlık görüntüler</h3>
+                <p>Otonomi testlerimizden kısa bir video paylaştık. Rover'ımız arazide gayet iyi performans gösteriyor.</p>
+                <a href="https://www.instagram.com/cengaver.rover" target="_blank" class="haber-link">Instagram'da gör <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
+        <div class="haber-karti" data-tur="haber">
+            <div class="haber-gorsel-alani">
+                <span class="kaynak-etiketi"><i class="fa-solid fa-newspaper"></i> Haber</span>
+                <img src="resimler/haber6.jpg" alt="Haber Görseli">
+            </div>
+            <div class="haber-icerik">
+                <span class="haber-tarih">📅 20 Mayıs 2026</span>
+                <h3>Üniversitemizde tanıtım standımız</h3>
+                <p>İYTE bahar şenliklerinde standımızı açtık, birçok öğrenciyle tanışma fırsatı bulduk.</p>
+                <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="haber-devam">
+                    <p>İki gün süren şenlik boyunca standımızda rover'ımızın maketini ve geçmiş yarışmalardan görüntüleri sergiledik. Birçok bölümden öğrenciyle tanışıp takımın çalışma alanlarını anlattık. Etkinlik sonunda yeni dönem için ilgi gösteren çok sayıda öğrenciden iletişim bilgisi aldık; önümüzdeki haftalarda kendileriyle görüşmelere başlayacağız.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <div id="universe"></div>
 
     <script>
-        function toggleDuyuru(baslikEl) {
-            const icerik = baslikEl.nextElementSibling;
-            const duyuruPaneli = baslikEl.closest('.duyuru-paneli');
-            
-            // Eğer açılacaksa (yani "acik" class'ı yoksa), diğer açık duyuruları kapat
-            if (!icerik.classList.contains("acik")) {
-                duyuruPaneli.querySelectorAll(".icerik.acik").forEach(acikIcerik => {
-                    acikIcerik.classList.remove("acik");
-                    acikIcerik.previousElementSibling.classList.remove("acik"); // İlgili başlığın da class'ını kaldır
-                });
-            }
+        function devamAcKapa(e, linkEl) {
+            e.preventDefault();
+            const devamIcerik = linkEl.nextElementSibling;
+            const acilacakMi = !devamIcerik.classList.contains('acik');
 
-            // Tıklanan duyuruyu aç/kapat
-            icerik.classList.toggle("acik");
-            baslikEl.classList.toggle("acik"); // Ok döndürme için class ekleniyor
+            devamIcerik.classList.toggle('acik');
+            linkEl.classList.toggle('acik');
+
+            const yaziKismi = linkEl.childNodes[0];
+            yaziKismi.textContent = acilacakMi ? 'Daha az göster ' : 'Devamını oku ';
+        }
+
+        function filtrele(btn, tur) {
+            document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('aktif'));
+            btn.classList.add('aktif');
+
+            document.querySelectorAll('.haber-karti').forEach(kart => {
+                if (tur === 'hepsi' || kart.getAttribute('data-tur') === tur) {
+                    kart.style.display = 'flex';
+                } else {
+                    kart.style.display = 'none';
+                }
+            });
         }
     </script>
     <script>
