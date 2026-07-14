@@ -212,9 +212,10 @@ ul.navbar li ul.dropdown li a {
         }
         .submit-btn:hover { background: var(--poster-hover); transform: translateY(-2px); }
 
-        #loading-msg, #success-msg { display: none; text-align: center; margin-top: 20px; font-weight: 600; }
+        #loading-msg, #success-msg, #duplicate-msg { display: none; text-align: center; margin-top: 20px; font-weight: 600; }
         #loading-msg { color: var(--poster-orange); }
         #success-msg { color: #00ff88; background: rgba(0, 255, 136, 0.1); padding: 15px; border-radius: 8px; border: 1px solid #00ff88;}
+        #duplicate-msg { color: #ffb84d; background: rgba(255, 184, 77, 0.1); padding: 15px; border-radius: 8px; border: 1px solid #ffb84d; line-height: 1.5; }
 
         /* --- FORMA KAYDIRAN BUTON --- */
         .forma-git-btn {
@@ -438,6 +439,7 @@ ul.navbar li ul.dropdown li a {
             
             <div id="loading-msg"><i class="fa-solid fa-spinner fa-spin"></i> Başvurunuz iletiliyor, lütfen bekleyin...</div>
             <div id="success-msg"><i class="fa-solid fa-circle-check"></i> Başvurunuz başarıyla alındı! İlgili ekip lideri sizinle iletişime geçecektir.</div>
+            <div id="duplicate-msg"><i class="fa-solid fa-triangle-exclamation"></i> Bu e-posta adresiyle daha önce başvuru yapılmıştır. Her aday yalnızca bir kez başvurabilmektedir. Hatalı başvurular için iletişim sayfasından bize ulaşabilirsiniz.</div>
         </form>
     </div>
 
@@ -448,12 +450,13 @@ ul.navbar li ul.dropdown li a {
 
     <script>
         // --- 1. GOOGLE APPS SCRIPT BAĞLANTISI ---
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzp1FYaLTImaEAEqW9gGg7OrqdiaOq1GwoOuT-yTdYUKGBY61sjgRoMkP-Ee6flh4Fm/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbybZjM_1aL7OmvzFxgbNmfeoMVwWyDP7-YaW-RW0jCvjB3xIUxsuS8sUEGtiC5HYIrO/exec';
         
         const form = document.getElementById('basvuru-formu');
         const submitButton = document.getElementById('submit-button');
         const loadingMsg = document.getElementById('loading-msg');
         const successMsg = document.getElementById('success-msg');
+        const duplicateMsg = document.getElementById('duplicate-msg');
 
         form.addEventListener('submit', e => {
             e.preventDefault(); 
@@ -461,19 +464,29 @@ ul.navbar li ul.dropdown li a {
             submitButton.style.display = 'none';
             loadingMsg.style.display = 'block';
             successMsg.style.display = 'none';
+            duplicateMsg.style.display = 'none';
 
-            let requestBody = new FormData(form);
-
-            fetch(scriptURL, { method: 'POST', body: requestBody })
-                .then(response => {
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => response.json())
+                .then(data => {
                     loadingMsg.style.display = 'none';
-                    successMsg.style.display = 'block';
-                    form.reset(); 
-                    
-                    setTimeout(() => {
+
+                    if (data.result === 'success') {
+                        successMsg.style.display = 'block';
+                        form.reset(); 
+                        setTimeout(() => {
+                            submitButton.style.display = 'block';
+                            successMsg.style.display = 'none';
+                        }, 5000);
+
+                    } else if (data.result === 'duplicate') {
+                        duplicateMsg.style.display = 'block';
                         submitButton.style.display = 'block';
-                        successMsg.style.display = 'none';
-                    }, 5000);
+
+                    } else {
+                        alert('Bir hata oluştu: ' + (data.message || 'Bilinmeyen hata'));
+                        submitButton.style.display = 'block';
+                    }
                 })
                 .catch(error => {
                     console.error('Hata!', error.message);
