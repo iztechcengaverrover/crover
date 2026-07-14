@@ -66,83 +66,62 @@
     .star2 { height: 3px; width: 3px; }
     .star3 { height: 4px; width: 4px; }
  
-    /* --- ÜYE BAŞVURU ROZETİ (GERİ GELDİ VE TEMAYA UYARLANDI) --- */
+    /* --- ÜYE BAŞVURU ROZETİ (DÖNEN MARS VERSİYONU) --- */
     .uye-basvuru-badge {
       position: fixed;
       top: 50%;
       right: 25px;
       transform: translateY(-50%);
       z-index: 2000;
-      width: 190px;
-      height: 130px;
+      width: 170px;
+      height: 170px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
     }
  
-    .uye-basvuru-badge .halka {
+    /* Dönen Mars görseli */
+    .mars-donen {
       position: absolute;
-      width: 190px;
-      height: 130px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg,
-        #ff003c, #ff8a00, #ffee00, #4dff00, #00e0ff, #7000ff, #ff00c8, #ff003c);
-      animation: gokkusagi-donme 3s linear infinite;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: mars-donme 12s linear infinite;
+      filter: drop-shadow(0 0 20px rgba(223, 90, 0, 0.6));
       z-index: 1;
     }
  
-    .uye-basvuru-badge .halka::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      box-shadow: 0 0 25px 8px rgba(255, 0, 200, 0.55),
-                  0 0 45px 15px rgba(0, 224, 255, 0.35);
-      animation: parlama-nabiz 2s ease-in-out infinite;
+    @keyframes mars-donme {
+      100% { transform: rotate(360deg); }
     }
  
+    /* Yazı - Mars'ın üzerinde sabit durur */
     .uye-basvuru-badge .oval-ic {
       position: relative;
-      width: 154px;
-      height: 94px;
-      border-radius: 50%;
-      background: #050505; /* Yeni karanlık temaya uygun tam siyah */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      z-index: 2;
       text-align: center;
       color: #fff;
       font-weight: 800;
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       line-height: 1.4;
       padding: 10px;
-      z-index: 2;
+      text-shadow: 0 0 6px #000, 0 0 12px #000, 0 2px 4px #000;
       transition: transform 0.3s ease;
     }
  
     .uye-basvuru-badge:hover .oval-ic {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
  
     .uye-basvuru-badge .oval-ic span {
       display: block;
-      color: var(--poster-orange); /* Posterdeki tok turuncu */
-      font-size: 11px;
+      color: #fff;
+      font-size: 10px;
       margin-top: 6px;
       letter-spacing: 1px;
-    }
- 
-    @keyframes gokkusagi-donme {
-      100% { transform: rotate(360deg); }
-    }
- 
-    @keyframes parlama-nabiz {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
     }
 
     /* --- ANA İÇERİK BÖLÜMLERİ --- */
@@ -283,9 +262,9 @@
         margin-left: -50vw;
         margin-right: -50vw;
         padding: 50px 0; 
-        background-color: rgba(0, 0, 0, 0.6); 
+        
         margin-top: 50px; 
-        box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+        
         z-index: 9; 
     }
  
@@ -446,12 +425,11 @@
         bottom: 20px;
         right: 15px;
         transform: none;
-        width: 130px;
-        height: 90px;
+        width: 110px;
+        height: 110px;
       }
-      .uye-basvuru-badge .halka { width: 130px; height: 90px; }
-      .uye-basvuru-badge .oval-ic { width: 106px; height: 66px; font-size: 10px; }
-      .uye-basvuru-badge .oval-ic span { font-size: 9px; }
+      .uye-basvuru-badge .oval-ic { font-size: 9px; }
+      .uye-basvuru-badge .oval-ic span { font-size: 8px; }
       
       body { overflow-x: hidden; }
     }
@@ -490,9 +468,9 @@
     <a href="https://www.instagram.com/cengaver.rover?igsh=cjl2enZhYzBhZ3py" target="_blank"><i class="fa-brands fa-instagram"></i></a>
   </div>
  
-  <!-- ÜYE BAŞVURU ROZETİ (GERİ GELDİ) -->
+  <!-- ÜYE BAŞVURU ROZETİ (DÖNEN MARS) -->
   <a href="basvuru.html" class="uye-basvuru-badge">
-    <div class="halka"></div>
+    <img src="resimler/marscomic.png" alt="Mars" class="mars-donen">
     <div class="oval-ic">
       ÜYE ALIMLARI BAŞLADI
       <span>ÜYE BAŞVURUSU →</span>
@@ -533,7 +511,8 @@
       <div class="ekip-logo-card"><img src="resimler/3-removebg-preview.png" alt="Elektronik Ekibi Logosu"><h3>ELEKTRONİK</h3></div>
       <div class="ekip-logo-card"><img src="resimler/4-removebg-preview.png" alt="Mekanik Ekibi Logosu"><h3>MEKANİK</h3></div>
       <div class="ekip-logo-card"><img src="resimler/2-removebg-preview.png" alt="Bilim Ekibi Logosu"><h3>BİLİM</h3></div>
-      <div class="ekip-logo-card"><img src="resimler/8-removebg-preview.png" alt="Sponsorluk ve Sosyal Medya Ekibi Logosu"><h3>SPONSORLUK & SOSYAL MEDYA</h3></div>
+      <div class="ekip-logo-card"><img src="resimler/8-removebg-preview.png" alt="Sponsorluk Ekibi Logosu"><h3>SPONSORLUK</h3></div>
+<div class="ekip-logo-card"><img src="resimler/8-removebg-preview.png" alt="Sosyal Medya Ekibi Logosu"><h3>SOSYAL MEDYA</h3></div>
     </div>
     
     <section class="atolye-gorseli-kapsayici">

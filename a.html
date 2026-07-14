@@ -66,83 +66,62 @@
     .star2 { height: 3px; width: 3px; }
     .star3 { height: 4px; width: 4px; }
  
-    /* --- ÜYE BAŞVURU ROZETİ (GERİ GELDİ VE TEMAYA UYARLANDI) --- */
+    /* --- ÜYE BAŞVURU ROZETİ (DÖNEN MARS VERSİYONU) --- */
     .uye-basvuru-badge {
       position: fixed;
       top: 50%;
       right: 25px;
       transform: translateY(-50%);
       z-index: 2000;
-      width: 190px;
-      height: 130px;
+      width: 170px;
+      height: 170px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
     }
  
-    .uye-basvuru-badge .halka {
+    /* Dönen Mars görseli */
+    .mars-donen {
       position: absolute;
-      width: 190px;
-      height: 130px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg,
-        #ff003c, #ff8a00, #ffee00, #4dff00, #00e0ff, #7000ff, #ff00c8, #ff003c);
-      animation: gokkusagi-donme 3s linear infinite;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      animation: mars-donme 12s linear infinite;
+      filter: drop-shadow(0 0 20px rgba(223, 90, 0, 0.6));
       z-index: 1;
     }
  
-    .uye-basvuru-badge .halka::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      box-shadow: 0 0 25px 8px rgba(255, 0, 200, 0.55),
-                  0 0 45px 15px rgba(0, 224, 255, 0.35);
-      animation: parlama-nabiz 2s ease-in-out infinite;
+    @keyframes mars-donme {
+      100% { transform: rotate(360deg); }
     }
  
+    /* Yazı - Mars'ın üzerinde sabit durur */
     .uye-basvuru-badge .oval-ic {
       position: relative;
-      width: 154px;
-      height: 94px;
-      border-radius: 50%;
-      background: #050505; /* Yeni karanlık temaya uygun tam siyah */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      z-index: 2;
       text-align: center;
       color: #fff;
       font-weight: 800;
-      font-size: 13px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       line-height: 1.4;
       padding: 10px;
-      z-index: 2;
+      text-shadow: 0 0 6px #000, 0 0 12px #000, 0 2px 4px #000;
       transition: transform 0.3s ease;
     }
  
     .uye-basvuru-badge:hover .oval-ic {
-      transform: scale(1.08);
+      transform: scale(1.1);
     }
  
     .uye-basvuru-badge .oval-ic span {
       display: block;
-      color: var(--poster-orange); /* Posterdeki tok turuncu */
-      font-size: 11px;
+      color: #fff;
+      font-size: 10px;
       margin-top: 6px;
       letter-spacing: 1px;
-    }
- 
-    @keyframes gokkusagi-donme {
-      100% { transform: rotate(360deg); }
-    }
- 
-    @keyframes parlama-nabiz {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
     }
 
     /* --- ANA İÇERİK BÖLÜMLERİ --- */
@@ -283,9 +262,9 @@
         margin-left: -50vw;
         margin-right: -50vw;
         padding: 50px 0; 
-        background-color: rgba(0, 0, 0, 0.6); 
+        
         margin-top: 50px; 
-        box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+        
         z-index: 9; 
     }
  
@@ -446,12 +425,11 @@
         bottom: 20px;
         right: 15px;
         transform: none;
-        width: 130px;
-        height: 90px;
+        width: 110px;
+        height: 110px;
       }
-      .uye-basvuru-badge .halka { width: 130px; height: 90px; }
-      .uye-basvuru-badge .oval-ic { width: 106px; height: 66px; font-size: 10px; }
-      .uye-basvuru-badge .oval-ic span { font-size: 9px; }
+      .uye-basvuru-badge .oval-ic { font-size: 9px; }
+      .uye-basvuru-badge .oval-ic span { font-size: 8px; }
       
       body { overflow-x: hidden; }
     }
@@ -459,18 +437,30 @@
 </head>
  
 <body>
-  <img src="logo.png" alt="" class="haribo">
+  <img src="resimler/IZTECH Cengaver Rover Logo-turuncu.png" alt="" class="haribo">
  
-  <ul class="navbar">
-    <li><a href="index.html">ANASAYFA</a></li>
-    <li><a href="duyurular.html">DUYURULAR</a></li>
-    
-    <li><a href="sponsorlar.html">SPONSORLAR</a>
-    <li><a href="#">YARIŞMALAR</a><ul class="dropdown"><li><a href="https://roverchallenge.eu/" target="_blank">EUROPEAN ROVER</a></li><li><a href="https://www.anatolianrover.space/" target="_blank">ANATOLIAN ROVER</a></li><li><a href="https://www.teknofest.org/tr/" target="_blank">TEKNOFEST</a></li></ul></li>
-    <li><a href="takımımız.html">TAKIMIMIZ</a></li>
-    <li><a href="#">HAKKIMIZDA</a><ul class="dropdown"><li><a href="bizeulas.html">BİZE ULAŞIN</a></li><li><a href="fotograflar.html">FOTOĞRAFLAR</a></li></ul></li>
-    <li class="logo-container"><div class="logo-wrapper"><img src="logo.png" alt="Logo" class="logo"><span class="logo-text">CENGAVER ROVER</span><div class="hamburger"> <i class="fa-solid fa-bars"></i></div></div></li>
-  </ul>
+   <ul class="navbar">
+        <li><a href="index.html">ANASAYFA</a></li>
+        <li><a href="rover.html">ROVER</a></li>
+        <li><a href="duyurular.html">HABERLER</a></li>
+        <li><a href="sponsorlar.html">SPONSORLAR</a></li>
+        <li><a href="#">YARIŞMALAR</a>
+            <ul class="dropdown">
+                <li><a href="https://roverchallenge.eu/" target="_blank">EUROPEAN ROVER</a></li>
+                <li><a href="https://www.anatolianrover.space/" target="_blank">ANATOLIAN ROVER</a></li>
+                <li><a href="https://www.teknofest.org/tr/" target="_blank">TEKNOFEST</a></li>
+            </ul>
+        </li>
+        <li><a href="takımımız.html">TAKIMIMIZ</a></li>
+        <li><a href="bizeulas.html">İLETİŞİM</a></li>
+        <li class="logo-container">
+            <div class="logo-wrapper">
+                <img src="resimler/Genel Logo (Beyaz).png" alt="Logo" class="logo">
+                <span class="logo-text">CENGAVER ROVER</span>
+                <div class="hamburger"> <i class="fa-solid fa-bars"></i></div>
+            </div>
+        </li>
+    </ul>
  
   <div class="ikonlar"> 
     <a href="https://www.youtube.com/channel/UC5x--GMBeLn7lESm5L6e1Kg" target="_blank"><i class="fa-brands fa-youtube"></i></a>
@@ -478,9 +468,9 @@
     <a href="https://www.instagram.com/cengaver.rover?igsh=cjl2enZhYzBhZ3py" target="_blank"><i class="fa-brands fa-instagram"></i></a>
   </div>
  
-  <!-- ÜYE BAŞVURU ROZETİ (GERİ GELDİ) -->
+  <!-- ÜYE BAŞVURU ROZETİ (DÖNEN MARS) -->
   <a href="basvuru.html" class="uye-basvuru-badge">
-    <div class="halka"></div>
+    <img src="resimler/marscomic.png" alt="Mars" class="mars-donen">
     <div class="oval-ic">
       ÜYE ALIMLARI BAŞLADI
       <span>ÜYE BAŞVURUSU →</span>
@@ -501,14 +491,14 @@
         <div class="hakkimizda-sutun">
           <h3>Biz Kimiz?</h3>
           <p>
-            IZTECH CENGAVER ROVER takımı 2022 yılında faaliyetlerine başlamış ve kendi özel atölyesini kurmuş, İYTE bünyesinde faaliyet gösteren bir Mars Keşif Aracı (Rover) takımıdır. Bünyemizde Makine, Elektronik, Haberleşme, Kimya ve Enerji Sistemleri Mühendisliği gibi farklı disiplinlerden tutkulu öğrenciler bulunmaktadır. İYTE Makine Mühendisliği'nden değerli danışmanlarımızla birlikte çalışarak teorik bilgilerimizi pratiğe döküyoruz.
+           İzmir’in ilk resmi Mars Keşif Aracı (Rover) takımı IZTECH CENGAVER olarak, 2022 yılında İYTE kampüsündeki kendi özel atölyemizden yola çıktık. Sınırları zorlamayı seven tutkulu bir ekip olarak; Makine, Elektronik, Haberleşme, Kimya, Enerji Sistemleri Mühendisliği ve Moleküler Biyoloji ve Genetik gibi 10 farklı disiplini tek bir çatı altında buluşturuyoruz. İYTE Makine Mühendisliği'nden değerli danışmanlarımızla birlikte çalışarak teorik bilgilerimizi pratiğe döküyoruz.
           </p>
         </div>
  
         <div class="hakkimizda-sutun">
           <h3>Amacımız & Vizyonumuz</h3>
           <p>
-            Anatolian Rover Challenge (ARC) gibi ulusal yarışmalarda edindiğimiz saha tecrübesinin ardından, vizyonumuzu global ölçeğe taşıdık. Ana hedefimiz European Rover Challenge (ERC) ve University Rover Challenge (URC) gibi uluslararası prestijli yarışmalarda ülkemizi ve okulumuzu en iyi şekilde temsil etmektir. Ekibimiz kampüsümüzde bir uzay ve robotik yarışma kültürü inşa etmeyi amaçlamaktadır.
+           Sadece bir uzay aracı inşa etmiyor, aynı zamanda kampüsümüzdeki tüm mühendislik ve bilim öğrencilerini ortak bir vizyonda birleştirerek; birlikte üreten, sorun çözen ve değer katan dinamik bir topluluk oluşturuyoruz. İnşa ettiğimiz bu güçlü uzay ve robotik kültürüyle, ilk iki yılımızda katıldığımız Anatolian Rover Challenge (ARC '23 ve ARC '24) yarışmalarında edindiğimiz değerli saha tecrübelerini artık global ölçeğe taşıdık. Şimdi ana hedefimiz; üzerinde titizlikle çalıştığımız yeni nesil rover teknolojilerimizle Polonya’daki European Rover Challenge (ERC) ve Utah çölündeki University Rover Challenge (URC) gibi dünyanın en prestijli uluslararası arenalarında ülkemizi ve üniversitemizi en iyi şekilde temsil etmektir.
           </p>
         </div>
  
@@ -525,7 +515,7 @@
     </div>
     
     <section class="atolye-gorseli-kapsayici">
-        <img src="cadffe97-5435-4d94-a74b-67e8fd66e689.jpg" alt="Panoramik Atölye Görseli" class="atolye-panoroma">
+        <img src="resimler/roverarkaplan.png" alt="Panoramik Atölye Görseli" class="atolye-panoroma">
     </section>
     
     <section class="timeline-section">
@@ -548,22 +538,22 @@
         <div class="timeline-item">
           <div class="timeline-content">
             <span class="year">2024 Mart</span>
-            <h3>CENGAVER 2.0 TASARIMI</h3>
-            <p>ARC '23 geri bildirimleriyle tamamen yeniden tasarlanmış, daha hafif, modüler ve yüksek otonomiye sahip Cengaver 2.0'ın son tasarım ve üretim aşamasına geçiş.</p>
+            <h3>CENGAVER 2.0:BARSOOM TASARIMI</h3>
+            <p>2024 YAZ: ARC'24: Uluslararası düzenlenen ARC'ye ikinci defa katıldık ve önceki seneden edindiğimiz tecrüblerle final etabına kalan 20 takım arasında 7.lik elde ettik</p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content">
-            <span class="year">2024 Yaz</span>
-            <h3>ERC '24 OTONOMİ TESTLERİ</h3>
-            <p>Avrupa'nın en prestijli yarışması olan European Rover Challenge (ERC '24) için kritik otonomi ve navigasyon sistemleri testlerinin tamamlanması hedeflenmektedir.</p>
+            <span class="year">2026 Ocak</span>
+            <h3>3. Roverımız olan TALOS'un mekanik ve elektronik tasarımını bitirerek üretime başlanması</h3>
+            <p></p>
           </div>
         </div>
         <div class="timeline-item">
           <div class="timeline-content">
-            <span class="year">2024 Eylül</span>
-            <h3>ANA HEDEF: ERC '24</h3>
-            <p>Polonya'da düzenlenecek olan European Rover Challenge (ERC '24) yarışmasında ülkemizi temsil etmek ve global alanda yüksek başarı elde etmek.</p>
+            <span class="year">2026 MAYIS</span>
+            <h3>Takımımız bünyesinde yazılan 5 adet Tübitak 2209-A projesinin kabulü</h3>
+            <p></p>
           </div>
         </div>
       </div>
@@ -572,8 +562,8 @@
     <footer class="iletisim">
       <h2>İLETİŞİM</h2>
       <p>Adres: İzmir Yüksek Teknoloji Enstitüsü, Urla / İzmir</p>
-      <p>E-posta: iyteedu@cengaverrover</p>
-      <p>Telefon: +90 555 555 55 55</p>
+      <p>E-posta: cengaverrover@gmail.com</p>
+      <p>Telefon: +90 507 072 06 44</p>
  
       <div class="harita">
         <iframe
@@ -647,8 +637,3 @@
   </script>
 </body>
 </html>
-
-
-  .member-grid { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 15px; margin: 0 -20px; padding: 0 20px; }
-            .member-card { flex: 0 0 140px; }
-            h1 { font-size: 28px; }
