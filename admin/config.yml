@@ -3,6 +3,8 @@ backend:
   repo: iztechcengaverrover/crover # DİKKAT: Burayı kendi bilgilerine göre değiştir!
   branch: main
   base_url: https://api.github.com
+  https://sveltia-cms-auth.somuncuyagiz7.workers.dev 
+
 
 media_folder: "resimler" # Panele yüklenen fotoğraflar bu klasöre gidecek
 public_folder: "resimler"
