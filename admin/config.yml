@@ -1,0 +1,27 @@
+backend:
+  name: github
+  repo: iztechcengaverrover/crover # DİKKAT: Burayı kendi bilgilerine göre değiştir!
+  branch: main
+  base_url: https://api.github.com
+
+media_folder: "resimler" # Panele yüklenen fotoğraflar bu klasöre gidecek
+public_folder: "resimler"
+
+collections:
+  - name: "icerik_yonetimi"
+    label: "Site İçerikleri"
+    files:
+      - label: "Haberler Listesi"
+        name: "haberler"
+        file: "veri/haberler.json" # Haberler JSON dosyası olarak kaydedilecek
+        fields:
+          - label: "Haberler Listesi"
+            name: "haberler_listesi"
+            widget: "list"
+            fields:
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "Kategori (instagram veya haber yazın)", name: "category", widget: "select", options: ["instagram", "haber"]}
+              - {label: "Tarih", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+              - {label: "Açıklama", name: "description", widget: "text"}
+              - {label: "Görsel", name: "image", widget: "image"}
+              - {label: "Link / Buton Yönlendirmesi (Varsa)", name: "link", widget: "string", required: false}
