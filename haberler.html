@@ -494,18 +494,28 @@ ul.navbar li ul.dropdown li a {
                         resimYolu = resimYolu.substring(1); 
                     }
 
-                    // --- AKILLI BUTON VE METİN SİSTEMİ ---
+                    // Uzun yazının JSON'daki adını garantiye alıyoruz (CMS'deki field ismi neyse onu bulur)
+                    let uzunYazi = haber.body || haber.icerik || haber.content || haber.text || '';
+                    
                     let butonVeIcerik = '';
                     
                     if (haber.link && haber.link.trim() !== '') {
-                        // Eğer CMS'den link girilmişse "Habere Git" butonu yap
+                        // Eğer CMS'den link girilmişse "Bağlantıya Git" butonu yap
                         butonVeIcerik = `<a href="${haber.link}" target="_blank" class="haber-link">Bağlantıya Git <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
-                    } else if (haber.body && haber.body.trim() !== '') {
-                        // Eğer CMS'den uzun metin (body) girilmişse "Devamını oku" açılır butonu yap
+                    } else if (uzunYazi.trim() !== '') {
+                        // Eğer CMS'den uzun metin girilmişse "Devamını oku" açılır butonu yap
                         butonVeIcerik = `
                             <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
                             <div class="haber-devam">
-                                <p>${haber.body}</p>
+                                <p>${uzunYazi}</p>
+                            </div>
+                        `;
+                    } else {
+                        // Eğer ne link ne de uzun metin yoksa, buton yine de çıksın ama boş kalmasın
+                        butonVeIcerik = `
+                            <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="haber-devam">
+                                <p>Detaylı bilgi eklenmemiştir.</p>
                             </div>
                         `;
                     }
@@ -534,6 +544,10 @@ ul.navbar li ul.dropdown li a {
         function devamAcKapa(e, linkEl) {
             e.preventDefault();
             const devamIcerik = linkEl.nextElementSibling;
+            
+            // Eğer içerik yoksa hata vermemesi için kontrol
+            if(!devamIcerik) return; 
+
             const acilacakMi = !devamIcerik.classList.contains('acik');
 
             devamIcerik.classList.toggle('acik');
