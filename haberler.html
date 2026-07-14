@@ -32,8 +32,6 @@
             overflow-x: hidden;
             overflow-y: auto;
             background-color: #050505; /* Karanlık Uzay Siyahı */
-            /* Uzay temalı karanlık turuncu gradient arka plan */
-            
             background-attachment: fixed;
             color: #f0f0f0;
         }
@@ -47,7 +45,7 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.6; /* Parlaklığı karanlık temaya uyduruldu */
+            opacity: 0.6;
         }
         .star0, .star1, .star2, .star3 { position: fixed; background-color: white; opacity: 1; }
         .star0 { height: 1px; width: 1px; }
@@ -59,32 +57,31 @@
         /* 🧭 NAVİGASYON (MENÜ) STİLLERİ */
         /* ============================== */
         ul.navbar { list-style: none; background-color: var(--poster-orange); display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
-    ul.navbar li { display: inline-block; position: relative; }
-    ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
-   ul.navbar li ul.dropdown { 
-    top: 100%; 
-    background: var(--poster-orange); 
-    position: absolute; 
-    z-index: 1000; 
-    display: none; 
-    left: 0; 
-    min-width: 300px; /* Genişliği 250'den 300'e çıkardık */
-    padding: 5px 0; /* İç boşluk ekledik */
-}
-ul.navbar li ul.dropdown li a { 
-    padding: 15px 20px; 
-    text-align: center; /* İstersen left de yapabilirsin */
-    white-space: nowrap; /* Metinlerin alt satıra kaymasını engeller */
-    font-size: 16px;
-}
-    ul.navbar li a:hover { background: var(--poster-hover); }
-    ul.navbar li:hover ul.dropdown { display: block; }
+        ul.navbar li { display: inline-block; position: relative; }
+        ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
+        ul.navbar li ul.dropdown { 
+            top: 100%; 
+            background: var(--poster-orange); 
+            position: absolute; 
+            z-index: 1000; 
+            display: none; 
+            left: 0; 
+            min-width: 300px; 
+            padding: 5px 0; 
+        }
+        ul.navbar li ul.dropdown li a { 
+            padding: 15px 20px; 
+            text-align: center; 
+            white-space: nowrap; 
+            font-size: 16px;
+        }
+        ul.navbar li a:hover { background: var(--poster-hover); }
+        ul.navbar li:hover ul.dropdown { display: block; }
         .logo-container { margin-left: auto; }
         .logo-wrapper { display: flex; align-items: center; gap: 10px; }
         .logo { height: auto; width: 100px }
         .logo-text { color: white; font-size: 24px; font-weight: bold; font-family: monospace; letter-spacing: 1px; }
         
-
         /* ANA BAŞLIK */
         .basbaslik {
             position: relative;
@@ -94,7 +91,7 @@ ul.navbar li ul.dropdown li a {
             font-size: 56px;
             font-weight: 400;
             z-index: 1001;
-            font-family: 'Rubik Dirt', cursive; /* Grunge Font Uygulandı */
+            font-family: 'Rubik Dirt', cursive; 
             letter-spacing: 3px;
         }
 
@@ -136,10 +133,7 @@ ul.navbar li ul.dropdown li a {
             transition: all 0.3s ease;
         }
 
-        .filtre-btn:hover {
-            background: rgba(223, 90, 0, 0.15);
-        }
-
+        .filtre-btn:hover { background: rgba(223, 90, 0, 0.15); }
         .filtre-btn.aktif {
             background: var(--poster-orange);
             color: #fff;
@@ -196,9 +190,7 @@ ul.navbar li ul.dropdown li a {
             transition: transform 0.4s ease;
         }
 
-        .haber-karti:hover .haber-gorsel-alani img {
-            transform: scale(1.05);
-        }
+        .haber-karti:hover .haber-gorsel-alani img { transform: scale(1.05); }
 
         .kaynak-etiketi {
             position: absolute;
@@ -267,13 +259,8 @@ ul.navbar li ul.dropdown li a {
             padding: 0;
         }
 
-        .haber-link.devam-btn i {
-            transition: transform 0.3s ease;
-        }
-
-        .haber-link.devam-btn.acik i {
-            transform: rotate(90deg);
-        }
+        .haber-link.devam-btn i { transition: transform 0.3s ease; }
+        .haber-link.devam-btn.acik i { transform: rotate(90deg); }
 
         .haber-devam {
             max-height: 0;
@@ -285,7 +272,7 @@ ul.navbar li ul.dropdown li a {
         }
 
         .haber-devam.acik {
-            max-height: 500px;
+            max-height: 2000px; /* Çok uzun yazılar için limit artırıldı */
             margin-top: 12px;
         }
 
@@ -295,14 +282,9 @@ ul.navbar li ul.dropdown li a {
         .hamburger{display: none;}
         
         @media (max-width: 1050px) {
-            .team-page-container { max-width: 90%; margin-top: 30px; }
-            .about-block { flex-direction: column  !important; text-align: center;  }
-            .about-block .text { padding: 20px; max-width: 100%; }
-            .member-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
             .haber-paneli { grid-template-columns: repeat(2, 1fr); }
         }
 
-        /* 2. Telefonlar (768px altı) */
         .hamburger {
             display: flex;
             font-size: 26px;
@@ -332,19 +314,8 @@ ul.navbar li ul.dropdown li a {
                 padding: 10px 15px;
                 height: 70px;
             }
-
-            .logo-container {
-                margin: 0;
-                width: auto;
-                order: 0;
-            }
-
-            .logo-wrapper {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-
+            .logo-container { margin: 0; width: auto; order: 0; }
+            .logo-wrapper { display: flex; align-items: center; gap: 8px; }
             .hamburger {
                 display: block !important;
                 font-size: 24px;
@@ -353,62 +324,14 @@ ul.navbar li ul.dropdown li a {
                 padding: 10px;
                 order: 2; 
             }
-
             ul.navbar li:not(.logo-container) {
                 display: none;
                 width: 100%;
                 text-align: center;
                 background: var(--poster-orange);
             }
-
             ul.navbar.open { height: auto; }
             ul.navbar.open li:not(.logo-container) { display: block; }
-
-            .ikonlar {
-                position: absolute !important;
-                top: 100px;    
-                right: 15px !important; 
-                left: auto !important;  
-                display: flex !important;
-                flex-direction: row;    
-                gap: 15px;      
-                width: auto !important; 
-            }
-
-            .ikonlar a { font-size: 35px; }
-
-            .hero-section {
-                min-height: auto !important;
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .baslik {
-                position: relative !important;
-                top: 0 !important;
-                left: 0 !important;
-                transform: none !important;
-                font-size: 26px;
-                margin-top: 20px;
-                width: 100%;
-            }
-
-            .aciklama {
-                position: relative !important;
-                top: 0 !important;
-                left: 0 !important;
-                transform: none !important;
-                width: 100% !important;
-                margin: 15px auto !important;
-                font-size: 15px;
-                padding: 0 10px;
-            }
-
-            .haribo{ height: auto; width: 125px; left: 30px; }
-
             .logo-container { 
                 margin: 10px 0; 
                 order: -1; 
@@ -418,18 +341,6 @@ ul.navbar li ul.dropdown li a {
             }
             .logo-text { color: white; font-size: 20px; font-weight: bold; font-family: monospace; white-space: nowrap; }
             .logo-wrapper { display: flex; align-items: center; gap: 10px; width: 100%; flex-wrap: nowrap; justify-content: flex-start; }
-
-            h1 { font-size: 24px; letter-spacing: 2px; margin-bottom: 30px; }
-            h2 { font-size: 20px; }
-
-            .member-grid { grid-template-columns: 1fr 1fr; gap: 15px; }
-            .member-card img { width: 70px; height: 70px; }
-            .member-card h4 { font-size: 14px; }
-            .timeline-container::after { left: 20px; } 
-            .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; left: 0 !important; }
-            body { overflow-x: hidden; }
-
-            /* Başlık Mobilde Uyumlu */
             .basbaslik { font-size: 42px; padding-top: 30px; }
             .haber-paneli { grid-template-columns: 1fr; width: 88%; }
             .filtre-btn { padding: 8px 16px; font-size: 13px; }
@@ -443,12 +354,12 @@ ul.navbar li ul.dropdown li a {
         <li><a href="haberler.html">HABERLER</a></li>
         <li><a href="sponsorlar.html">SPONSORLAR</a></li>
       <li><a href="#">YARIŞMALAR</a>
-    <ul class="dropdown">
-        <li><a href="yarismalar.html#erc" target="_blank">EUROPEAN ROVER CHALLENGE</a></li>
-        <li><a href="yarismalar.html#arc" target="_blank">ANATOLIAN ROVER CHALLENGE</a></li>
-        <li><a href="yarismalar.html#teknofest" target="_blank">TEKNOFEST</a></li>
-    </ul>
-</li>
+        <ul class="dropdown">
+            <li><a href="yarismalar.html#erc" target="_blank">EUROPEAN ROVER CHALLENGE</a></li>
+            <li><a href="yarismalar.html#arc" target="_blank">ANATOLIAN ROVER CHALLENGE</a></li>
+            <li><a href="yarismalar.html#teknofest" target="_blank">TEKNOFEST</a></li>
+        </ul>
+      </li>
         <li><a href="takımımız.html">TAKIMIMIZ</a></li>
         <li><a href="bizeulas.html">İLETİŞİM</a></li>
         <li class="logo-container">
@@ -459,7 +370,6 @@ ul.navbar li ul.dropdown li a {
             </div>
         </li>
     </ul>
- 
 
     <div class="basbaslik">HABERLER</div>
     <div class="altbaslik">Instagram paylaşımlarımız ve takımdan son gelişmeler</div>
@@ -484,38 +394,43 @@ ul.navbar li ul.dropdown li a {
                 const panel = document.querySelector('.haber-paneli');
                 panel.innerHTML = ''; 
                 
-                // Eğer JSON yapısı bir obje içindeyse onu al, değilse direkt listeyi kullan
                 const haberler = data.haberler_listesi ? data.haberler_listesi : data;
 
                 haberler.forEach(haber => {
-                    // Resim yolundaki root sorununu çözen ufak ekleme
+                    // Resim yolunu düzeltme
                     let resimYolu = haber.image || '';
                     if (resimYolu.startsWith('/')) {
                         resimYolu = resimYolu.substring(1); 
                     }
 
-                    // Uzun yazının JSON'daki adını garantiye alıyoruz (CMS'deki field ismi neyse onu bulur)
-                    let uzunYazi = haber.body || haber.icerik || haber.content || haber.text || '';
-                    
-                    let butonVeIcerik = '';
-                    
+                    // Uzun Açıklama Mantığı (CMS'ten gelen yazıyı otomatik kesme)
+                    let tamAciklama = haber.description || '';
+                    let kisaAciklama = tamAciklama;
+                    let devamIcerik = haber.body || haber.icerik || haber.content || '';
+                    let butonGoster = false;
+
+                    // Eğer ayrı bir "body" girilmemişse AMA "description" (açıklama) 100 karakterden uzunsa:
+                    if (devamIcerik.trim() === '' && tamAciklama.length > 100) {
+                        // Yazıyı yaklaşık 100. karakterdeki boşluktan bölüyoruz
+                        let kesimNoktasi = tamAciklama.lastIndexOf(' ', 100);
+                        if (kesimNoktasi === -1) kesimNoktasi = 100;
+
+                        kisaAciklama = tamAciklama.substring(0, kesimNoktasi) + '...';
+                        devamIcerik = tamAciklama.substring(kesimNoktasi).trim(); // Yazının geri kalanı aşağıya gidecek
+                        butonGoster = true;
+                    } else if (devamIcerik.trim() !== '') {
+                        butonGoster = true;
+                    }
+
+                    // Link veya Buton Oluşturma
+                    let butonVeDevamHTML = '';
                     if (haber.link && haber.link.trim() !== '') {
-                        // Eğer CMS'den link girilmişse "Bağlantıya Git" butonu yap
-                        butonVeIcerik = `<a href="${haber.link}" target="_blank" class="haber-link">Bağlantıya Git <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
-                    } else if (uzunYazi.trim() !== '') {
-                        // Eğer CMS'den uzun metin girilmişse "Devamını oku" açılır butonu yap
-                        butonVeIcerik = `
+                        butonVeDevamHTML = `<a href="${haber.link}" target="_blank" class="haber-link">Bağlantıya Git <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+                    } else if (butonGoster) {
+                        butonVeDevamHTML = `
                             <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
                             <div class="haber-devam">
-                                <p>${uzunYazi}</p>
-                            </div>
-                        `;
-                    } else {
-                        // Eğer ne link ne de uzun metin yoksa, buton yine de çıksın ama boş kalmasın
-                        butonVeIcerik = `
-                            <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="haber-devam">
-                                <p>Detaylı bilgi eklenmemiştir.</p>
+                                <p>${devamIcerik}</p>
                             </div>
                         `;
                     }
@@ -529,8 +444,8 @@ ul.navbar li ul.dropdown li a {
                             <div class="haber-icerik">
                                 <span class="haber-tarih">📅 ${haber.date || ''}</span>
                                 <h3>${haber.title || ''}</h3>
-                                <p>${haber.description || ''}</p>
-                                ${butonVeIcerik}
+                                <p>${kisaAciklama}</p>
+                                ${butonVeDevamHTML}
                             </div>
                         </div>`;
                     panel.innerHTML += kart;
@@ -545,7 +460,6 @@ ul.navbar li ul.dropdown li a {
             e.preventDefault();
             const devamIcerik = linkEl.nextElementSibling;
             
-            // Eğer içerik yoksa hata vermemesi için kontrol
             if(!devamIcerik) return; 
 
             const acilacakMi = !devamIcerik.classList.contains('acik');
@@ -557,6 +471,7 @@ ul.navbar li ul.dropdown li a {
             yaziKismi.textContent = acilacakMi ? 'Daha az göster ' : 'Devamını oku ';
         }
 
+        // Filtreleme Fonksiyonu
         function filtrele(btn, tur) {
             document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('aktif'));
             btn.classList.add('aktif');
@@ -600,7 +515,6 @@ ul.navbar li ul.dropdown li a {
         hamburger.addEventListener('click', () => {
             navbar.classList.toggle('open');
         });
-
     </script>
 </body>
 </html>
