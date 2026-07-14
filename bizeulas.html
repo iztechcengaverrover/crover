@@ -297,12 +297,11 @@ ul.navbar li ul.dropdown li a {
     <section class="contact-wrapper">
         <div class="contact-form">
             <h2 class="contact-title">BİZE ULAŞIN</h2>
-            <form id="siyav" name="iletisim-formu" method="POST" data-netlify="true">
-                <input type="hidden" name="form-name" value="iletisim-formu" />
+           <form id="iletisim-formu" name="iletisim-formu">
                 <input type="text" name="ad-soyad" placeholder="Ad-Soyad" required />
                 <input type="email" name="eposta" placeholder="Geçerli e-posta adresi" required />
                 <textarea name="mesaj" rows="4" placeholder="Mesajınızı buraya yazın..." required></textarea>
-                <button type="submit">GÖNDER</button>
+                <button type="submit" id="gonder-btn">GÖNDER</button>
             </form>
         </div>
 
@@ -360,6 +359,35 @@ ul.navbar li ul.dropdown li a {
 
         hamburger.addEventListener('click', () => {
             navbar.classList.toggle('open');
+        });
+        // --- İLETİŞİM FORMU GOOGLE SHEETS BAĞLANTISI ---
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwtS0Va7TiEh8ELunMXmWz2QRIgZkt-G0IwVqHNOM2lqRFCzGynKz_VSkEDH4TIYqFETg/exec';
+        const form = document.getElementById('iletisim-formu');
+        const submitButton = document.getElementById('gonder-btn');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // Sayfanın yenilenmesini engeller
+            
+            // Kullanıcıya gönderiliyor mesajı ver
+            submitButton.textContent = 'GÖNDERİLİYOR...';
+            submitButton.disabled = true;
+            submitButton.style.opacity = '0.7';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    alert('Mesajınız takımımıza başarıyla iletildi!');
+                    submitButton.textContent = 'GÖNDER';
+                    submitButton.disabled = false;
+                    submitButton.style.opacity = '1';
+                    form.reset(); // Formun içini temizle
+                })
+                .catch(error => {
+                    alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
+                    submitButton.textContent = 'GÖNDER';
+                    submitButton.disabled = false;
+                    submitButton.style.opacity = '1';
+                    console.error('Hata!', error.message);
+                });
         });
     </script>
 </body>

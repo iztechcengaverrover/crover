@@ -153,6 +153,9 @@
             max-width: 1200px;
             z-index: 10;
             position: relative;
+            /* Bir kart "devamını oku" ile uzadığında yanındaki kartların
+               boşuna uzamasını (bozulmasını) engeller */
+            align-items: start;
         }
 
         .haber-karti {
@@ -238,7 +241,6 @@
             color: #c9c9c9;
             line-height: 1.6;
             margin-bottom: 15px;
-            flex-grow: 1;
             /* Boşluksuz uzun kelimelerin taşmasını engeller */
             word-wrap: break-word;
             overflow-wrap: break-word;
