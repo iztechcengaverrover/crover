@@ -228,6 +228,9 @@
             color: #fff;
             margin-bottom: 10px;
             line-height: 1.4;
+            /* Uzun başlıkların taşmasını engeller */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .haber-icerik p {
@@ -236,6 +239,9 @@
             line-height: 1.6;
             margin-bottom: 15px;
             flex-grow: 1;
+            /* Boşluksuz uzun kelimelerin taşmasını engeller */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .haber-link {
@@ -269,6 +275,9 @@
             font-size: 13px;
             color: #c9c9c9;
             line-height: 1.6;
+            /* Aşağı açılan kutuda boşluksuz uzun kelimelerin taşmasını engeller */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .haber-devam.acik {
