@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: iztechcengaverrover/crover
+  repo: iztechcengaverrover
   branch: main
   base_url: https://sveltia-cms-auth.somuncuyagiz7.workers.dev
 
