@@ -158,15 +158,81 @@ ul.navbar li ul.dropdown li a {
             font-weight: 800;
             font-size: 16px;
             cursor: pointer;
-            transition: 0.3s ease, transform 0.2s ease;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
             width: 100%;
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-form button:hover {
             background: var(--poster-hover);
             transform: translateY(-2px);
+        }
+
+        /* --- GÖNDER BUTONU DURUM EFEKTLERİ --- */
+        .contact-form button:disabled { cursor: not-allowed; }
+
+        /* Gönderiliyor: buton hafif nefes alır */
+        .contact-form button.gonderiliyor {
+            background: var(--poster-hover);
+            animation: nabiz 1.2s ease-in-out infinite;
+        }
+        @keyframes nabiz {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.65; }
+        }
+
+        /* Başarılı: buton yeşile döner ve parlar */
+        .contact-form button.basarili {
+            background: #1fa25a;
+            box-shadow: 0 0 25px rgba(31, 162, 90, 0.6);
+            animation: basari-ziplama 0.5s ease;
+        }
+        @keyframes basari-ziplama {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hata: buton kırmızıya döner ve sallanır */
+        .contact-form button.hatali {
+            background: #c0392b;
+            animation: sallanma 0.4s ease;
+        }
+        @keyframes sallanma {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-6px); }
+            75% { transform: translateX(6px); }
+        }
+
+        /* Başarı mesajı kutusu (form altında kayarak açılır) */
+        .form-mesaj {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 1.5;
+            animation: mesaj-kayma 0.5s ease;
+        }
+        .form-mesaj.goster { display: block; }
+        .form-mesaj.basari-kutu {
+            background: rgba(31, 162, 90, 0.15);
+            border: 1px solid rgba(31, 162, 90, 0.5);
+            color: #7be2ac;
+        }
+        .form-mesaj.hata-kutu {
+            background: rgba(192, 57, 43, 0.15);
+            border: 1px solid rgba(192, 57, 43, 0.5);
+            color: #ff9b8f;
+        }
+        @keyframes mesaj-kayma {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .contact-info {
@@ -301,7 +367,8 @@ ul.navbar li ul.dropdown li a {
                 <input type="text" name="ad-soyad" placeholder="Ad-Soyad" required />
                 <input type="email" name="eposta" placeholder="Geçerli e-posta adresi" required />
                 <textarea name="mesaj" rows="4" placeholder="Mesajınızı buraya yazın..." required></textarea>
-                <button type="submit" id="gonder-btn">GÖNDER</button>
+                <button type="submit" id="gonder-btn"><span>GÖNDER</span></button>
+                <div class="form-mesaj" id="form-mesaj"></div>
             </form>
         </div>
 
@@ -360,34 +427,61 @@ ul.navbar li ul.dropdown li a {
         hamburger.addEventListener('click', () => {
             navbar.classList.toggle('open');
         });
+
         // --- İLETİŞİM FORMU GOOGLE SHEETS BAĞLANTISI ---
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxejfvWTpmPLBrcnOxLGtToVMVlQjL5HsYsghJ_ndJ6v7Fr0f0lbnbtK66Qq5dkBl7PWQ/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzP6dxug6Gqmc-WZGoFSx45NYblS4uebkV9DhuGHip0rZcblCsN_8wJoEJgYf1Z-M-IYA/exec';
         const form = document.getElementById('iletisim-formu');
         const submitButton = document.getElementById('gonder-btn');
+        const btnText = submitButton.querySelector('span');
+        const formMesaj = document.getElementById('form-mesaj');
+
+        function butonuSifirla(gecikme) {
+            setTimeout(() => {
+                submitButton.classList.remove('gonderiliyor', 'basarili', 'hatali');
+                submitButton.disabled = false;
+                btnText.innerHTML = 'GÖNDER';
+            }, gecikme);
+        }
 
         form.addEventListener('submit', e => {
             e.preventDefault(); // Sayfanın yenilenmesini engeller
-            
-            // Kullanıcıya gönderiliyor mesajı ver
-            submitButton.textContent = 'GÖNDERİLİYOR...';
-            submitButton.disabled = true;
-            submitButton.style.opacity = '0.7';
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => {
-                    alert('Mesajınız takımımıza başarıyla iletildi!');
-                    submitButton.textContent = 'GÖNDER';
-                    submitButton.disabled = false;
-                    submitButton.style.opacity = '1';
-                    form.reset(); // Formun içini temizle
-                })
-                .catch(error => {
-                    alert('Bir hata oluştu. Lütfen daha sonra tekrar deneyin.');
-                    submitButton.textContent = 'GÖNDER';
-                    submitButton.disabled = false;
-                    submitButton.style.opacity = '1';
-                    console.error('Hata!', error.message);
-                });
+            // Gönderiliyor durumu
+            submitButton.disabled = true;
+            submitButton.classList.remove('basarili', 'hatali');
+            submitButton.classList.add('gonderiliyor');
+            btnText.innerHTML = '<i class="fa-solid fa-satellite-dish"></i> GÖNDERİLİYOR...';
+            formMesaj.classList.remove('goster', 'basari-kutu', 'hata-kutu');
+
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors', // Google Apps Script'e tarayıcıdan gönderim için gerekli
+                body: new FormData(form)
+            })
+            .then(() => {
+                // Başarılı durumu: buton yeşile döner, tik işareti çıkar
+                submitButton.classList.remove('gonderiliyor');
+                submitButton.classList.add('basarili');
+                btnText.innerHTML = '<i class="fa-solid fa-circle-check"></i> İLETİLDİ!';
+
+                formMesaj.textContent = '🚀 Mesajınız takımımıza başarıyla ulaştı! En kısa sürede dönüş yapacağız.';
+                formMesaj.classList.add('goster', 'basari-kutu');
+
+                form.reset();
+                butonuSifirla(3000); // 3 saniye sonra buton eski haline döner
+            })
+            .catch(error => {
+                // Hata durumu: buton kırmızıya döner ve sallanır
+                submitButton.classList.remove('gonderiliyor');
+                submitButton.classList.add('hatali');
+                btnText.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> HATA OLUŞTU';
+
+                formMesaj.textContent = 'Bir sorun oluştu. Lütfen daha sonra tekrar deneyin veya bize e-posta ile ulaşın.';
+                formMesaj.classList.add('goster', 'hata-kutu');
+
+                console.error('Hata!', error.message);
+                butonuSifirla(3000);
+            });
         });
     </script>
 </body>
