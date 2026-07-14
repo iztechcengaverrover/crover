@@ -487,12 +487,18 @@ ul.navbar li ul.dropdown li a {
                 // Eğer JSON yapısı bir obje içindeyse onu al, değilse direkt listeyi kullan
                 const haberler = data.haberler_listesi ? data.haberler_listesi : data;
 
-                haberler.forEach(haber => {
+              haberler.forEach(haber => {
+                    // Resim yolundaki root sorununu çözen ufak ekleme
+                    let resimYolu = haber.image || '';
+                    if (resimYolu.startsWith('/')) {
+                        resimYolu = resimYolu.substring(1); // Baştaki '/' işaretini siler
+                    }
+
                     const kart = `
                         <div class="haber-karti" data-tur="${haber.category || 'haber'}">
                             <div class="haber-gorsel-alani">
                                 <span class="kaynak-etiketi ${haber.category || ''}"><i class="fa-solid fa-newspaper"></i> ${haber.category || 'Haber'}</span>
-                               <img src="${haber.image}" alt="${haber.title}" onerror="this.src='resimler/varsayilan.png';">
+                                <img src="${resimYolu}" alt="${haber.title}">
                             </div>
                             <div class="haber-icerik">
                                 <span class="haber-tarih">📅 ${haber.date || ''}</span>
