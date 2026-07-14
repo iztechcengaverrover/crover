@@ -492,7 +492,7 @@ ul.navbar li ul.dropdown li a {
                         <div class="haber-karti" data-tur="${haber.category || 'haber'}">
                             <div class="haber-gorsel-alani">
                                 <span class="kaynak-etiketi ${haber.category || ''}"><i class="fa-solid fa-newspaper"></i> ${haber.category || 'Haber'}</span>
-                                <img src="${haber.image || ''}" alt="${haber.title}">
+                               <img src="${haber.image}" alt="${haber.title}" onerror="this.src='resimler/varsayilan.png';">
                             </div>
                             <div class="haber-icerik">
                                 <span class="haber-tarih">📅 ${haber.date || ''}</span>
@@ -550,6 +550,7 @@ ul.navbar li ul.dropdown li a {
         hamburger.addEventListener('click', () => {
             navbar.classList.toggle('open');
         });
+
     </script>
 </body>
 </html>
