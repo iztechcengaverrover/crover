@@ -478,7 +478,7 @@ ul.navbar li ul.dropdown li a {
 
     <script>
         // --- DINAMIK HABER YUKLEME ---
-        fetch('veri/haberler.json')
+        fetch('veri/haberler.json?v=' + new Date().getTime(), { cache: "no-store" })
             .then(response => response.json())
             .then(data => {
                 const panel = document.querySelector('.haber-paneli');
