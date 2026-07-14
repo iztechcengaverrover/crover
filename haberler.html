@@ -487,11 +487,27 @@ ul.navbar li ul.dropdown li a {
                 // Eğer JSON yapısı bir obje içindeyse onu al, değilse direkt listeyi kullan
                 const haberler = data.haberler_listesi ? data.haberler_listesi : data;
 
-              haberler.forEach(haber => {
+                haberler.forEach(haber => {
                     // Resim yolundaki root sorununu çözen ufak ekleme
                     let resimYolu = haber.image || '';
                     if (resimYolu.startsWith('/')) {
-                        resimYolu = resimYolu.substring(1); // Baştaki '/' işaretini siler
+                        resimYolu = resimYolu.substring(1); 
+                    }
+
+                    // --- AKILLI BUTON VE METİN SİSTEMİ ---
+                    let butonVeIcerik = '';
+                    
+                    if (haber.link && haber.link.trim() !== '') {
+                        // Eğer CMS'den link girilmişse "Habere Git" butonu yap
+                        butonVeIcerik = `<a href="${haber.link}" target="_blank" class="haber-link">Bağlantıya Git <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+                    } else if (haber.body && haber.body.trim() !== '') {
+                        // Eğer CMS'den uzun metin (body) girilmişse "Devamını oku" açılır butonu yap
+                        butonVeIcerik = `
+                            <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
+                            <div class="haber-devam">
+                                <p>${haber.body}</p>
+                            </div>
+                        `;
                     }
 
                     const kart = `
@@ -504,7 +520,7 @@ ul.navbar li ul.dropdown li a {
                                 <span class="haber-tarih">📅 ${haber.date || ''}</span>
                                 <h3>${haber.title || ''}</h3>
                                 <p>${haber.description || ''}</p>
-                                <a href="${haber.link || '#'}" target="_blank" class="haber-link">Devamını oku...</a>
+                                ${butonVeIcerik}
                             </div>
                         </div>`;
                     panel.innerHTML += kart;
@@ -513,6 +529,20 @@ ul.navbar li ul.dropdown li a {
             .catch(err => console.log('Haberler yüklenirken hata oluştu:', err));
 
         // --- DIGER FONKSIYONLAR ---
+        
+        // Açılır/Kapanır Metin Fonksiyonu
+        function devamAcKapa(e, linkEl) {
+            e.preventDefault();
+            const devamIcerik = linkEl.nextElementSibling;
+            const acilacakMi = !devamIcerik.classList.contains('acik');
+
+            devamIcerik.classList.toggle('acik');
+            linkEl.classList.toggle('acik');
+
+            const yaziKismi = linkEl.childNodes[0];
+            yaziKismi.textContent = acilacakMi ? 'Daha az göster ' : 'Devamını oku ';
+        }
+
         function filtrele(btn, tur) {
             document.querySelectorAll('.filtre-btn').forEach(b => b.classList.remove('aktif'));
             btn.classList.add('aktif');
