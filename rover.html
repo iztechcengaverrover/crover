@@ -34,10 +34,25 @@
     }
     
     /* --- MENÜ VE LOGO STİLLERİ --- */
-    ul.navbar { list-style: none; background-color: var(--poster-orange); display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
+     ul.navbar { list-style: none; background-color: var(--poster-orange); display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
     ul.navbar li { display: inline-block; position: relative; }
     ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
-    ul.navbar li ul.dropdown { top: 100%; background: var(--poster-orange); position: absolute; z-index: 1000; display: none; left: 0; min-width: 250px; }
+   ul.navbar li ul.dropdown { 
+    top: 100%; 
+    background: var(--poster-orange); 
+    position: absolute; 
+    z-index: 1000; 
+    display: none; 
+    left: 0; 
+    min-width: 300px; /* Genişliği 250'den 300'e çıkardık */
+    padding: 5px 0; /* İç boşluk ekledik */
+}
+ul.navbar li ul.dropdown li a { 
+    padding: 15px 20px; 
+    text-align: center; /* İstersen left de yapabilirsin */
+    white-space: nowrap; /* Metinlerin alt satıra kaymasını engeller */
+    font-size: 16px;
+}
     ul.navbar li a:hover { background: var(--poster-hover); }
     ul.navbar li:hover ul.dropdown { display: block; }
     .logo-container { margin-left: auto; }
@@ -90,6 +105,8 @@
             margin-bottom: 50px;
             position: relative;
             z-index: 10;
+            flex-wrap: wrap;
+            padding: 0 15px;
         }
 
         .tab-btn {
@@ -110,6 +127,20 @@
         .tab-btn.active {
             color: var(--poster-orange);
             border-bottom: 3px solid var(--poster-orange);
+        }
+
+        /* "Yeni" rozeti - TALOS sekmesi için */
+        .yeni-rozet {
+            display: inline-block;
+            background: var(--poster-orange);
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 10px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 1px;
         }
 
         /* Rover İçerik Alanı */
@@ -220,8 +251,8 @@
         <li><a href="sponsorlar.html">SPONSORLAR</a></li>
       <li><a href="#">YARIŞMALAR</a>
     <ul class="dropdown">
-        <li><a href="yarismalar.html#erc" target="_blank">EUROPEAN ROVER</a></li>
-        <li><a href="yarismalar.html#arc" target="_blank">ANATOLIAN ROVER</a></li>
+        <li><a href="yarismalar.html#erc" target="_blank">EUROPEAN ROVER CHALLENGE</a></li>
+        <li><a href="yarismalar.html#arc" target="_blank">ANATOLIAN ROVER CHALLENGE</a></li>
         <li><a href="yarismalar.html#teknofest" target="_blank">TEKNOFEST</a></li>
     </ul>
 </li>
@@ -244,12 +275,34 @@
 
     <!-- SEKMELER (TABS) -->
     <div class="rover-tabs">
-        <button class="tab-btn active" onclick="openRover(event, 'cengaver2')">CENGAVER 2.0:BARSOOM</button>
+        <button class="tab-btn active" onclick="openRover(event, 'talos')">TALOS<span class="yeni-rozet">YENİ</span></button>
+        <button class="tab-btn" onclick="openRover(event, 'cengaver2')">CENGAVER 2.0:BARSOOM</button>
         <button class="tab-btn" onclick="openRover(event, 'cengaver1')">CENGAVER 1.0</button>
     </div>
 
+    <!-- TALOS -->
+    <div id="talos" class="rover-content active">
+        <div class="rover-image-wrapper">
+            <!-- Görsel yolunu kendi TALOS fotoğrafınızla değiştirin -->
+            <img src="soruisa.png" alt="TALOS">
+        </div>
+        <div class="rover-info">
+            <p class="rover-desc">
+                Üçüncü nesil roverımız TALOS, önceki iki aracımızdan edindiğimiz tüm saha tecrübesinin üzerine inşa edildi. Ocak 2026'da mekanik ve elektronik tasarımı tamamlanarak üretim sürecine geçildi. European Rover Challenge (ERC) hedefiyle geliştirilen TALOS'ta otonomi kabiliyeti, dayanıklılık ve görev esnekliği ön planda tutuluyor. Takımımız bünyesinde kabul edilen 5 adet TÜBİTAK 2209-A projesinin çıktıları da bu araca entegre ediliyor.
+            </p>
+            <ul class="tech-specs">
+                <li><span class="spec-title">Durum</span> <span class="spec-value">Üretimde (2026)</span></li>
+                <li><span class="spec-title">Hedef Yarışma</span> <span class="spec-value">European Rover Challenge (ERC)</span></li>
+                <li><span class="spec-title">Nesil</span> <span class="spec-value">3. Nesil Rover</span></li>
+                <li><span class="spec-title">Tasarım</span> <span class="spec-value">Mekanik & Elektronik Tasarım Tamamlandı (Ocak 2026)</span></li>
+                <li><span class="spec-title">Ar-Ge Desteği</span> <span class="spec-value">5x TÜBİTAK 2209-A Projesi</span></li>
+                <li><span class="spec-title">Yazılım Altyapısı</span> <span class="spec-value">ROS 2, Otonom Navigasyon</span></li>
+            </ul>
+        </div>
+    </div>
+
     <!-- CENGAVER 2.0 -->
-    <div id="cengaver2" class="rover-content active">
+    <div id="cengaver2" class="rover-content">
         <div class="rover-image-wrapper">
             <img src="resimler/barsoom.JPG" alt="Cengaver 2.0:BARSOOM">
         </div>

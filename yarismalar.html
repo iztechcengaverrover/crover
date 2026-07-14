@@ -35,7 +35,22 @@
     ul.navbar { list-style: none; background-color: var(--poster-orange); display: flex; justify-content: center; align-items: center; padding: 0 20px; position: sticky; top: 0; z-index: 1002; flex-wrap: wrap; height: auto;}
     ul.navbar li { display: inline-block; position: relative; }
     ul.navbar li a { display: block; padding: 20px 25px; color: aliceblue; text-decoration: none; text-align: center; font-size: 18px; font-weight: 600; }
-    ul.navbar li ul.dropdown { top: 100%; background: var(--poster-orange); position: absolute; z-index: 1000; display: none; left: 0; min-width: 250px; }
+   ul.navbar li ul.dropdown { 
+    top: 100%; 
+    background: var(--poster-orange); 
+    position: absolute; 
+    z-index: 1000; 
+    display: none; 
+    left: 0; 
+    min-width: 300px; /* Genişliği 250'den 300'e çıkardık */
+    padding: 5px 0; /* İç boşluk ekledik */
+}
+ul.navbar li ul.dropdown li a { 
+    padding: 15px 20px; 
+    text-align: center; /* İstersen left de yapabilirsin */
+    white-space: nowrap; /* Metinlerin alt satıra kaymasını engeller */
+    font-size: 16px;
+}
     ul.navbar li a:hover { background: var(--poster-hover); }
     ul.navbar li:hover ul.dropdown { display: block; }
     .logo-container { margin-left: auto; }
@@ -353,6 +368,43 @@
       border: 0;
     }
 
+    /* --- RESMİ SİTE BUTONU --- */
+    .resmi-site-alani {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .resmi-site-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 35px;
+      background: var(--poster-orange);
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 999px;
+      box-shadow: 0 0 20px rgba(223, 90, 0, 0.35);
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .resmi-site-btn i {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+
+    .resmi-site-btn:hover {
+      background: var(--poster-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 0 35px rgba(223, 90, 0, 0.55);
+    }
+
+    .resmi-site-btn:hover i {
+      transform: translateX(4px);
+    }
+
     /* Bölümler arası ayraç */
     .bolum-ayrac {
       width: 90%;
@@ -403,6 +455,7 @@
       .yarisma-icerik { padding: 25px; }
       .foto-galeri { grid-template-columns: 1fr 1fr; }
       .basari-grid { flex-direction: column; }
+      .resmi-site-btn { padding: 13px 25px; font-size: 12px; }
     }
 
     @media (max-width: 480px) {
@@ -426,9 +479,9 @@
         <li><a href="sponsorlar.html">SPONSORLAR</a></li>
       <li><a href="#">YARIŞMALAR</a>
     <ul class="dropdown">
-        <li><a href="yarismalar.html#erc" target="_blank">EUROPEAN ROVER</a></li>
-        <li><a href="yarismalar.html#arc" target="_blank">ANATOLIAN ROVER</a></li>
-        <li><a href="yarismalar.html#teknofest" target="_blank">TEKNOFEST</a></li>
+        <li><a href="yarismalar.html#erc" target="_blank">EUROPEAN ROVER CHALLENGE</a></li>
+        <li><a href="yarismalar.html#arc" target="_blank">ANATOLIAN ROVER CHALLENGE</a></li>
+        <li><a href="yarismalar.html#teknofest" target="_blank">TEKNOFEST           </a></li>
     </ul>
 </li>
         <li><a href="takımımız.html">TAKIMIMIZ</a></li>
@@ -456,8 +509,8 @@
       <p class="alt">Başarılarımız & Görev Kayıtlarımız</p>
 
       <div class="gorev-serit">
-        <a href="#arc" class="gorev-rozet"><i class="fa-solid fa-mountain"></i> ANATOLIAN ROVER</a>
-        <a href="#erc" class="gorev-rozet"><i class="fa-solid fa-earth-europe"></i> EUROPEAN ROVER</a>
+        <a href="#arc" class="gorev-rozet"><i class="fa-solid fa-mountain"></i> ANATOLIAN ROVER CHALLENGE</a>
+        <a href="#erc" class="gorev-rozet"><i class="fa-solid fa-earth-europe"></i> EUROPEAN ROVER CHALLENGE</a>
         <a href="#teknofest" class="gorev-rozet"><i class="fa-solid fa-rocket"></i> TEKNOFEST</a>
       </div>
     </section>
@@ -465,17 +518,18 @@
     <!-- ============ ARC BÖLÜMÜ ============ -->
     <section class="yarisma-section" id="arc">
       <div class="yarisma-head">
-        <span class="gorev-etiket">Görev 01 · Türkiye · 2023 & 2024</span>
+        <span class="gorev-etiket">Görev 01 · Uluslararası · Türkiye Ev Sahipliğinde · 2023 & 2024</span>
         <h2>ANATOLIAN ROVER <span>CHALLENGE</span></h2>
       </div>
 
       <div class="yarisma-icerik">
         <p class="aciklama">
-          Anatolian Rover Challenge (ARC), takımımızın uluslararası arenadaki ilk durağı oldu.
-          2023 yılında ilk prototipimiz Cengaver 1.0 ile sahaya çıkarak ilk bilimsel görevlerimizi
-          tamamladık ve paha biçilmez saha tecrübesi kazandık. 2024'te ise Cengaver 2.0 "Barsoom"
-          ile geri döndük ve önceki yıldan edindiğimiz derslerle final etabına kalan 20 takım
-          arasında 7.'lik elde ettik.
+          Türkiye'nin ev sahipliğinde düzenlenen ve dünyanın dört bir yanından üniversite
+          takımlarını buluşturan uluslararası Anatolian Rover Challenge (ARC), takımımızın
+          global arenadaki ilk durağı oldu. 2023 yılında ilk prototipimiz Cengaver 1.0 ile
+          sahaya çıkarak ilk bilimsel görevlerimizi tamamladık ve paha biçilmez saha tecrübesi
+          kazandık. 2024'te ise Cengaver 2.0 "Barsoom" ile geri döndük ve önceki yıldan
+          edindiğimiz derslerle final etabına kalan 20 uluslararası takım arasında 7.'lik elde ettik.
         </p>
 
         <div class="basari-grid">
@@ -494,7 +548,6 @@
         </div>
 
         <h3 class="galeri-baslik"><i class="fa-solid fa-camera"></i> SAHADAN KARELER</h3>
-        <!-- Fotoğraf yollarını kendi görsellerinizle değiştirin -->
         <div class="foto-galeri">
           <div class="foto-kart"><img src="arc/erc/arc1.jpeg" alt="ARC yarışmasından bir kare"></div>
           <div class="foto-kart"><img src="arc/erc/arc2.jpg" alt="ARC sahasında Cengaver rover"></div>
@@ -503,8 +556,13 @@
 
         <h3 class="video-baslik"><i class="fa-brands fa-youtube"></i> ARC BAŞVURU VİDEOMUZ</h3>
         <div class="video-cerceve">
-          <!-- VIDEO_ID_ARC yazan yeri kendi YouTube video ID'nizle değiştirin -->
           <iframe src="https://www.youtube.com/embed/PiQB8ZuUO5E" title="ARC Başvuru Videosu" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="resmi-site-alani">
+          <a href="https://www.anatolianrover.space/" target="_blank" class="resmi-site-btn">
+            <i class="fa-solid fa-globe"></i> ARC RESMİ SİTESİ <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -533,8 +591,8 @@
             <span class="kucuk">3. Nesil Roverımız · Üretimde</span>
           </div>
           <div class="basari-kart">
-            <span class="buyuk">2026</span>
-            <span class="kucuk">Tasarım Tamamlandı · Ocak</span>
+            <span class="buyuk">2026-</span>
+            <span class="kucuk">Tasarım Devam Ediyor</span>
           </div>
           <div class="basari-kart">
             <span class="buyuk">ERC</span>
@@ -543,7 +601,6 @@
         </div>
 
         <h3 class="galeri-baslik"><i class="fa-solid fa-camera"></i> HAZIRLIK SÜRECİNDEN KARELER</h3>
-        <!-- Fotoğraf yollarını kendi görsellerinizle değiştirin -->
         <div class="foto-galeri">
           <div class="foto-kart"><img src="arc/erc/erc1.webp" alt="ERC hazırlıklarından bir kare"></div>
           <div class="foto-kart"><img src="arc/erc/erc2.jpeg" alt="TALOS rover üretim süreci"></div>
@@ -552,8 +609,13 @@
 
         <h3 class="video-baslik"><i class="fa-brands fa-youtube"></i> ERC BAŞVURU VİDEOMUZ</h3>
         <div class="video-cerceve">
-          <!-- VIDEO_ID_ERC yazan yeri kendi YouTube video ID'nizle değiştirin -->
           <iframe src="https://www.youtube.com/embed/kDhqJwkylJ8" title="ERC Başvuru Videosu" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <div class="resmi-site-alani">
+          <a href="https://roverchallenge.eu/" target="_blank" class="resmi-site-btn">
+            <i class="fa-solid fa-globe"></i> ERC RESMİ SİTESİ <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
@@ -592,11 +654,16 @@
         </div>
 
         <h3 class="galeri-baslik"><i class="fa-solid fa-camera"></i> TEKNOFEST KARELERİ</h3>
-        <!-- Fotoğraf yollarını kendi görsellerinizle değiştirin -->
         <div class="foto-galeri">
-          <div class="foto-kart"><img src="arc/erc/tekno241.jpeg" alt="TEKNOFEST'ten bir kare"></div>
+          <div class="foto-kart"><img src="arc/erc/tekno1.jpg" alt="TEKNOFEST'ten bir kare"></div>
           <div class="foto-kart"><img src="arc/erc/tekno2.jpg" alt="TEKNOFEST standımız"></div>
-          <div class="foto-kart"><img src="resimle" alt="TEKNOFEST'te takımımız"></div>
+          <div class="foto-kart"><img src="arc/erc/tekno3.jpg" alt="TEKNOFEST'te takımımız"></div>
+        </div>
+
+        <div class="resmi-site-alani">
+          <a href="https://www.teknofest.org/tr/" target="_blank" class="resmi-site-btn">
+            <i class="fa-solid fa-globe"></i> TEKNOFEST RESMİ SİTESİ <i class="fa-solid fa-arrow-right"></i>
+          </a>
         </div>
       </div>
     </section>
