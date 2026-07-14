@@ -94,6 +94,7 @@ ul.navbar li ul.dropdown li a {
             text-align: center; font-size: 3em; color: var(--poster-orange);
             margin-bottom: 60px; text-transform: uppercase; font-family: 'Rubik Dirt', cursive;
             font-weight: 400; letter-spacing: 3px; border-bottom: 2px solid rgba(223, 90, 0, 0.2); padding-bottom: 20px;
+            word-wrap: break-word; overflow-wrap: break-word;
         }
 
         h2 {
@@ -204,6 +205,46 @@ ul.navbar li ul.dropdown li a {
       .uye-basvuru-badge .oval-ic span { font-size: 9px; }
       
       body { overflow-x: hidden; }
+
+      /* --- SPONSOR SAYFASI MOBİL AYARLARI --- */
+      .sponsors-page { margin: 30px auto 60px auto; padding: 0 15px; }
+
+      h1 {
+          font-size: 1.7em;          /* Başlık ekrana sığacak boyuta indirildi */
+          letter-spacing: 1px;
+          margin-bottom: 35px;
+          padding-bottom: 15px;
+      }
+
+      h2 {
+          font-size: 1.3em;
+          margin-top: 40px;
+          margin-bottom: 20px;
+          padding-left: 12px;
+          border-left-width: 4px;
+      }
+
+      .tier-section { padding: 15px; margin-bottom: 25px; }
+      .tier-section h3 { font-size: 1.1em; letter-spacing: 1px; margin-bottom: 15px; }
+
+      /* Mobilde logolar yan yana 2 sütun, daha kompakt kartlar */
+      .sponsor-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+      }
+
+      .sponsor-card {
+          padding: 15px;
+          min-height: 100px;
+      }
+
+      .sponsor-card img { max-height: 60px; }
+    }
+
+    /* Çok küçük ekranlarda (küçük telefonlar) başlığı biraz daha küçült */
+    @media (max-width: 380px) {
+      h1 { font-size: 1.4em; }
+      .sponsor-grid { grid-template-columns: 1fr; }
     }
     </style>
 </head>
@@ -243,7 +284,8 @@ ul.navbar li ul.dropdown li a {
             <div class="tier-section">
                 <h3> ⚪ Gümüş Sponsor</h3>
                 <div class="sponsor-grid">
-                    <div class="sponsor-card"><img src="silver3.png" alt="Altın Sponsor"></div>
+                    <div class="sponsor-card"><img src="silver3.png" alt="Gümüş Sponsor"></div>
+                    <div class="sponsor-card"><img src="resimler/iytesponsor.png" alt="Gümüş Sponsor"></div>
                 </div>
             </div>
             <div class="tier-section">
@@ -261,6 +303,8 @@ ul.navbar li ul.dropdown li a {
                 <div class="sponsor-card"><img src="bronz2.png" alt="Sponsor"></div>
                 <div class="sponsor-card"><img src="tenda-logo.png" alt="Sponsor"></div>
                 <div class="sponsor-card"><img src="bronz1.jpg" alt="Sponsor"></div>
+                <div class="sponsor-card"><img src="resimler/hubx.jpg" alt="Sponsor"></div>
+                <div class="sponsor-card"><img src="resimler/phina.png" alt="Sponsor"></div>
             </div>
         </section>
     </main>

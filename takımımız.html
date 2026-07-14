@@ -91,6 +91,22 @@ ul.navbar li ul.dropdown li a {
         .president-card h3 { font-size: 1.5em; color: #fff; margin-bottom: 5px; }
         .president-card p { font-size: 1em; color: var(--poster-orange); font-weight: 600; }
 
+        /* --- AKADEMİK DANIŞMAN KARTI --- */
+        .danisman-section { display: flex; justify-content: center; margin-bottom: 50px; }
+        .danisman-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--poster-orange);
+            padding: 35px 30px;
+            border-radius: 15px;
+            text-align: center;
+            width: 380px;
+            box-shadow: 0 0 25px rgba(223, 90, 0, 0.15);
+        }
+        .danisman-card img { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--poster-orange); margin-bottom: 15px; }
+        .danisman-card h3 { font-size: 1.5em; color: #fff; margin-bottom: 5px; }
+        .danisman-card .unvan { font-size: 1em; color: var(--poster-orange); font-weight: 600; margin-bottom: 8px; }
+        .danisman-card .bolum { font-size: 0.9em; color: #aaa; line-height: 1.5; }
+
         .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; text-align: center; }
         .member-card { background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 20px; transition: 0.3s; border: 1px solid rgba(223, 90, 0, 0.2); }
         .member-card:hover { transform: translateY(-5px); border-color: var(--poster-orange); }
@@ -227,25 +243,36 @@ ul.navbar li ul.dropdown li a {
 
     <main class="team-page-container">
         <h1>TAKIMIMIZ</h1>
-        
+
+        <!-- AKADEMİK DANIŞMAN -->
+        <div class="danisman-section">
+            <div class="danisman-card">
+                <img src="gökhankiper.jpg" alt="Prof. Dr. Gökhan Kiper">
+                <h3>PROF. DR. GÖKHAN KİPER</h3>
+                <p class="unvan">AKADEMİK DANIŞMAN</p>
+                <p class="bolum">İYTE Makine Mühendisliği Bölümü</p>
+            </div>
+        </div>
+
         <div class="president-section">
             <div class="president-card">
                 <img src="cengaverekipp/yalınşen.png" alt="Başkan">
                 <h3>YALIN ŞEN</h3>
-                <p>TAKIM BAŞKANI</p>
+                <p>TAKIM KAPTANI</p>
             </div>
         </div>
 
         <section class="team-section">
             <h2>Elektronik Ekibi</h2>
             <div class="member-grid">
-                <div class="member-card"><img src=""><h4>İlke Uslu</h4><p>Ekip Lideri</p></div>
+                <div class="member-card"><img src="cengaverekipp/elektronik/ilkeuslu.jpeg"><h4>İlke Uslu</h4><p>Ekip Lideri</p></div>
                 <div class="member-card"><img src="cengaverekipp/elektronik/yagizsomuncu.jpg"><h4>Yağız Somuncu</h4><p>Ekip Üyesi</p></div>
                 <div class="member-card"><img src="cengaverekipp/elektronik/akiftalhaözdemir.jpeg"><h4>Akif Talha Özdemir</h4><p>Ekip Üyesi</p></div>
                 <div class="member-card"><img src="cengaverekipp/elektronik/Burakdarıcı.jpeg"><h4>Burak Darıcı</h4><p>Ekip Üyesi</p></div>
                 <div class="member-card"><img src="cengaverekipp/elektronik/elifsuçörtük.jpeg"><h4>Elifsu Çörtük</h4><p>Ekip Üyesi</p></div>
                 <div class="member-card"><img src="cengaverekipp/elektronik/emirdündar.jpeg"><h4>Emir Dündar</h4><p>Ekip Üyesi</p></div>
                 <div class="member-card"><img src="cengaverekipp/elektronik/mertkurt.jpeg"><h4>Mert Kurt</h4><p>Ekip Üyesi</p></div>
+                <div class="member-card"><img src="cengaverekipp/elektronik/yusufselimurhan.jpeg"><h4>Yusuf Selim Urhan</h4><p>Ekip Üyesi</p></div>
                 <!-- Diğer üyeler... -->
             </div>
         </section>
@@ -263,6 +290,7 @@ ul.navbar li ul.dropdown li a {
                 <div class="member-card"><img src="cengaverekipp/yazılım/"><h4>Dena Vafadar Afshar</h4><p>Ekip Lideri</p></div>
                 <div class="member-card"><img src="cengaverekipp/yazılım/iremgünaydın.jpeg"><h4>İrem Günaydın</h4><p>Ekip Üyesi</p></div>
                 <div class="member-card"><img src="cengaverekipp/yazılım/nesligözdeönay.jpeg"><h4>Nesli Gözde Önay</h4><p>Ekip Üyesi</p></div>
+                <div class="member-card"><img src="cengaverekipp/yazılım/asyatürkyaman.jpeg"><h4>Asya Türkyaman</h4><p>Ekip Üyesi</p></div>
                 <!-- Diğer üyeler... -->
             </div>
         </section>
@@ -279,15 +307,15 @@ ul.navbar li ul.dropdown li a {
             <h2>Sosyal medya Ekibi</h2>
             <div class="member-grid">
                 <div class="member-card"><img src="cengaverekipp/sosyal medya/"><h4></h4><p>Ekip Lideri</p></div>
-                <div class="member-card"><img src="resimler/e2.jpg"><h4></h4><p>Ekip Üyesi</p></div>
+                <div class="member-card"><img src="cengaverekipp/sosyal medya/selin ovalıoglu.jpeg"><h4></h4><p>Selin Ovalıoğlu</p></div>
                 <!-- Diğer üyeler... -->
             </div>
         </section>
         <section class="team-section">
             <h2>Bilim Ekibi</h2>
             <div class="member-grid">
-                <div class="member-card"><img src="resimler/e1.webp"><h4></h4><p>Ekip Lideri</p></div>
-                <div class="member-card"><img src="resimler/e2.jpg"><h4></h4><p>Ekip Üyesi</p></div>
+                <div class="member-card"><img src="cengaverekipp/bilim/mertbay.jpeg"><h4>Mert Bay</h4><p>Ekip Lideri</p></div>
+                <div class="member-card"><img src="cengaverekipp/bilim/duruecegöz.jpeg"><h4>Duru Ece Göz</h4><p>Ekip Üyesi</p></div>
                 <!-- Diğer üyeler... -->
             </div>
         </section>
@@ -300,7 +328,7 @@ ul.navbar li ul.dropdown li a {
               <div class="galeri-item"><img src="rovergaleri/f2.jpeg"><div class="galeri-caption"></div></div>
                <div class="galeri-item"><img src="rovergaleri/f3.jpeg"><div class="galeri-caption"></div></div>
                 <div class="galeri-item"><img src="rovergaleri/f4.jpeg"><div class="galeri-caption"></div></div>
-                 <div class="galeri-item"><img src="foto3.png"><div class="galeri-caption"></div></div>
+                 
         </div>
     </main>
 

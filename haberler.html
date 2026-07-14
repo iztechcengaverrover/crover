@@ -278,10 +278,11 @@
             /* Aşağı açılan kutuda boşluksuz uzun kelimelerin taşmasını engeller */
             word-wrap: break-word;
             overflow-wrap: break-word;
+            /* CMS'ten gelen paragraf boşluklarını korur */
+            white-space: pre-line;
         }
 
         .haber-devam.acik {
-            max-height: 2000px; /* Çok uzun yazılar için limit artırıldı */
             margin-top: 12px;
         }
 
@@ -397,87 +398,108 @@
 
     <script>
         // --- DINAMIK HABER YUKLEME ---
+
+        // Metin içindeki özel karakterlerin (tırnak, <, > vb.) HTML'i bozmasını engeller
+        function guvenli(metin) {
+            return String(metin ?? '').replace(/[&<>"']/g, c => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+            }[c]));
+        }
+
         fetch('veri/haberler.json?v=' + new Date().getTime(), { cache: "no-store" })
             .then(response => response.json())
             .then(data => {
                 const panel = document.querySelector('.haber-paneli');
-                panel.innerHTML = ''; 
-                
                 const haberler = data.haberler_listesi ? data.haberler_listesi : data;
+                const kartlar = [];
 
                 haberler.forEach(haber => {
                     // Resim yolunu düzeltme
                     let resimYolu = haber.image || '';
                     if (resimYolu.startsWith('/')) {
-                        resimYolu = resimYolu.substring(1); 
+                        resimYolu = resimYolu.substring(1);
                     }
+
+                    // Metinleri güvenli hale getir
+                    const baslik = guvenli(haber.title);
+                    const tarih = guvenli(haber.date);
+                    const kategori = guvenli(haber.category || 'haber');
 
                     // Uzun Açıklama Mantığı (CMS'ten gelen yazıyı otomatik kesme)
-                    let tamAciklama = haber.description || '';
+                    let tamAciklama = (haber.description || '').trim();
+                    let devamIcerik = (haber.body || haber.icerik || haber.content || '').trim();
                     let kisaAciklama = tamAciklama;
-                    let devamIcerik = haber.body || haber.icerik || haber.content || '';
-                    let butonGoster = false;
+                    const KESME_SINIRI = 100;
 
-                    // Eğer ayrı bir "body" girilmemişse AMA "description" (açıklama) 100 karakterden uzunsa:
-                    if (devamIcerik.trim() === '' && tamAciklama.length > 100) {
-                        // Yazıyı yaklaşık 100. karakterdeki boşluktan bölüyoruz
-                        let kesimNoktasi = tamAciklama.lastIndexOf(' ', 100);
-                        if (kesimNoktasi === -1) kesimNoktasi = 100;
+                    if (tamAciklama.length > KESME_SINIRI) {
+                        // Açıklama uzunsa: ~100. karakterdeki boşluktan böl,
+                        // kalan kısmı "devamını oku" bölümüne aktar
+                        let kesim = tamAciklama.lastIndexOf(' ', KESME_SINIRI);
+                        if (kesim === -1) kesim = KESME_SINIRI;
 
-                        kisaAciklama = tamAciklama.substring(0, kesimNoktasi) + '...';
-                        devamIcerik = tamAciklama.substring(kesimNoktasi).trim(); // Yazının geri kalanı aşağıya gidecek
-                        butonGoster = true;
-                    } else if (devamIcerik.trim() !== '') {
-                        butonGoster = true;
+                        kisaAciklama = tamAciklama.substring(0, kesim) + '...';
+                        const kalan = tamAciklama.substring(kesim).trim();
+
+                        // Ayrıca body de girilmişse, ikisini birleştir
+                        devamIcerik = devamIcerik !== ''
+                            ? kalan + '\n\n' + devamIcerik
+                            : kalan;
                     }
 
-                    // Link veya Buton Oluşturma
-                    let butonVeDevamHTML = '';
-                    if (haber.link && haber.link.trim() !== '') {
-                        butonVeDevamHTML = `<a href="${haber.link}" target="_blank" class="haber-link">Bağlantıya Git <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
-                    } else if (butonGoster) {
-                        butonVeDevamHTML = `
+                    // Buton ve link oluşturma (uzun metin + link aynı kartta olabilir)
+                    let butonHTML = '';
+                    if (devamIcerik !== '') {
+                        butonHTML += `
                             <a href="#" class="haber-link devam-btn" onclick="devamAcKapa(event, this)">Devamını oku <i class="fa-solid fa-arrow-right"></i></a>
-                            <div class="haber-devam">
-                                <p>${devamIcerik}</p>
-                            </div>
-                        `;
+                            <div class="haber-devam">${guvenli(devamIcerik)}</div>`;
+                    }
+                    if (haber.link && haber.link.trim() !== '') {
+                        butonHTML += `<a href="${guvenli(haber.link)}" target="_blank" rel="noopener noreferrer" class="haber-link" style="margin-top:10px;">Bağlantıya Git <i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
                     }
 
-                    const kart = `
-                        <div class="haber-karti" data-tur="${haber.category || 'haber'}">
+                    // Kategoriye göre etiket ikonu
+                    const ikon = kategori === 'instagram' ? 'fa-brands fa-instagram' : 'fa-solid fa-newspaper';
+
+                    kartlar.push(`
+                        <div class="haber-karti" data-tur="${kategori}">
                             <div class="haber-gorsel-alani">
-                                <span class="kaynak-etiketi ${haber.category || ''}"><i class="fa-solid fa-newspaper"></i> ${haber.category || 'Haber'}</span>
-                                <img src="${resimYolu}" alt="${haber.title}">
+                                <span class="kaynak-etiketi ${kategori}"><i class="${ikon}"></i> ${kategori}</span>
+                                <img src="${guvenli(resimYolu)}" alt="${baslik}" loading="lazy">
                             </div>
                             <div class="haber-icerik">
-                                <span class="haber-tarih">📅 ${haber.date || ''}</span>
-                                <h3>${haber.title || ''}</h3>
-                                <p>${kisaAciklama}</p>
-                                ${butonVeDevamHTML}
+                                <span class="haber-tarih">📅 ${tarih}</span>
+                                <h3>${baslik}</h3>
+                                <p>${guvenli(kisaAciklama)}</p>
+                                ${butonHTML}
                             </div>
-                        </div>`;
-                    panel.innerHTML += kart;
+                        </div>`);
                 });
+
+                panel.innerHTML = kartlar.join('');
             })
             .catch(err => console.log('Haberler yüklenirken hata oluştu:', err));
 
         // --- DIGER FONKSIYONLAR ---
-        
-        // Açılır/Kapanır Metin Fonksiyonu
+
+        // Açılır/Kapanır Metin Fonksiyonu (yazı uzunluğuna göre dinamik animasyon)
         function devamAcKapa(e, linkEl) {
             e.preventDefault();
-            const devamIcerik = linkEl.nextElementSibling;
-            
-            if(!devamIcerik) return; 
+            const devam = linkEl.nextElementSibling;
+            if (!devam || !devam.classList.contains('haber-devam')) return;
 
-            const acilacakMi = !devamIcerik.classList.contains('acik');
+            const acilacak = !devam.classList.contains('acik');
 
-            devamIcerik.classList.toggle('acik');
-            linkEl.classList.toggle('acik');
+            if (acilacak) {
+                devam.classList.add('acik');
+                // Yazı ne kadar uzun olursa olsun tam yüksekliğine kadar açılır
+                devam.style.maxHeight = devam.scrollHeight + 'px';
+            } else {
+                devam.style.maxHeight = '0';
+                devam.classList.remove('acik');
+            }
 
-            const yaziKismi = linkEl.childNodes[0];
-            yaziKismi.textContent = acilacakMi ? 'Daha az göster ' : 'Devamını oku ';
+            linkEl.classList.toggle('acik', acilacak);
+            linkEl.childNodes[0].textContent = acilacak ? 'Daha az göster ' : 'Devamını oku ';
         }
 
         // Filtreleme Fonksiyonu
@@ -486,11 +508,7 @@
             btn.classList.add('aktif');
 
             document.querySelectorAll('.haber-karti').forEach(kart => {
-                if (tur === 'hepsi' || kart.getAttribute('data-tur') === tur) {
-                    kart.style.display = 'flex';
-                } else {
-                    kart.style.display = 'none';
-                }
+                kart.style.display = (tur === 'hepsi' || kart.getAttribute('data-tur') === tur) ? 'flex' : 'none';
             });
         }
     </script>
