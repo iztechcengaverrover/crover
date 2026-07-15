@@ -191,8 +191,23 @@ ul.navbar li ul.dropdown li a {
         }
         .form-header p { color: #fff; font-size: 16px; font-weight: 600; letter-spacing: 1px;}
 
+        /* En fazla 2 ekip uyarı notu */
+        .form-header .ekip-notu {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 16px;
+            background: rgba(223, 90, 0, 0.12);
+            border: 1px solid rgba(223, 90, 0, 0.4);
+            border-radius: 20px;
+            color: var(--poster-orange);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
         .input-group { margin-bottom: 25px; }
         .input-group label { display: block; margin-bottom: 8px; color: #fff; font-weight: 600; font-size: 14px; letter-spacing: 1px; }
+        .input-group label .opsiyonel { color: #888; font-weight: 400; font-size: 12px; text-transform: none; }
         
         .input-group input, .input-group select, .input-group textarea {
             width: 100%; padding: 15px; background: rgba(0, 0, 0, 0.6);
@@ -214,10 +229,11 @@ ul.navbar li ul.dropdown li a {
         }
         .submit-btn:hover { background: var(--poster-hover); transform: translateY(-2px); }
 
-        #loading-msg, #success-msg, #duplicate-msg { display: none; text-align: center; margin-top: 20px; font-weight: 600; }
+        #loading-msg, #success-msg, #duplicate-msg, #ayni-ekip-msg { display: none; text-align: center; margin-top: 20px; font-weight: 600; }
         #loading-msg { color: var(--poster-orange); }
         #success-msg { color: #00ff88; background: rgba(0, 255, 136, 0.1); padding: 15px; border-radius: 8px; border: 1px solid #00ff88;}
         #duplicate-msg { color: #ffb84d; background: rgba(255, 184, 77, 0.1); padding: 15px; border-radius: 8px; border: 1px solid #ffb84d; line-height: 1.5; }
+        #ayni-ekip-msg { color: #ff9b8f; background: rgba(192, 57, 43, 0.15); padding: 15px; border-radius: 8px; border: 1px solid rgba(192, 57, 43, 0.5); line-height: 1.5; }
 
         /* --- FORMA KAYDIRAN BUTON --- */
         .forma-git-btn {
@@ -314,11 +330,10 @@ ul.navbar li ul.dropdown li a {
     <!-- TANITIM METNİ -->
     <section class="intro-section">
         <h1>CENGAVER ROVER</h1>
-        <p class="rota">Rotamız belli: Ankara, Krakow, Utah!</p>
-        <p>Ulusal yarışmalardaki 2 yıllık tecrübemizi, uluslararası zaferlere dönüştürme zamanı!</p>
-        <p>Biz, farklı disiplinlerin ortak bir amaç için birleştiği bir takımız. Güçlü bir şasi olmadan yazılım, hassas devreler olmadan bilimsel analiz bir anlam ifade etmez. Bu yüzden mekanikten bilime, tasarımdan sponsorluğa her bir üyemiz başarımızın temel taşıdır.</p>
-        <p>İYTE'yi ve Türkiye'yi dünyada temsil etme heyecanını bizimle yaşamak, kendi alanında tarih yazmak istiyorsan, aramızda yerin hazır.</p>
-        <p class="cagri">Takımda yerini al, bu unutulmaz maceranın parçası ol!</p>
+        <p class="rota">Rotamız: Ankara, Krakow, Utah!</p>
+        <p>İki yıllık ulusal saha tecrübemizi, dünyanın en prestijli uzay ve robotik arenalarına taşıyoruz. Biz; sağlam bir mekaniğin, hatasız çalışan elektronik sistemlerin ve bilimsel titizliğin ortak bir vizyonda birleştiği bir ekibiz.</p>
+        <p>İYTE'yi ve ülkemizi global ölçekte temsil edeceğimiz bu iddialı mühendislik serüveninde sorumluluk alacak, problem çözme tutkusuyla ekibimize değer katacak yeni çalışma arkadaşları arıyoruz.</p>
+        <p class="cagri">Sınırlarını aşmaya ve bu vizyonun bir parçası olmaya hazırsan, başvurunu bekliyoruz!</p>
     </section>
 
     <!-- EKİP GEREKSİNİMLERİ (3'LÜ GRID) -->
@@ -402,6 +417,7 @@ ul.navbar li ul.dropdown li a {
         <div class="form-header">
             <h1>TAKIMA KATIL</h1>
             <p>Mars yolculuğunda bizimle yer almak için başvurunu yap.</p>
+            <span class="ekip-notu"><i class="fa-solid fa-circle-info"></i> En fazla 2 ekibe başvurulabilir.</span>
         </div>
 
         <form id="basvuru-formu">
@@ -422,9 +438,20 @@ ul.navbar li ul.dropdown li a {
                 <input type="text" id="bolum" name="bolum" placeholder="Örn: Makine Mühendisliği - 2. Sınıf" required>
             </div>
             <div class="input-group">
-                <label for="ekip">Katılmak İstediğiniz Ekip</label>
+                <label for="ekip">1. Ekip Tercihiniz</label>
                 <select id="ekip" name="ekip" required>
                     <option value="" disabled selected>Lütfen bir ekip seçin...</option>
+                    <option value="Yazılım">Yazılım Ekibi</option>
+                    <option value="Elektronik">Elektronik Ekibi</option>
+                    <option value="Mekanik">Mekanik Ekibi</option>
+                    <option value="Bilim">Bilim Ekibi</option>
+                    <option value="Sponsorluk ve Sosyal Medya">Sponsorluk & Sosyal Medya</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="ekip2">2. Ekip Tercihiniz <span class="opsiyonel">(Opsiyonel — dilerseniz boş bırakabilirsiniz)</span></label>
+                <select id="ekip2" name="ekip2">
+                    <option value="" selected>Yok / Sadece 1 ekibe başvuruyorum</option>
                     <option value="Yazılım">Yazılım Ekibi</option>
                     <option value="Elektronik">Elektronik Ekibi</option>
                     <option value="Mekanik">Mekanik Ekibi</option>
@@ -442,6 +469,7 @@ ul.navbar li ul.dropdown li a {
             <div id="loading-msg"><i class="fa-solid fa-spinner fa-spin"></i> Başvurunuz iletiliyor, lütfen bekleyin...</div>
             <div id="success-msg"><i class="fa-solid fa-circle-check"></i> Başvurunuz başarıyla alındı! İlgili ekip lideri sizinle iletişime geçecektir.</div>
             <div id="duplicate-msg"><i class="fa-solid fa-triangle-exclamation"></i> Bu e-posta adresiyle daha önce başvuru yapılmıştır. Her aday yalnızca bir kez başvurabilmektedir. Hatalı başvurular için iletişim sayfasından bize ulaşabilirsiniz.</div>
+            <div id="ayni-ekip-msg"><i class="fa-solid fa-triangle-exclamation"></i> 1. ve 2. ekip tercihiniz aynı olamaz. Lütfen farklı bir ekip seçin veya 2. tercihi boş bırakın.</div>
         </form>
     </div>
 
@@ -452,21 +480,42 @@ ul.navbar li ul.dropdown li a {
 
     <script>
         // --- 1. GOOGLE APPS SCRIPT BAĞLANTISI ---
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbybZjM_1aL7OmvzFxgbNmfeoMVwWyDP7-YaW-RW0jCvjB3xIUxsuS8sUEGtiC5HYIrO/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwA_kFIET0vnKYDRqcwjfzd9O_xiCc4cNNHR5BcZN7PX6D4gNZm0fdPqqXl2NqBM708/exec';
         
         const form = document.getElementById('basvuru-formu');
         const submitButton = document.getElementById('submit-button');
         const loadingMsg = document.getElementById('loading-msg');
         const successMsg = document.getElementById('success-msg');
         const duplicateMsg = document.getElementById('duplicate-msg');
+        const ayniEkipMsg = document.getElementById('ayni-ekip-msg');
+
+        // 2. tercih seçilince 1. tercihle aynı olmasını anlık engelle
+        const ekipSecim1 = document.getElementById('ekip');
+        const ekipSecim2 = document.getElementById('ekip2');
+
+        function ayniEkipKontrol() {
+            if (ekipSecim2.value !== '' && ekipSecim2.value === ekipSecim1.value) {
+                ayniEkipMsg.style.display = 'block';
+                return false;
+            }
+            ayniEkipMsg.style.display = 'none';
+            return true;
+        }
+
+        ekipSecim1.addEventListener('change', ayniEkipKontrol);
+        ekipSecim2.addEventListener('change', ayniEkipKontrol);
 
         form.addEventListener('submit', e => {
             e.preventDefault(); 
+
+            // Aynı ekip iki kez seçildiyse gönderme
+            if (!ayniEkipKontrol()) return;
             
             submitButton.style.display = 'none';
             loadingMsg.style.display = 'block';
             successMsg.style.display = 'none';
             duplicateMsg.style.display = 'none';
+            ayniEkipMsg.style.display = 'none';
 
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => response.json())
