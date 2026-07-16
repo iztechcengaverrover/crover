@@ -3,7 +3,7 @@
     {
       "title": "Yaz Dönemi Üye Alımları Başlamıştır!",
       "category": "haber",
-      "date": "16 July 2026",
+      "date": "14 July 2026",
       "description": "Rotamız belli: Ankara, Krakow, Utah! İYTE'yi ve Türkiye'yi dünyada temsil etme heyecanını bizimle yaşamak, kendi alanında tarih yazmak istiyorsan, aramızda yerin hazır. Takımda yerini al, bu unutulmaz maceranın parçası ol!",
       "image": "/resimler/images.png",
       "link": "https://cengaverrover.com.tr/basvuru.html"
@@ -11,10 +11,18 @@
     {
       "title": "CENGAVER ROVER SİTESİ KURULDU",
       "category": "haber",
-      "date": "16 July 2026",
+      "date": "14 July 2026",
       "description": "Uzay araştırmaları ve robotik alanındaki vizyonumuzu Dünya'dan Mars'a taşırken, bu heyecan verici yolculuğumuzu artık dijital dünyada da sizlerle paylaşıyoruz. Büyük bir özenle hazırladığımız resmi web sitemizin bugün itibarıyla yayına girdiğini duyurmaktan gurur duyuyoruz!\n\nCengaver Rover ailesi olarak, garajda başlayan hayallerimizin gerçeğe dönüşme serüvenini artık tek bir tıkla dünyayla paylaşıyoruz. Peki, yeni web sitemizde sizi neler bekliyor?\n\nRover'ımız: Aracımızın teknik yetenekleri, tasarım aşamaları ve görev algoritmalarına dair tüm detaylar.\n\nEkibimiz: Bu büyük hayale mühendislik zekası ve alın teriyle hayat veren takım üyelerimizle tanışma fırsatı.\n\nYolculuğumuz: Ulusal ve uluslararası yarışmalardaki hedeflerimiz, güncel haberlerimiz ve etkinlik takvimimiz.\n\nSponsorluk: Bizi destekleyen değerli partnerlerimiz ve \"Mars yolculuğunda ben de varım\" diyen yeni destekçilerimiz için sponsorluk dosyalarımız.\n\nÇalışmalarımızı daha yakından incelemek, uzay teknolojileri alanındaki vizyonumuza ortak olmak ve güncel gelişmelerden anında haberdar olmak için web sitemizi ziyaret etmeyi unutmayın.\n\nGezegen ötesi hedeflerimize ulaşırken yanımızda olduğunuz için teşekkür ederiz.",
       "image": "/resimler/Ekran görüntüsü 2026-07-14 224307.png",
       "link": "https://iztechcengaverrover.github.io/index.html"
+    },
+    {
+      "title": "Deneme",
+      "category": "haber",
+      "date": "16 July 2026",
+      "description": "Deneme",
+      "image": "/resimler/1000212074.jpg",
+      "link": ""
     }
   ]
 }
