@@ -26,3 +26,77 @@ collections:
               - {label: "Açıklama", name: "description", widget: "text"}
               - {label: "Görsel", name: "image", widget: "image"}
               - {label: "Link / Buton Yönlendirmesi (Varsa)", name: "link", widget: "string", required: false}
+
+               - name: "takim"
+    label: "Takım Üyeleri"
+    files:
+      - name: "takim_verisi"
+        label: "Takım Sayfası İçeriği"
+        file: "veri/takim.json"
+        fields:
+ 
+          - label: "Akademik Danışman"
+            name: "danisman"
+            widget: object
+            fields:
+              - { label: "Ad Soyad", name: "ad", widget: string }
+              - { label: "Ünvan", name: "unvan", widget: string, default: "AKADEMİK DANIŞMAN" }
+              - { label: "Bölüm", name: "bolum", widget: string, required: false }
+              - { label: "Fotoğraf", name: "foto", widget: image, required: false }
+ 
+          - label: "Takım Kaptanı"
+            name: "kaptan"
+            widget: object
+            fields:
+              - { label: "Ad Soyad", name: "ad", widget: string }
+              - { label: "Ünvan", name: "unvan", widget: string, default: "TAKIM KAPTANI" }
+              - { label: "Fotoğraf", name: "foto", widget: image, required: false }
+ 
+          - label: "Elektronik Ekibi"
+            name: "elektronik_ekibi"
+            widget: list
+            label_singular: "Üye"
+            summary: "{{fields.ad}} — {{fields.rol}}"
+            fields: &uye_alanlari
+              - { label: "Ad Soyad", name: "ad", widget: string, required: false }
+              - label: "Rolü"
+                name: "rol"
+                widget: select
+                options: ["Ekip Lideri", "Ekip Üyesi"]
+                default: "Ekip Üyesi"
+              - { label: "Fotoğraf", name: "foto", widget: image, required: false }
+ 
+          - label: "Mekanik Ekibi"
+            name: "mekanik_ekibi"
+            widget: list
+            label_singular: "Üye"
+            summary: "{{fields.ad}} — {{fields.rol}}"
+            fields: *uye_alanlari
+ 
+          - label: "Yazılım Ekibi"
+            name: "yazilim_ekibi"
+            widget: list
+            label_singular: "Üye"
+            summary: "{{fields.ad}} — {{fields.rol}}"
+            fields: *uye_alanlari
+ 
+          - label: "Sponsorluk Ekibi"
+            name: "sponsorluk_ekibi"
+            widget: list
+            label_singular: "Üye"
+            summary: "{{fields.ad}} — {{fields.rol}}"
+            fields: *uye_alanlari
+ 
+          - label: "Sosyal Medya Ekibi"
+            name: "sosyalmedya_ekibi"
+            widget: list
+            label_singular: "Üye"
+            summary: "{{fields.ad}} — {{fields.rol}}"
+            fields: *uye_alanlari
+ 
+          - label: "Bilim Ekibi"
+            name: "bilim_ekibi"
+            widget: list
+            label_singular: "Üye"
+            summary: "{{fields.ad}} — {{fields.rol}}"
+            fields: *uye_alanlari
