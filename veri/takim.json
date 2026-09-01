@@ -1,0 +1,44 @@
+{
+  "danisman": {
+    "ad": "Prof. Dr. Gökhan Kiper",
+    "unvan": "AKADEMİK DANIŞMAN",
+    "bolum": "İYTE Makine Mühendisliği Bölümü",
+    "foto": "cengaverekipp/gokhankiper.jpg"
+  },
+  "kaptan": {
+    "ad": "Yalın Şen",
+    "unvan": "TAKIM KAPTANI",
+    "foto": "cengaverekipp/yalınşen.png"
+  },
+  "elektronik_ekibi": [
+    { "ad": "İlke Uslu", "rol": "Ekip Lideri", "foto": "" },
+    { "ad": "Yağız Somuncu", "rol": "Ekip Üyesi", "foto": "cengaverekipp/elektronik/yagizsomuncu.jpg" },
+    { "ad": "Akif Talha Özdemir", "rol": "Ekip Üyesi", "foto": "cengaverekipp/elektronik/akiftalhaözdemir.jpeg" },
+    { "ad": "Burak Darıcı", "rol": "Ekip Üyesi", "foto": "cengaverekipp/elektronik/Burakdarıcı.jpeg" },
+    { "ad": "Elifsu Çörtük", "rol": "Ekip Üyesi", "foto": "cengaverekipp/elektronik/elifsuçörtük.jpeg" },
+    { "ad": "Emir Dündar", "rol": "Ekip Üyesi", "foto": "cengaverekipp/elektronik/emirdündar.jpeg" },
+    { "ad": "Mert Kurt", "rol": "Ekip Üyesi", "foto": "cengaverekipp/elektronik/mertkurt.jpeg" }
+  ],
+  "mekanik_ekibi": [
+    { "ad": "Efe Deniz Özdemir", "rol": "Ekip Lideri", "foto": "cengaverekipp/mekanik/efedenizözdemir.jpeg" },
+    { "ad": "Ahmet Yiğit Bingöl", "rol": "Ekip Üyesi", "foto": "cengaverekipp/mekanik/ahmet yiğit bingöl.jpeg" }
+  ],
+  "yazilim_ekibi": [
+    { "ad": "Dena Vafadar Afshar", "rol": "Ekip Lideri", "foto": "cengaverekipp/yazılım/" },
+    { "ad": "İrem Günaydın", "rol": "Ekip Üyesi", "foto": "cengaverekipp/yazılım/iremgünaydın.jpeg" },
+    { "ad": "Nesli Gözde Önay", "rol": "Ekip Üyesi", "foto": "cengaverekipp/yazılım/nesligözdeönay.jpeg" }
+  ],
+  "sponsorluk_ekibi": [
+    { "ad": "", "rol": "Ekip Lideri", "foto": "" },
+    { "ad": "Hikmet Baran Solak", "rol": "Ekip Üyesi", "foto": "cengaverekipp/sponsorluk/hikmetbaransolak.jpeg" },
+    { "ad": "Sevda Şimşek", "rol": "Ekip Üyesi", "foto": "cengaverekipp/sponsorluk/sevdaşimşek.jpeg" }
+  ],
+  "sosyalmedya_ekibi": [
+    { "ad": "", "rol": "Ekip Lideri", "foto": "cengaverekipp/sosyal medya/" },
+    { "ad": "", "rol": "Ekip Üyesi", "foto": "resimler/e2.jpg" }
+  ],
+  "bilim_ekibi": [
+    { "ad": "", "rol": "Ekip Lideri", "foto": "resimler/e1.webp" },
+    { "ad": "", "rol": "Ekip Üyesi", "foto": "resimler/e2.jpg" }
+  ]
+}
