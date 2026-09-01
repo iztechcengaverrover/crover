@@ -3,7 +3,7 @@
     "ad": "Prof. Dr. Gökhan Kiper",
     "unvan": "AKADEMİK DANIŞMAN",
     "bolum": "İYTE Makine Mühendisliği Bölümü",
-    "foto": "cengaverekipp/gokhankiper.jpg"
+    "foto": "/resimler/45_1698532253.jpg"
   },
   "kaptan": {
     "ad": "Yalın Şen",
@@ -50,6 +50,41 @@
       "ad": "Ece Akdin",
       "rol": "Ekip Üyesi",
       "foto": ""
+    },
+    {
+      "ad": "Mert İmece",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Bora Toker",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Hayrettin Umut Yılmaz",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Eren Uğur",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Mustafa Enes Güngör",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Hande Selen Ünsal",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Bekir Yasin Şenoğlu",
+      "rol": "Ekip Üyesi",
+      "foto": ""
     }
   ],
   "mekanik_ekibi": [
@@ -62,6 +97,46 @@
       "ad": "Ahmet Yiğit Bingöl",
       "rol": "Ekip Üyesi",
       "foto": "cengaverekipp/mekanik/ahmet yiğit bingöl.jpeg"
+    },
+    {
+      "ad": "Doğa Tankuş",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Çınar Güleryüz",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Eren Yeşil",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Ada Onur Okumuş",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Alaz Aytaş",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Kağan Tanyıldız",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Eylül Sıla Ortaç",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Gökberk Şener",
+      "rol": "Ekip Üyesi",
+      "foto": ""
     }
   ],
   "yazilim_ekibi": [
@@ -79,42 +154,112 @@
       "ad": "Nesli Gözde Önay",
       "rol": "Ekip Üyesi",
       "foto": "cengaverekipp/yazılım/nesligözdeönay.jpeg"
+    },
+    {
+      "ad": "Mehmet Bakırcıoğlu",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Serra Su Şahin",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Fırat Yıldırım",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Ceren Nur Arıkoğlu",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Abidin Zengin",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Ege Çetinkaptan",
+      "rol": "Ekip Üyesi",
+      "foto": ""
     }
   ],
   "sponsorluk_ekibi": [
     {
-      "ad": "",
-      "rol": "Ekip Lideri",
+      "ad": "Tuğba Akgül",
+      "rol": "Ekip Üyesi",
       "foto": ""
     },
     {
-      "ad": "Hikmet Baran Solak",
+      "ad": "Arda Mehmet Ateş",
       "rol": "Ekip Üyesi",
-      "foto": "cengaverekipp/sponsorluk/hikmetbaransolak.jpeg"
+      "foto": ""
     }
   ],
   "sosyalmedya_ekibi": [
     {
-      "ad": "",
+      "ad": "Asya Türkyaman",
       "rol": "Ekip Lideri",
-      "foto": "cengaverekipp/sosyal medya/"
+      "foto": "/resimler/WhatsApp Image 2026-07-14 at 18.23.17.jpeg"
     },
     {
-      "ad": "",
+      "ad": "Selin Ovalıoğlu",
       "rol": "Ekip Üyesi",
-      "foto": "resimler/e2.jpg"
+      "foto": ""
+    },
+    {
+      "ad": "Derin Kerman",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Meral Hayrünisa Yüksel",
+      "rol": "Ekip Üyesi",
+      "foto": ""
     }
   ],
   "bilim_ekibi": [
     {
-      "ad": "",
+      "ad": "Mert Bay",
       "rol": "Ekip Lideri",
       "foto": "resimler/e1.webp"
     },
     {
-      "ad": "",
+      "ad": "Duru Ece Göz",
       "rol": "Ekip Üyesi",
-      "foto": "resimler/e2.jpg"
+      "foto": ""
+    },
+    {
+      "ad": "Berra Dilsizler",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Simay Gürtoprak",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Elif Karaman",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Ceylin İrgit",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Efe Uysal",
+      "rol": "Ekip Üyesi",
+      "foto": ""
+    },
+    {
+      "ad": "Adar Yelgin",
+      "rol": "Ekip Üyesi",
+      "foto": ""
     }
   ]
 }
