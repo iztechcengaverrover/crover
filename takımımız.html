@@ -28,7 +28,7 @@
       width: 100%;
       min-height: 100vh;
       overflow-x: hidden;
-      background-color: #050505; /* Siyaha çok yakın karanlık ton */
+      background-color: #050505;
       background-attachment: fixed;
       color: #ddd;
     }
@@ -44,13 +44,13 @@
     z-index: 1000; 
     display: none; 
     left: 0; 
-    min-width: 300px; /* Genişliği 250'den 300'e çıkardık */
-    padding: 5px 0; /* İç boşluk ekledik */
+    min-width: 300px;
+    padding: 5px 0;
 }
 ul.navbar li ul.dropdown li a { 
     padding: 15px 20px; 
-    text-align: center; /* İstersen left de yapabilirsin */
-    white-space: nowrap; /* Metinlerin alt satıra kaymasını engeller */
+    text-align: center;
+    white-space: nowrap;
     font-size: 16px;
 }
     ul.navbar li a:hover { background: var(--poster-hover); }
@@ -246,80 +246,48 @@ ul.navbar li ul.dropdown li a {
     <main class="team-page-container">
         <h1>TAKIMIMIZ</h1>
 
-        <!-- AKADEMİK DANIŞMAN -->
+        <!-- AKADEMİK DANIŞMAN: içerik artık JS ile veri/takim.json'dan dolduruluyor -->
         <div class="danisman-section">
             <div class="danisman-card">
-                <img src="gökhankiper.jpg" alt="Prof. Dr. Gökhan Kiper">
-                <h3>PROF. DR. GÖKHAN KİPER</h3>
-                <p class="unvan">AKADEMİK DANIŞMAN</p>
-                <p class="bolum">İYTE Makine Mühendisliği Bölümü</p>
+                <img id="danisman-foto" src="" alt="Akademik Danışman">
+                <h3 id="danisman-ad"></h3>
+                <p class="unvan" id="danisman-unvan"></p>
+                <p class="bolum" id="danisman-bolum"></p>
             </div>
         </div>
 
+        <!-- TAKIM KAPTANI: içerik artık JS ile veri/takim.json'dan dolduruluyor -->
         <div class="president-section">
             <div class="president-card">
-                <img src="cengaverekipp/yalınşen.png" alt="Başkan">
-                <h3>YALIN ŞEN</h3>
-                <p>TAKIM KAPTANI</p>
+                <img id="kaptan-foto" src="" alt="Takım Kaptanı">
+                <h3 id="kaptan-ad"></h3>
+                <p id="kaptan-unvan"></p>
             </div>
         </div>
 
         <section class="team-section">
             <h2>Elektronik Ekibi</h2>
-            <div class="member-grid">
-                <div class="member-card"><img src="cengaverekipp/elektronik/ilkeuslu.jpeg"><h4>İlke Uslu</h4><p>Ekip Lideri</p></div>
-                <div class="member-card"><img src="cengaverekipp/elektronik/yagizsomuncu.jpg"><h4>Yağız Somuncu</h4><p>Ekip Üyesi</p></div>
-                <div class="member-card"><img src="cengaverekipp/elektronik/akiftalhaözdemir.jpeg"><h4>Akif Talha Özdemir</h4><p>Ekip Üyesi</p></div>
-                <div class="member-card"><img src="cengaverekipp/elektronik/Burakdarıcı.jpeg"><h4>Burak Darıcı</h4><p>Ekip Üyesi</p></div>
-                <div class="member-card"><img src="cengaverekipp/elektronik/elifsuçörtük.jpeg"><h4>Elifsu Çörtük</h4><p>Ekip Üyesi</p></div>
-                <div class="member-card"><img src="cengaverekipp/elektronik/emirdündar.jpeg"><h4>Emir Dündar</h4><p>Ekip Üyesi</p></div>
-                <div class="member-card"><img src="cengaverekipp/elektronik/mertkurt.jpeg"><h4>Mert Kurt</h4><p>Ekip Üyesi</p></div>
-                <div class="member-card"><img src="cengaverekipp/elektronik/yusufselimurhan.jpeg"><h4>Yusuf Selim Urhan</h4><p>Ekip Üyesi</p></div>
-                <!-- Diğer üyeler... -->
-            </div>
+            <div class="member-grid" id="grid-elektronik"></div>
         </section>
         <section class="team-section">
             <h2>Mekanik Ekibi</h2>
-            <div class="member-grid">
-                <div class="member-card"><img src="cengaverekipp/mekanik/efedenizözdemir.jpeg"><h4>Efe Deniz Özdemir</h4><p>Ekip Lideri</p></div>
-                <div class="member-card"><img src="cengaverekipp/mekanik/ahmet yiğit bingöl.jpeg"><h4>Ahmet Yiğit Bingöl</h4><p>Ekip Üyesi</p></div>
-                <!-- Diğer üyeler... -->
-            </div>
+            <div class="member-grid" id="grid-mekanik"></div>
         </section>
         <section class="team-section">
             <h2>Yazılım Ekibi</h2>
-            <div class="member-grid">
-                <div class="member-card"><img src="cengaverekipp/yazılım/dena.jpeg"><h4>Dena Vafadar Afshar</h4><p>Ekip Lideri</p></div>
-                <div class="member-card"><img src="cengaverekipp/yazılım/iremgünaydın.jpeg"><h4>İrem Günaydın</h4><p>Ekip Üyesi</p></div>
-                <div class="member-card"><img src="cengaverekipp/yazılım/nesligözdeönay.jpeg"><h4>Nesli Gözde Önay</h4><p>Ekip Üyesi</p></div>
-                <div class="member-card"><img src="cengaverekipp/yazılım/asyatürkyaman.jpeg"><h4>Asya Türkyaman</h4><p>Ekip Üyesi</p></div>
-                <!-- Diğer üyeler... -->
-            </div>
+            <div class="member-grid" id="grid-yazilim"></div>
         </section>
         <section class="team-section">
             <h2>Sponsorluk Ekibi</h2>
-            <div class="member-grid">
-                
-    
-                <div class="member-card"><img src="cengaverekipp/sponsorluk/sevdaşimşek.jpeg"><h4>Sevda Şimşek </h4><p>Ekip Üyesi</p></div>
-                <!-- Diğer üyeler... -->
-            </div>
+            <div class="member-grid" id="grid-sponsorluk"></div>
         </section>
         <section class="team-section">
             <h2>Sosyal medya Ekibi</h2>
-            <div class="member-grid">
-                
-                <div class="member-card"><img src="cengaverekipp/sosyal medya/selin ovalıoglu.jpeg"><h4></h4><p>Selin Ovalıoğlu</p></div>
-                <!-- Diğer üyeler... -->
-            </div>
+            <div class="member-grid" id="grid-sosyalmedya"></div>
         </section>
         <section class="team-section">
             <h2>Bilim Ekibi</h2>
-            <div class="member-grid">
-                <div class="member-card"><img src="cengaverekipp/bilim/mertbay.jpeg"><h4>Mert Bay</h4><p>Ekip Lideri</p></div>
-                <div class="member-card"><img src="cengaverekipp/bilim/bilim2.jpeg"><h4>Duru Ece Göz</h4><p>Ekip Üyesi</p></div>
-                <!-- Diğer üyeler... -->
-            </div>
+            <div class="member-grid" id="grid-bilim"></div>
         </section>
         
         <div class="basbaslik">ROVER GALERİSİ</div>
@@ -334,7 +302,6 @@ ul.navbar li ul.dropdown li a {
         </div>
     </main>
 
-    <!-- EKSİK OLAN KISIM: Yıldız animasyonunun çalışması için bu iki eleman gerekli -->
     <div class="gece">
         <div class="yildiz"></div><div class="yildiz"></div><div class="yildiz"></div>
         <div class="yildiz"></div><div class="yildiz"></div><div class="yildiz"></div><div class="yildiz"></div>
@@ -394,6 +361,82 @@ ul.navbar li ul.dropdown li a {
     hamburger.addEventListener('click', () => {
       navbar.classList.toggle('open');
     });
+
+    // --- CMS VERİSİNİ SAYFAYA BASAN KOD (asıl eksik olan kısım buydu) ---
+    // CMS panelinden yapılan değişiklikler veri/takim.json dosyasına yazılıyor,
+    // ama sayfa o dosyayı hiç okumuyordu. Bu blok, sayfa açıldığında
+    // veri/takim.json'ı çekip kartları dinamik olarak oluşturuyor.
+    async function takimVerisiniYukle() {
+      try {
+        // Cache sorununa takılmamak için timestamp ekliyoruz
+        const res = await fetch('veri/takim.json?v=' + Date.now());
+        if (!res.ok) throw new Error('takim.json bulunamadı veya okunamadı: ' + res.status);
+        const data = await res.json();
+
+        // Akademik Danışman
+        if (data.danisman) {
+          setText('danisman-ad', data.danisman.ad);
+          setText('danisman-unvan', data.danisman.unvan);
+          setText('danisman-bolum', data.danisman.bolum);
+          setImg('danisman-foto', data.danisman.foto);
+        }
+
+        // Takım Kaptanı
+        if (data.kaptan) {
+          setText('kaptan-ad', data.kaptan.ad);
+          setText('kaptan-unvan', data.kaptan.unvan);
+          setImg('kaptan-foto', data.kaptan.foto);
+        }
+
+        // Ekipler — CMS config.yml'deki alan adlarıyla birebir eşleşiyor
+        ekibiCiz(data.elektronik_ekibi, 'grid-elektronik');
+        ekibiCiz(data.mekanik_ekibi, 'grid-mekanik');
+        ekibiCiz(data.yazilim_ekibi, 'grid-yazilim');
+        ekibiCiz(data.sponsorluk_ekibi, 'grid-sponsorluk');
+        ekibiCiz(data.sosyalmedya_ekibi, 'grid-sosyalmedya');
+        ekibiCiz(data.bilim_ekibi, 'grid-bilim');
+
+      } catch (err) {
+        console.error('Takım verisi yüklenirken hata oluştu:', err);
+      }
+    }
+
+    function setText(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value || '';
+    }
+
+    function setImg(id, src) {
+      const el = document.getElementById(id);
+      if (el && src) el.src = src;
+    }
+
+    function ekibiCiz(uyeler, gridId) {
+      const grid = document.getElementById(gridId);
+      if (!grid || !Array.isArray(uyeler)) return;
+      grid.innerHTML = '';
+      uyeler.forEach(uye => {
+        const kart = document.createElement('div');
+        kart.className = 'member-card';
+
+        const img = document.createElement('img');
+        img.src = uye.foto || '';
+        img.alt = uye.ad || '';
+
+        const h4 = document.createElement('h4');
+        h4.textContent = uye.ad || '';
+
+        const p = document.createElement('p');
+        p.textContent = uye.rol || '';
+
+        kart.appendChild(img);
+        kart.appendChild(h4);
+        kart.appendChild(p);
+        grid.appendChild(kart);
+      });
+    }
+
+    takimVerisiniYukle();
     </script>
 </body>
 </html>
