@@ -14,7 +14,7 @@
     {
       "ad": "İlke Uslu",
       "rol": "Ekip Lideri",
-      "foto": ""
+      "foto": "/resimler/36b9da41-d389-4ba1-b990-88194e099431.jpeg"
     },
     {
       "ad": "Yağız Somuncu",
@@ -184,6 +184,11 @@
       "ad": "Ege Çetinkaptan",
       "rol": "Ekip Üyesi",
       "foto": ""
+    },
+    {
+      "ad": "Asya Türkyaman",
+      "rol": "Ekip Üyesi",
+      "foto": "/resimler/6fffd529-35e7-418d-92ec-ba43f9a32821.jpeg"
     }
   ],
   "sponsorluk_ekibi": [
@@ -207,7 +212,7 @@
     {
       "ad": "Selin Ovalıoğlu",
       "rol": "Ekip Üyesi",
-      "foto": ""
+      "foto": "/resimler/3b2901d5-b4e6-4485-992e-35001f3af333.jpeg"
     },
     {
       "ad": "Derin Kerman",
@@ -224,12 +229,12 @@
     {
       "ad": "Mert Bay",
       "rol": "Ekip Lideri",
-      "foto": "resimler/e1.webp"
+      "foto": "/resimler/a09f8266-06ce-4b71-8a37-86403726fed7.jpeg"
     },
     {
       "ad": "Duru Ece Göz",
       "rol": "Ekip Üyesi",
-      "foto": ""
+      "foto": "/resimler/a4b89cb0-d2d3-4c14-a695-f43ea38c61fb.jpeg"
     },
     {
       "ad": "Berra Dilsizler",
