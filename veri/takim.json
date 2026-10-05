@@ -109,7 +109,7 @@
     {
       "ad": "Hande Selen Ünsal",
       "rol": "Ekip Üyesi",
-      "foto": ""
+      "foto": "/resimler/b617f6e1-1751-475f-8289-72b1a567229e.jpeg"
     },
     {
       "ad": "Bekir Yasin Şenoğlu",
@@ -215,7 +215,7 @@
     {
       "ad": "Arda Mehmet Ateş",
       "rol": "Ekip Üyesi",
-      "foto": ""
+      "foto": "/resimler/3cbf75c1-8925-4d2a-aff1-5053977e66aa.jpeg"
     },
     {
       "ad": "Meral Hayrünisa Yüksel",
@@ -247,37 +247,12 @@
   ],
   "bilim_ekibi": [
     {
-      "ad": "Berra Dilsizler",
-      "rol": "Ekip Üyesi",
-      "foto": ""
-    },
-    {
       "ad": "Simay Gürtoprak",
       "rol": "Ekip Üyesi",
       "foto": ""
     },
     {
       "ad": "Elif Karaman",
-      "rol": "Ekip Üyesi",
-      "foto": ""
-    },
-    {
-      "ad": "Ceylin İrgit",
-      "rol": "Ekip Üyesi",
-      "foto": ""
-    },
-    {
-      "ad": "Efe Uysal",
-      "rol": "Ekip Üyesi",
-      "foto": ""
-    },
-    {
-      "ad": "Adar Yelgin",
-      "rol": "Ekip Üyesi",
-      "foto": ""
-    },
-    {
-      "ad": "Tuğba Akgül",
       "rol": "Ekip Üyesi",
       "foto": ""
     }
