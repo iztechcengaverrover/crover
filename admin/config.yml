@@ -34,9 +34,12 @@ collections:
         file: "veri/takim.json"
         fields:
 
-          - label: "Akademik Danışman"
-            name: "danisman"
-            widget: object
+          # Birden fazla danışman eklenebilir (eski tekli "danisman" alanının yerine)
+          - label: "Akademik Danışmanlar"
+            name: "danismanlar"
+            widget: list
+            label_singular: "Danışman"
+            summary: "{{fields.ad}} — {{fields.bolum}}"
             fields:
               - { label: "Ad Soyad", name: "ad", widget: string }
               - { label: "Ünvan", name: "unvan", widget: string, default: "AKADEMİK DANIŞMAN" }
@@ -49,6 +52,17 @@ collections:
             fields:
               - { label: "Ad Soyad", name: "ad", widget: string }
               - { label: "Ünvan", name: "unvan", widget: string, default: "TAKIM KAPTANI" }
+              - { label: "Fotoğraf", name: "foto", widget: image, required: false }
+
+          # Kaptanın altında yan yana gösterilen ekip liderleri
+          - label: "Ekip Liderleri"
+            name: "ekip_liderleri"
+            widget: list
+            label_singular: "Lider"
+            summary: "{{fields.ad}} — {{fields.rol}}"
+            fields:
+              - { label: "Ad Soyad", name: "ad", widget: string }
+              - { label: "Rolü (ör. Mekanik Ekip Lideri)", name: "rol", widget: string }
               - { label: "Fotoğraf", name: "foto", widget: image, required: false }
 
           - label: "Elektronik Ekibi"

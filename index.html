@@ -260,6 +260,7 @@ ul.navbar li ul.dropdown li a {
       border: 1px solid rgba(223, 90, 0, 0.2); 
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
  
     .ekip-logo-card:hover {
@@ -268,9 +269,10 @@ ul.navbar li ul.dropdown li a {
       background: rgba(255, 255, 255, 0.06); 
     }
  
+    /* Logolar çemberi tamamen dolduruyor (padding kaldırıldı, cover yapıldı) */
     .ekip-logo-card img {
-      width: 130px; height: 130px; object-fit: contain; margin-bottom: 20px; border-radius: 50%;
-      background-color: #111; padding: 15px; box-shadow: 0 0 10px rgba(223, 90, 0, 0.2); 
+      width: 130px; height: 130px; object-fit: cover; margin-bottom: 20px; border-radius: 50%;
+      background-color: #111; padding: 0; box-shadow: 0 0 10px rgba(223, 90, 0, 0.2); 
     }
  
     .ekip-logo-card h3 { font-size: 1.2rem; color: #fff; margin: 0; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; }
@@ -440,17 +442,17 @@ ul.navbar li ul.dropdown li a {
       .timeline-container::after { left: 20px; } 
       .timeline-item { width: 100%; padding-left: 50px; padding-right: 10px; left: 0 !important; }
       
-      /* Mobilde Rozetin Konumu */
+      /* Mobilde Rozetin Konumu (büyütüldü: 110px -> 150px) */
       .uye-basvuru-badge {
         top: auto;
         bottom: 20px;
         right: 15px;
         transform: none;
-        width: 110px;
-        height: 110px;
+        width: 150px;
+        height: 150px;
       }
-      .uye-basvuru-badge .oval-ic { font-size: 9px; }
-      .uye-basvuru-badge .oval-ic span { font-size: 8px; }
+      .uye-basvuru-badge .oval-ic { font-size: 11px; }
+      .uye-basvuru-badge .oval-ic span { font-size: 9px; }
       
       body { overflow-x: hidden; }
        .footer-alt {
@@ -551,13 +553,14 @@ ul.navbar li ul.dropdown li a {
     </section>
  
     <div class="ekipler">EKİPLER</div>
+    <!-- Kartlara tıklayınca takımımız sayfasındaki ilgili ekibe gidiyor -->
     <div class="ekipler-container">
-      <div class="ekip-logo-card"><img src="resimler/1-removebg-preview.png" alt="Yazılım Ekibi Logosu"><h3>YAZILIM</h3></div>
-      <div class="ekip-logo-card"><img src="resimler/3-removebg-preview.png" alt="Elektronik Ekibi Logosu"><h3>ELEKTRONİK</h3></div>
-      <div class="ekip-logo-card"><img src="resimler/4-removebg-preview.png" alt="Mekanik Ekibi Logosu"><h3>MEKANİK</h3></div>
-      <div class="ekip-logo-card"><img src="resimler/2-removebg-preview.png" alt="Bilim Ekibi Logosu"><h3>BİLİM</h3></div>
-      <div class="ekip-logo-card"><img src="resimler/8-removebg-preview.png" alt="Sponsorluk Ekibi Logosu"><h3>SPONSORLUK</h3></div>
-<div class="ekip-logo-card"><img src="resimler/8-removebg-preview.png" alt="Sosyal Medya Ekibi Logosu"><h3>SOSYAL MEDYA</h3></div>
+      <a href="takımımız.html#yazilim" class="ekip-logo-card"><img src="resimler/1-removebg-preview.png" alt="Yazılım Ekibi Logosu"><h3>YAZILIM</h3></a>
+      <a href="takımımız.html#elektronik" class="ekip-logo-card"><img src="resimler/3-removebg-preview.png" alt="Elektronik Ekibi Logosu"><h3>ELEKTRONİK</h3></a>
+      <a href="takımımız.html#mekanik" class="ekip-logo-card"><img src="resimler/4-removebg-preview.png" alt="Mekanik Ekibi Logosu"><h3>MEKANİK</h3></a>
+      <a href="takımımız.html#bilim" class="ekip-logo-card"><img src="resimler/2-removebg-preview.png" alt="Bilim Ekibi Logosu"><h3>BİLİM</h3></a>
+      <a href="takımımız.html#sponsorluk" class="ekip-logo-card"><img src="resimler/8-removebg-preview.png" alt="Sponsorluk Ekibi Logosu"><h3>SPONSORLUK</h3></a>
+      <a href="takımımız.html#sosyalmedya" class="ekip-logo-card"><img src="resimler/8-removebg-preview.png" alt="Sosyal Medya Ekibi Logosu"><h3>SOSYAL MEDYA</h3></a>
     </div>
     
     <section class="atolye-gorseli-kapsayici">

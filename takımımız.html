@@ -132,6 +132,9 @@ ul.navbar li ul.dropdown li a {
         }
         .liderler-section .member-card { width: 200px; }
 
+        /* Ana sayfadan gelen linkler başlığı sticky menünün altında bırakmasın */
+        .team-section { scroll-margin-top: 90px; }
+
         /* --- GALERİ --- */
         .basbaslik { text-align: center; padding: 80px 0 40px 0; color: var(--poster-orange); font-size: 40px; font-weight: 400; font-family: 'Rubik Dirt', cursive; z-index: 10; position: relative;}
         .galeri-konteyner { width: 90%; max-width: 1200px; margin: 0 auto 100px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; z-index: 10; position: relative;}
@@ -277,27 +280,27 @@ ul.navbar li ul.dropdown li a {
         <!-- EKİP LİDERLERİ: veri/takim.json'daki ekip_liderleri alanından dolduruluyor -->
         <div class="liderler-section" id="grid-liderler"></div>
 
-        <section class="team-section">
+        <section class="team-section" id="elektronik">
             <h2>Elektronik Ekibi</h2>
             <div class="member-grid" id="grid-elektronik"></div>
         </section>
-        <section class="team-section">
+        <section class="team-section" id="mekanik">
             <h2>Mekanik Ekibi</h2>
             <div class="member-grid" id="grid-mekanik"></div>
         </section>
-        <section class="team-section">
+        <section class="team-section" id="yazilim">
             <h2>Yazılım Ekibi</h2>
             <div class="member-grid" id="grid-yazilim"></div>
         </section>
-        <section class="team-section">
+        <section class="team-section" id="sponsorluk">
             <h2>Sponsorluk Ekibi</h2>
             <div class="member-grid" id="grid-sponsorluk"></div>
         </section>
-        <section class="team-section">
+        <section class="team-section" id="sosyalmedya">
             <h2>Sosyal medya Ekibi</h2>
             <div class="member-grid" id="grid-sosyalmedya"></div>
         </section>
-        <section class="team-section">
+        <section class="team-section" id="bilim">
             <h2>Bilim Ekibi</h2>
             <div class="member-grid" id="grid-bilim"></div>
         </section>
@@ -385,9 +388,17 @@ ul.navbar li ul.dropdown li a {
         const data = await res.json();
 
         // Akademik Danışmanlar (eski tekli "danisman" alanı da desteklenir)
-        const danismanlar = Array.isArray(data.danismanlar)
-          ? data.danismanlar
-          : (data.danisman ? [data.danisman] : []);
+        // CMS hangi alana yazarsa yazsın ("danismanlar" ya da "danisman",
+        // tekli ya da liste) hepsini topla, aynı isimden ikinciyi gösterme
+        const ham = []
+          .concat(data.danismanlar || [])
+          .concat(data.danisman || []);
+        const gorulen = new Set();
+        const danismanlar = ham.filter(d => {
+          if (!d || !d.ad || gorulen.has(d.ad)) return false;
+          gorulen.add(d.ad);
+          return true;
+        });
         danismanlariCiz(danismanlar);
 
         // Takım Kaptanı
@@ -410,6 +421,13 @@ ul.navbar li ul.dropdown li a {
 
       } catch (err) {
         console.error('Takım verisi yüklenirken hata oluştu:', err);
+      }
+
+      // Ana sayfadaki ekip logosundan gelindiyse (ör. #mekanik), kartlar
+      // yüklendikten sonra ilgili ekibe kaydır
+      if (location.hash) {
+        const hedef = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (hedef) hedef.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
 
