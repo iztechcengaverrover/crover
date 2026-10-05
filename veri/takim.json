@@ -43,6 +43,11 @@
       "ad": "Duru Ece Göz",
       "rol": "Bilim Ekip Lideri",
       "foto": "/resimler/a4b89cb0-d2d3-4c14-a695-f43ea38c61fb.jpeg"
+    },
+    {
+      "ad": "Ahmet Yiğit Bingöl",
+      "rol": "Mekanik Ekibi Yardımcı Lider",
+      "foto": "/resimler/2f712c3c-4963-47b5-a1c5-6d650b22e09d.jpeg"
     }
   ],
   "elektronik_ekibi": [
@@ -124,11 +129,6 @@
   ],
   "mekanik_ekibi": [
     {
-      "ad": "Ahmet Yiğit Bingöl",
-      "rol": "Ekip Üyesi",
-      "foto": "/resimler/2f712c3c-4963-47b5-a1c5-6d650b22e09d.jpeg"
-    },
-    {
       "ad": "Doğa Tankuş",
       "rol": "Ekip Üyesi",
       "foto": "/resimler/1000096514.jpg"
@@ -208,11 +208,6 @@
   ],
   "sponsorluk_ekibi": [
     {
-      "ad": "Tuğba Akgül",
-      "rol": "Ekip Üyesi",
-      "foto": ""
-    },
-    {
       "ad": "Arda Mehmet Ateş",
       "rol": "Ekip Üyesi",
       "foto": "/resimler/3cbf75c1-8925-4d2a-aff1-5053977e66aa.jpeg"
@@ -221,6 +216,11 @@
       "ad": "Meral Hayrünisa Yüksel",
       "rol": "Ekip Üyesi",
       "foto": "/resimler/06fb8d50-a05a-432f-a34b-e051785f8c84.jpeg"
+    },
+    {
+      "ad": "Ece Akdin",
+      "rol": "Ekip Üyesi",
+      "foto": "/resimler/cd196ab4-cf79-4bf6-8fb4-ec10bf17e361.jpeg"
     }
   ],
   "sosyalmedya_ekibi": [
