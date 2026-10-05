@@ -1,50 +1,15 @@
 {
-  "danismanlar": [
-    {
-      "ad": "Prof. Dr. Gökhan Kiper",
-      "unvan": "AKADEMİK DANIŞMAN",
-      "bolum": "İYTE Makine Mühendisliği Bölümü",
-      "foto": "/resimler/45_1698532253.jpg"
-    },
-    {
-      "ad": "YENİ DANIŞMANIN ADI",
-      "unvan": "AKADEMİK DANIŞMAN",
-      "bolum": "İYTE ... Bölümü",
-      "foto": ""
-    }
-  ],
+  "danisman": {
+    "ad": "Dr. Öğr. Üye. Hamed Jabbari Asl",
+    "unvan": "AKADEMİK DANIŞMAN",
+    "bolum": "İYTE  Elektrik Elektronik Mühendisliği Bölümü",
+    "foto": "/resimler/Hamed_Jabbari_Asl.jpg"
+  },
   "kaptan": {
     "ad": "Yalın Şen",
     "unvan": "TAKIM KAPTANI",
     "foto": "cengaverekipp/yalınşen.png"
   },
-  "ekip_liderleri": [
-    {
-      "ad": "İlke Uslu",
-      "rol": "Elektronik Ekip Lideri",
-      "foto": "/resimler/36b9da41-d389-4ba1-b990-88194e099431.jpeg"
-    },
-    {
-      "ad": "Efe Deniz Özdemir",
-      "rol": "Mekanik Ekip Lideri",
-      "foto": "cengaverekipp/mekanik/efedenizözdemir.jpeg"
-    },
-    {
-      "ad": "Dena Vafadar Afshar",
-      "rol": "Yazılım Ekip Lideri",
-      "foto": "/resimler/IMG_3599.jpeg"
-    },
-    {
-      "ad": "Asya Türkyaman",
-      "rol": "Sosyal Medya Ekip Lideri",
-      "foto": "/resimler/WhatsApp Image 2026-07-14 at 18.23.17.jpeg"
-    },
-    {
-      "ad": "Duru Ece Göz",
-      "rol": "Bilim Ekip Lideri",
-      "foto": "/resimler/a4b89cb0-d2d3-4c14-a695-f43ea38c61fb.jpeg"
-    }
-  ],
   "elektronik_ekibi": [
     {
       "ad": "Yağız Somuncu",
@@ -280,6 +245,47 @@
       "ad": "Tuğba Akgül",
       "rol": "Ekip Üyesi",
       "foto": ""
+    }
+  ],
+  "danismanlar": [
+    {
+      "ad": "Prof. Dr. Gökhan Kiper",
+      "bolum": "İYTE Makine Mühendisliği Bölümü",
+      "foto": "/resimler/45_1698532253.jpg",
+      "unvan": "AKADEMİK DANIŞMAN"
+    },
+    {
+      "ad": "YENİ DANIŞMANIN ADI",
+      "bolum": "İYTE ... Bölümü",
+      "foto": "",
+      "unvan": "AKADEMİK DANIŞMAN"
+    }
+  ],
+  "ekip_liderleri": [
+    {
+      "ad": "İlke Uslu",
+      "foto": "/resimler/36b9da41-d389-4ba1-b990-88194e099431.jpeg",
+      "rol": "Elektronik Ekip Lideri"
+    },
+    {
+      "ad": "Efe Deniz Özdemir",
+      "foto": "cengaverekipp/mekanik/efedenizözdemir.jpeg",
+      "rol": "Mekanik Ekip Lideri"
+    },
+    {
+      "ad": "Dena Vafadar Afshar",
+      "foto": "/resimler/IMG_3599.jpeg",
+      "rol": "Yazılım Ekip Lideri"
+    },
+    {
+      "ad": "Asya Türkyaman",
+      "foto": "/resimler/WhatsApp Image 2026-07-14 at 18.23.17.jpeg",
+      "rol": "Sosyal Medya Ekip Lideri"
+    },
+    {
+      "ad": "Duru Ece Göz",
+      "foto": "/resimler/a4b89cb0-d2d3-4c14-a695-f43ea38c61fb.jpeg",
+      "rol": "Bilim Ekip Lideri"
     }
   ]
 }
