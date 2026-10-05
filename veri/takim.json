@@ -237,14 +237,14 @@
   ],
   "bilim_ekibi": [
     {
-      "ad": "Mert Bay",
-      "rol": "Ekip Üyesi",
-      "foto": "/resimler/a09f8266-06ce-4b71-8a37-86403726fed7.jpeg"
-    },
-    {
       "ad": "Duru Ece Göz",
       "rol": "Ekip Lideri",
       "foto": "/resimler/a4b89cb0-d2d3-4c14-a695-f43ea38c61fb.jpeg"
+    },
+    {
+      "ad": "Mert Bay",
+      "rol": "Ekip Üyesi",
+      "foto": "/resimler/a09f8266-06ce-4b71-8a37-86403726fed7.jpeg"
     },
     {
       "ad": "Berra Dilsizler",
