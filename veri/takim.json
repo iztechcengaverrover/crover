@@ -1,21 +1,51 @@
 {
-  "danisman": {
-    "ad": "Prof. Dr. Gökhan Kiper",
-    "unvan": "AKADEMİK DANIŞMAN",
-    "bolum": "İYTE Makine Mühendisliği Bölümü",
-    "foto": "/resimler/45_1698532253.jpg"
-  },
+  "danismanlar": [
+    {
+      "ad": "Prof. Dr. Gökhan Kiper",
+      "unvan": "AKADEMİK DANIŞMAN",
+      "bolum": "İYTE Makine Mühendisliği Bölümü",
+      "foto": "/resimler/45_1698532253.jpg"
+    },
+    {
+      "ad": "YENİ DANIŞMANIN ADI",
+      "unvan": "AKADEMİK DANIŞMAN",
+      "bolum": "İYTE ... Bölümü",
+      "foto": ""
+    }
+  ],
   "kaptan": {
     "ad": "Yalın Şen",
     "unvan": "TAKIM KAPTANI",
     "foto": "cengaverekipp/yalınşen.png"
   },
-  "elektronik_ekibi": [
+  "ekip_liderleri": [
     {
       "ad": "İlke Uslu",
-      "rol": "Ekip Lideri",
+      "rol": "Elektronik Ekip Lideri",
       "foto": "/resimler/36b9da41-d389-4ba1-b990-88194e099431.jpeg"
     },
+    {
+      "ad": "Efe Deniz Özdemir",
+      "rol": "Mekanik Ekip Lideri",
+      "foto": "cengaverekipp/mekanik/efedenizözdemir.jpeg"
+    },
+    {
+      "ad": "Dena Vafadar Afshar",
+      "rol": "Yazılım Ekip Lideri",
+      "foto": "/resimler/IMG_3599.jpeg"
+    },
+    {
+      "ad": "Asya Türkyaman",
+      "rol": "Sosyal Medya Ekip Lideri",
+      "foto": "/resimler/WhatsApp Image 2026-07-14 at 18.23.17.jpeg"
+    },
+    {
+      "ad": "Duru Ece Göz",
+      "rol": "Bilim Ekip Lideri",
+      "foto": "/resimler/a4b89cb0-d2d3-4c14-a695-f43ea38c61fb.jpeg"
+    }
+  ],
+  "elektronik_ekibi": [
     {
       "ad": "Yağız Somuncu",
       "rol": "Ekip Üyesi",
@@ -94,11 +124,6 @@
   ],
   "mekanik_ekibi": [
     {
-      "ad": "Efe Deniz Özdemir",
-      "rol": "Ekip Lideri",
-      "foto": "cengaverekipp/mekanik/efedenizözdemir.jpeg"
-    },
-    {
       "ad": "Ahmet Yiğit Bingöl",
       "rol": "Ekip Üyesi",
       "foto": "/resimler/2f712c3c-4963-47b5-a1c5-6d650b22e09d.jpeg"
@@ -145,11 +170,6 @@
     }
   ],
   "yazilim_ekibi": [
-    {
-      "ad": "Dena Vafadar Afshar",
-      "rol": "Ekip Lideri",
-      "foto": "/resimler/IMG_3599.jpeg"
-    },
     {
       "ad": "Nesli Gözde Önay",
       "rol": "Ekip Üyesi",
@@ -205,11 +225,6 @@
   ],
   "sosyalmedya_ekibi": [
     {
-      "ad": "Asya Türkyaman",
-      "rol": "Ekip Lideri",
-      "foto": "/resimler/WhatsApp Image 2026-07-14 at 18.23.17.jpeg"
-    },
-    {
       "ad": "Selin Ovalıoğlu",
       "rol": "Ekip Üyesi",
       "foto": "/resimler/3b2901d5-b4e6-4485-992e-35001f3af333.jpeg"
@@ -231,11 +246,6 @@
     }
   ],
   "bilim_ekibi": [
-    {
-      "ad": "Duru Ece Göz",
-      "rol": "Ekip Lideri",
-      "foto": "/resimler/a4b89cb0-d2d3-4c14-a695-f43ea38c61fb.jpeg"
-    },
     {
       "ad": "Berra Dilsizler",
       "rol": "Ekip Üyesi",

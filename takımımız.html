@@ -109,12 +109,28 @@ ul.navbar li ul.dropdown li a {
         .danisman-card .unvan { font-size: 1em; color: var(--poster-orange); font-weight: 600; margin-bottom: 8px; }
         .danisman-card .bolum { font-size: 0.9em; color: #aaa; line-height: 1.5; }
 
+        /* Birden fazla danışman için yan yana dizilim */
+        .danisman-section { gap: 30px; flex-wrap: wrap; }
+        .danisman-card { max-width: 100%; }
+
         .member-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px; text-align: center; }
         .member-card { background-color: rgba(255, 255, 255, 0.03); border-radius: 12px; padding: 20px; transition: 0.3s; border: 1px solid rgba(223, 90, 0, 0.2); }
         .member-card:hover { transform: translateY(-5px); border-color: var(--poster-orange); }
         .member-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid var(--poster-orange); margin-bottom: 10px; }
         .member-card h4 { color: white; margin-bottom: 5px; }
         .member-card p { color: #888; font-size: 0.9em; }
+
+        /* --- EKİP LİDERLERİ (yatay sıra) --- */
+        .liderler-section {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: -40px;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+        .liderler-section .member-card { width: 200px; }
 
         /* --- GALERİ --- */
         .basbaslik { text-align: center; padding: 80px 0 40px 0; color: var(--poster-orange); font-size: 40px; font-weight: 400; font-family: 'Rubik Dirt', cursive; z-index: 10; position: relative;}
@@ -246,17 +262,10 @@ ul.navbar li ul.dropdown li a {
     <main class="team-page-container">
         <h1>TAKIMIMIZ</h1>
 
-        <!-- AKADEMİK DANIŞMAN: içerik artık JS ile veri/takim.json'dan dolduruluyor -->
-        <div class="danisman-section">
-            <div class="danisman-card">
-                <img id="danisman-foto" src="" alt="Akademik Danışman">
-                <h3 id="danisman-ad"></h3>
-                <p class="unvan" id="danisman-unvan"></p>
-                <p class="bolum" id="danisman-bolum"></p>
-            </div>
-        </div>
+        <!-- AKADEMİK DANIŞMANLAR: veri/takim.json'daki danismanlar listesinden dolduruluyor -->
+        <div class="danisman-section" id="danisman-listesi"></div>
 
-        <!-- TAKIM KAPTANI: içerik artık JS ile veri/takim.json'dan dolduruluyor -->
+        <!-- TAKIM KAPTANI: içerik JS ile veri/takim.json'dan dolduruluyor -->
         <div class="president-section">
             <div class="president-card">
                 <img id="kaptan-foto" src="" alt="Takım Kaptanı">
@@ -264,6 +273,9 @@ ul.navbar li ul.dropdown li a {
                 <p id="kaptan-unvan"></p>
             </div>
         </div>
+
+        <!-- EKİP LİDERLERİ: veri/takim.json'daki ekip_liderleri alanından dolduruluyor -->
+        <div class="liderler-section" id="grid-liderler"></div>
 
         <section class="team-section">
             <h2>Elektronik Ekibi</h2>
@@ -362,10 +374,9 @@ ul.navbar li ul.dropdown li a {
       navbar.classList.toggle('open');
     });
 
-    // --- CMS VERİSİNİ SAYFAYA BASAN KOD (asıl eksik olan kısım buydu) ---
-    // CMS panelinden yapılan değişiklikler veri/takim.json dosyasına yazılıyor,
-    // ama sayfa o dosyayı hiç okumuyordu. Bu blok, sayfa açıldığında
-    // veri/takim.json'ı çekip kartları dinamik olarak oluşturuyor.
+    // --- CMS VERİSİNİ SAYFAYA BASAN KOD ---
+    // CMS panelinden yapılan değişiklikler veri/takim.json dosyasına yazılıyor.
+    // Bu blok, sayfa açıldığında veri/takim.json'ı çekip kartları dinamik olarak oluşturuyor.
     async function takimVerisiniYukle() {
       try {
         // Cache sorununa takılmamak için timestamp ekliyoruz
@@ -373,13 +384,11 @@ ul.navbar li ul.dropdown li a {
         if (!res.ok) throw new Error('takim.json bulunamadı veya okunamadı: ' + res.status);
         const data = await res.json();
 
-        // Akademik Danışman
-        if (data.danisman) {
-          setText('danisman-ad', data.danisman.ad);
-          setText('danisman-unvan', data.danisman.unvan);
-          setText('danisman-bolum', data.danisman.bolum);
-          setImg('danisman-foto', data.danisman.foto);
-        }
+        // Akademik Danışmanlar (eski tekli "danisman" alanı da desteklenir)
+        const danismanlar = Array.isArray(data.danismanlar)
+          ? data.danismanlar
+          : (data.danisman ? [data.danisman] : []);
+        danismanlariCiz(danismanlar);
 
         // Takım Kaptanı
         if (data.kaptan) {
@@ -387,6 +396,9 @@ ul.navbar li ul.dropdown li a {
           setText('kaptan-unvan', data.kaptan.unvan);
           setImg('kaptan-foto', data.kaptan.foto);
         }
+
+        // Ekip Liderleri (kaptanın altında yatay sıra)
+        ekibiCiz(data.ekip_liderleri, 'grid-liderler');
 
         // Ekipler — CMS config.yml'deki alan adlarıyla birebir eşleşiyor
         ekibiCiz(data.elektronik_ekibi, 'grid-elektronik');
@@ -399,6 +411,22 @@ ul.navbar li ul.dropdown li a {
       } catch (err) {
         console.error('Takım verisi yüklenirken hata oluştu:', err);
       }
+    }
+
+    function danismanlariCiz(liste) {
+      const kutu = document.getElementById('danisman-listesi');
+      if (!kutu) return;
+      kutu.innerHTML = '';
+      liste.forEach(d => {
+        const kart = document.createElement('div');
+        kart.className = 'danisman-card';
+        kart.innerHTML = '<img alt="Akademik Danışman"><h3></h3><p class="unvan"></p><p class="bolum"></p>';
+        if (d.foto) kart.querySelector('img').src = d.foto;
+        kart.querySelector('h3').textContent = d.ad || '';
+        kart.querySelector('.unvan').textContent = d.unvan || '';
+        kart.querySelector('.bolum').textContent = d.bolum || '';
+        kutu.appendChild(kart);
+      });
     }
 
     function setText(id, value) {
